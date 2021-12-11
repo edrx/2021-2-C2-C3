@@ -1,0 +1,616 @@
+% (find-LATEX "2021-2-C3-intro.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C3-intro.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C3-intro.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C3-intro.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C3-intro.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C3-intro.tex"))
+% (defun o () (interactive) (find-LATEX "2021-1-C3-intro.tex"))
+% (defun oo () (interactive) (find-LATEX "2020-2-C3-intro.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C3-intro"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C3-intro.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C3-intro")
+% (find-pdf-page   "~/LATEX/2021-2-C3-intro.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-intro.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-intro.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C3-intro.pdf")
+%   file:///home/edrx/LATEX/2021-2-C3-intro.pdf
+%               file:///tmp/2021-2-C3-intro.pdf
+%           file:///tmp/pen/2021-2-C3-intro.pdf
+% http://angg.twu.net/LATEX/2021-2-C3-intro.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C3-intro" "3" "c3m212intro" "c3i")
+%
+% Video (not yet):
+% (find-ssr-links "c3m212intro" "2021-2-C3-intro")
+% (code-video     "c3m212introvideo" "$S/http/angg.twu.net/eev-videos/2021-2-C3-intro.mp4")
+% (find-c3m212introvideo "0:00")
+%
+% Videos antigos:
+% (c3m202introa "video-1")
+% (c3m211introa "video-1")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.neste-semestre»	(to "neste-semestre")
+% «.introducao»		(to "introducao")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.exercicio-3»	(to "exercicio-3")
+% «.exercicio-4»	(to "exercicio-4")
+%
+% «.djvuize»	(to "djvuize")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+%\catcode`\^^J=10
+%\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx15.sty" "colors-2019")
+%\long\def\ColorRed   #1{{\color{Red1}#1}}
+%\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+%\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+%\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+%\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+%\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+%\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+%\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+%\long\def\ColorBrown #1{{\color{Brown}#1}}
+%\long\def\ColorBrown #1{{\color{brown}#1}}
+%\long\def\ColorOrange#1{{\color{orange}#1}}
+%
+%\long\def\ColorShort #1{{\color{SpringGreen4}#1}}
+%\long\def\ColorLong  #1{{\color{Red1}#1}}
+%
+%\def\frown{\ensuremath{{=}{(}}}
+%\def\True {\mathbf{V}}
+%\def\False{\mathbf{F}}
+%\def\D    {\displaystyle}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-1-C3.pdf}
+\def\drafturl{http://angg.twu.net/2021.1-C3.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m212introp 1 "title")
+% (c3m212introa   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2021.1}
+
+\bsk
+
+Aulas 4 e 5: introdução ao curso
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.1-C3.html}
+
+\end{center}
+
+\newpage
+
+% «neste-semestre»  (to ".neste-semestre")
+% (c3m212introp 2 "neste-semestre")
+% (c3m212introa   "neste-semestre")
+
+{\bf Neste semestre...}
+
+\scalebox{0.40}{\def\colwidth{13.5cm}\firstcol{
+
+    Desta vez um dos objetivos principais do curso vai ser a gente
+    aprender a visualizar muitas coisas em 3D ou de cabeça ou fazendo
+    umas pouquinhas contas e desenhos no papel. Pra isso a gente vai
+    treinar fazer ``desenhos tortos que todo mundo entenda'' -- porque
+    fazer desenhos à mão livre medindo tudo no olhômetro costuma ser
+    bem mais rápido do que fazer desenhos com régua -- e em TODOS os
+    exercícios que eu vou passar durante o curso as contas são simples
+    o suficiente pra poderem ser feitas meio de cabeça e meio no
+    papel.
+
+    \ssk
+
+    Em Cálculo 2 você muitas vezes teve que desenhar figuras feitas de
+    4, 8, ou 16 retângulos, e aí você levava 5 minutos pra entender
+    como desenhar o primeiro retângulo, depois só um minuto pra
+    desenhar o segundo, e aos poucos você entendia o padrão, e no
+    final você desenhava cada retângulo em menos de 5 segundos -- e aí
+    você conseguia {\sl visualizar} como seria a figura correspondente
+    com 256, 512 ou 1024 retângulos, e você passava a conseguir
+    visualizar certos somatórios a partir das fórmulas deles, sem
+    precisar desenhar as figuras correspondentes a eles.
+
+    Nos exercícios deste PDF você vai desenhar parábolas a partir de 5
+    pontos delas, e você vai tentar ``adivinhar'' o resto da parábola
+    a partir destes poucos pontos. O modo matematicamente correto de
+    fazer isto seria como o Bortolossi faz em alguns exercícios; dê
+    uma olhada nas páginas 113 e 114 dele. O exercício [24] da página
+    113 dá seis fórmulas e seis gráficos -- os gráficos estão na
+    página seguinte -- e ele pede pra você descobrir qual fórmula
+    corresponde a qual gráfico.
+
+  Neste curso eu vou passar um monte de exercícios com enunciados como
+  ``tente adivinhar o gráfico da equação tal''. Eu vou usar a
+  expressão ``\ColorRed{tente adivinhar}'' pra enfatizar que o que a
+  gente vai fazer não é totalmente formal: a partir de 5 pontos a
+  gente consegue fazer uma ``hipótese razoável'' de como é o formato
+  de uma parábola, a partir de 20 pontos dessa parábola a gente
+  conseguiria fazer uma hipótese melhor de como ela é, e calculando um
+  milhão de pontos dela a gente conseguiria fazer um desenho bem mais
+  preciso dela... só que a gente quer aprender a fazer desenhos bons o
+  suficiente a partir de contas que a gente possa fazer na mão!...
+
+  % (find-bortolossi3page (+ -78 113)   "[24] Faça a associação destas curvas")
+
+  \msk
+
+}\anothercol{
+
+  Leia isto aqui, do semestre passado:
+
+  \ssk
+
+  {\footnotesize
+
+    % (c3m211vtp 6 "sobre-adivinhar-trajetorias")
+    % (c3m211vta   "sobre-adivinhar-trajetorias")
+    % http://angg.twu.net/LATEX/2021-1-C3-vetor-tangente.pdf#page=6
+    \url{http://angg.twu.net/LATEX/2021-1-C3-vetor-tangente.pdf\#page=6}
+
+  }
+
+  \msk
+
+  Quem estiver interessado em aprender a usar o computador pra fazer
+  os desenhos do curso pode entrar num grupo de Telegram cujo link vai
+  estar na página do curso, mas que vai ser separado do grupo da
+  turma. Quando a gente produzir notebooks do GeoGebra ou do Jupyter
+  Notebooks que qualquer pessoa consiga rodar na sua máquina em poucos
+  minutos aí eu vou compartilhar eles no grupo da turma e na página do
+  curso, mas enquanto nós estivermos levando horas pra fazer cada
+  figura/notebook eu prefiro que a discussão sobre eles seja no grupo
+  dos programas.
+
+  \msk
+
+  Se você estiver interessado no grupo sobre programação talvez você
+  vá querer participar desta oficina aqui também... dê uma olhada:
+
+  {\footnotesize
+  
+  \url{http://angg.twu.net/2021-oficina.html}
+
+  }
+
+  Dê uma olhada nisto aqui também -- mas não sei se vai dar pra gente
+  ver isto na oficina...
+
+  {\footnotesize
+  
+  \url{http://angg.twu.net/LATEX/2021emacsconf.pdf}
+
+  \url{http://angg.twu.net/emacsconf2021.html}
+
+  }
+
+}}
+
+
+\newpage
+
+
+% «introducao»  (to ".introducao")
+% (c3m201introp 1 "title")
+% (c3m201introa   "title")
+% (c3m201introp 5 "vetores-como-setas")
+% (c3m201introa   "vetores-como-setas")
+
+{\bf Introdução ao curso}
+
+Cálculo 3 é principalmente sobre:
+
+\begin{enumerate}
+
+\item funções de $\R$ em $\R^2$ -- que o Bortolossi costuma chamar de
+  \ColorRed{curvas parametrizadas}, mas nós vamos chamar de
+  \ColorRed{trajetórias}, e
+
+\item funções de $\R^2$ em $\R$, que vão gerar \ColorRed{superfícies}.
+
+\end{enumerate}
+
+Depois que nós aprendermos o suficiente sobre (1) e (2) nós vamos
+poder lidar com coisas um pouco mais gerais, como funções $F:A→\R^n$,
+onde $A⊆\R^n$ é um \ColorRed{conjunto aberto}.
+
+\newpage
+
+{\bf Nossos primeiros objetivos vão ser:}
+
+\begin{enumerate}
+
+\item Aprender a representar graficamente algumas trajetórias, usando
+  a idéia de \ColorRed{traço} do Bortolossi (cap.6, p.188), mas
+  escrevendo algumas informações a mais, como ``$t=0$'' e ``$t=1$'' em
+  alguns pontos,
+
+\item Calcular e representar graficamente \ColorRed{vetores tangentes}
+  a trajetórias (``\ColorRed{vetores velocidade}''),
+
+\item Entender \ColorRed{vetores secantes} (cap.6, p.199),
+
+\item Entender \ColorRed{aproximações de primeira ordem} pra
+  trajetórias, que dão \ColorRed{retas parametrizadas}, e depois
+  \ColorRed{aproximações de segunda ordem}, que vão dar
+  \ColorRed{parábolas parametrizadas}.
+
+\end{enumerate}
+
+...mas hoje nós vamos fazer uma revisão de algumas idéias de GA.
+
+\newpage
+
+% «convencao-de-GA-e-de-AL»  (to ".convencao-de-GA-e-de-AL")
+% (c3m202introp 4 "convencao-de-GA-e-de-AL")
+% (c3m202intro    "convencao-de-GA-e-de-AL")
+% (c3m201introp 4 "convencao-de-GA-e-de-AL")
+% (c3m201intro    "convencao-de-GA-e-de-AL")
+
+Você já deve ter visto estas duas convenções diferentes para
+representar pontos e vetores... am \ColorRed{Álgebra Linear} tanto
+pontos quanto vetores em $\R^2$ são representados como matrizes-coluna
+de altura 2:
+%
+$$\pmat{2\\3} + \pmat{40\\50} = \pmat{42\\53}$$
+%
+e em \ColorRed{Geometria Analítica} pontos e vetores são escritos de
+forma diferente -- vetores têm uma seta em cima -- e representados
+graficamente de formas diferentes...
+%
+$$(2,3) + \VEC{40,50} = (42,53)$$
+%
+
+
+\newpage
+
+% «vetores-como-setas»  (to ".vetores-como-setas")
+% (c3m211introp 5 "vetores-como-setas")
+% (c3m211introa   "vetores-como-setas")
+
+{\bf Vetores como setas}
+
+Um \ColorRed{ponto} $(a,b)$ é interpretado graficamente como um ponto
+$(a,b)$ de $\R^2$, e um \ColorRed{vetor} $\VEC{c,d}$ é interpretado
+como um \ColorRed{deslocamento}, e desenhado como uma \ColorRed{seta}.
+
+Se o vetor $\VEC{c,d}$ aparece sozinho a representação gráfica dele é
+\ColorRed{qualquer} seta que anda $c$ unidades pra direita e $d$
+unidades pra cima. Às vezes a gente pensa que $\VEC{c,d}$ é o conjunto
+de {\sl todas} as setas assim -- o conjunto de todas as setas
+``equipolentes'' a esta; veja a p.9 do livro do CEDERJ.
+
+\newpage
+
+% «convencao-temporaria»  (to ".convencao-temporaria")
+% (c3m211introp 6 "convencao-temporaria")
+% (c3m211introa   "convencao-temporaria")
+
+{\bf Uma convenção (temporária)}
+
+O \ColorRed{resultado} da expressão $(a,b)+\VEC{c,d}$ é o ponto
+$(a+c,b+d)$,
+
+mas a representação gráfica dele vai ser:
+
+1) o ponto $(a,b)$,
+
+2) uma seta indo de $(a,b)$ para $(a+c,b+d)$,
+
+3) o ponto $(a+c,b+d)$,
+
+4) anotações dos lados dos pontos $(a,b)$ e $(a+c,b+d)$ dizendo os
+``nomes'' destes pontos e uma anotação do lado da seta $\VEC{c,d}$
+dizendo o seu ``nome'' --- como nos dois exemplos abaixo (oops! Falta
+fazer os desenhos!):
+
+\msk
+
+(pôr o desenho aqui)
+
+\msk
+
+Nesta aula vai ser obrigatório pôr todos os nomes, mas nas outras não.
+
+\newpage
+
+A representação gráfica de
+
+\def\und#1#2{\underbrace{#1}_{\textstyle#2}}
+\def\Red#1{\ColorRed{#1}}
+
+$$((1,1) + \VEC{2,0}) + \VEC{1,2} = (1,1) + (\VEC{2,0} + \VEC{1,2})$$
+
+Vai ser um triângulo feito de três pontos e três setas -- os que estão
+em vermelho aqui:
+
+$$\und{(\und{\Red{(1,1)} + \Red{\VEC{2,0}}}{\Red{(3,1)}}) + \Red{\VEC{1,2}}}{\Red{(4,3)}} =
+  \und{\Red{(1,1)} + (\und{\VEC{2,0} + \VEC{1,2}}{\Red{\VEC{3,2}}})}{\Red{(4,3)}}
+$$
+
+O objetivo do próximo exercício é você relembrar como representar
+graficamente certas expressões com pontos e vetores usando quase só o
+olhômetro, quase sem fazer contas.
+
+\fbox{Veja o vídeo!}
+
+\newpage
+
+{\bf Desenhando parábolas (quase) no olhômetro}
+
+Digamos que conhecemos $A$, $\vv$, e $\ww$. Então a trajetória
+%
+$$P(t) = A + t\vv + t^2\ww$$
+%
+é uma parábola -- e queremos aprender a desenhar os 5 pontos mais
+fáceis dela, que são $P(0)$, $P(1)$, $P(-1)$, $P(2)$, $P(-2)$, usando
+o máximo de olhômetro e o mínimo possível de contas...
+
+\msk
+
+
+\fbox{Veja o vídeo!}
+
+\newpage
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c3m211introp 9 "exercicio-1")
+% (c3m211introa   "exercicio-1")
+
+{\bf Exercício: desenhando parábolas (quase) no olhômetro}
+
+1) Sejam $A=(3,1)$, $\vv = \VEC{1,0}$, $\ww = \VEC{0,1}$.
+
+Represente graficamente \ColorRed{num gráfico só}:
+
+a) $A$
+
+b) $(A+\vv)+\ww$
+
+c) $(A+\ww)+\vv$
+
+d) $(A+2\vv)+4\ww$
+
+e) $(A+4\ww)+2\vv$
+
+f) $(A-\vv)+\ww$
+
+g) $(A+\ww)-\vv$
+
+h) $(A-2\vv)+4\ww$
+
+i) $(A+4\ww)-2\vv$
+
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c3m211introp 10 "exercicio-2")
+% (c3m211introa    "exercicio-2")
+
+{\bf Exercício: desenhando parábolas (quase) no olhômetro (2)}
+
+2) Sejam $A=(1,1)$, $\vv = \VEC{1,-1}$, $\ww = \VEC{1,1}$.
+
+Represente graficamente \ColorRed{num gráfico só}:
+
+a) $A$
+
+b) $(A+\vv)+\ww$
+
+c) $(A+\ww)+\vv$
+
+d) $(A+2\vv)+4\ww$
+
+e) $(A+4\ww)+2\vv$
+
+f) $(A-\vv)+\ww$
+
+g) $(A+\ww)-\vv$
+
+h) $(A-2\vv)+4\ww$
+
+i) $(A+4\ww)-2\vv$
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c3m211introp 11 "exercicio-3")
+% (c3m211introa    "exercicio-3")
+
+{\bf Exercício: desenhando parábolas (quase) no olhômetro (3)}
+
+3) Sejam $A=(1,1)$, $\vv = \VEC{1,-1}$, $\ww = \VEC{-1,1}$.
+
+Represente graficamente \ColorRed{num gráfico só}:
+
+a) $A$
+
+b) $(A+\vv)+\ww$
+
+c) $(A+\ww)+\vv$
+
+d) $(A+2\vv)+4\ww$
+
+e) $(A+4\ww)+2\vv$
+
+f) $(A-\vv)+\ww$
+
+g) $(A+\ww)-\vv$
+
+h) $(A-2\vv)+4\ww$
+
+i) $(A+4\ww)-2\vv$
+
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c3m211introp 12 "exercicio-4")
+% (c3m211introa    "exercicio-4")
+
+{\bf Exercício: desenhando parábolas (quase) no olhômetro (4)}
+
+4) Sejam $A=(2,6)$, $\vv = \VEC{1,1}$, $\ww = \VEC{2,-1}$.
+
+Represente graficamente \ColorRed{num gráfico só}:
+
+a) $A$
+
+b) $(A+\vv)+\ww$
+
+c) $(A+\ww)+\vv$
+
+d) $(A+2\vv)+4\ww$
+
+e) $(A+4\ww)+2\vv$
+
+f) $(A-\vv)+\ww$
+
+g) $(A+\ww)-\vv$
+
+h) $(A-2\vv)+4\ww$
+
+i) $(A+4\ww)-2\vv$
+
+\msk
+
+Obs: você vai precisar de um gráfico que contenha os pontos
+
+(0,0) e (12,8).
+
+
+
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.1-C3/")
+# (find-fline "~/LATEX/2021-1-C3/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.1-C3/
+       cp -fv        $1.pdf ~/LATEX/2021-1-C3/
+       cat <<%%%
+% (find-latexscan-links "C3" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C3-intro veryclean
+make -f 2019.mk STEM=2021-2-C3-intro pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3i"
+% ee-tla: "c3m212intro"
+% End:

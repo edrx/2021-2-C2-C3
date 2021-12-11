@@ -1,0 +1,71 @@
+% This file:
+%   http://angg.twu.net/LATEX/edrxheadfoot.tex.html
+%   http://angg.twu.net/LATEX/edrxheadfoot.tex
+%           (find-angg "LATEX/edrxheadfoot.tex")
+%             (find-es "tex" "edrxheadfoot.tex")
+% Author: Eduardo Ochs <eduardoochs@gmail.com>
+% Version: 2020sep14
+% Public domain.
+%
+% I "\input" this file from most of my LaTeX files. It changes the
+% code for headers and footers to make the page number appear in the
+% header and the filename (the "\jobname", actually) and the date of
+% the compilation appear of at the footer.
+%
+% (find-source2epage (+ 10 476) "74.1      Page Style Commands")
+% (find-source2etext (+ 10 476) "74.1      Page Style Commands")
+% (find-classespage 20 "\\ps@headings")
+% (find-classestext 20 "\\ps@headings")
+% (find-lsrcfile "base/article.cls")
+% (find-lsrcfile "base/article.cls" "\\def\\ps@headings")
+% (find-lsrcfile "base/book.cls")
+% (find-lsrcfile "base/book.cls" "\\def\\ps@headings")
+% (find-ldtxfile "base/classes.dtx")
+% (find-ldtxfile "base/classes.dtx" "The page style")
+% (find-ldtxfile "base/classes.dtx" "<!book>\\pagestyle{plain}")
+% (find-kopkadaly4page (+ 12 335) "Page styles")
+% (find-kopkadaly4text (+ 12 335) "Page styles")
+%
+\makeatletter
+\newcount\m \newcount\n
+\def\twodigits#1{\ifnum #1<10 0\fi \number#1}
+\def\hours{\n=\time \divide\n 60
+  \m=-\n \multiply\m 60 \advance\m \time
+  \twodigits\n:\twodigits\m}
+%
+\def\draftfooter{\jobname{} \today{} \hours}
+\def\footertext{\draftfooter}
+\def\ps@headings{%
+  \def\@oddfoot{\hfil \footertext \hfil}
+  \let\@evenfoot\@oddfoot
+  \def\@oddhead{{\slshape\rightmark}\hfil\thepage}%
+  \let\@mkboth\markboth
+  \def\chaptermark##1{%
+    \markright {\MakeUppercase{%
+      \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+          \@chapapp\ \thechapter. \ %
+        \fi
+      \fi
+      ##1}}}}
+\ps@headings
+\makeatother
+%
+\def\shorttoday{%
+  \number\year%
+  \ifcase\month\or jan\or feb\or mar\or apr\or may\or
+     jun\or jul\or aug\or sep\or oct\or nov\or dec\fi
+  \twodigits\day}
+\def\edrxnotesfooter#1{{\tiny #1 (typeset \shorttoday{} \hours)
+  {\tt Edrx http://angg.twu.net/}}}
+\def\edrxnotes#1{\gdef\footertext{\edrxnotesfooter{#1}}}
+\def\noedrxfooter{\gdef\footertext{}}
+%
+% (find-es "tex" "edrxnotes")
+% (find-fline "/usr/share/texmf-tetex/tex/generic/babel/portuges.ldf")
+% (find-fline "/usr/share/texmf-tetex/tex/generic/babel/portuges.sty")
+
+
+% Local Variables:
+% coding:               utf-8-unix
+% End:

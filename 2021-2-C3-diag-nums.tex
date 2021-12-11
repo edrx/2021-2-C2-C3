@@ -1,0 +1,239 @@
+% (find-LATEX "2021-2-C3-diag-nums.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C3-diag-nums.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C3-diag-nums.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C3-diag-nums.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C3-diag-nums.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C3-diag-nums.tex"))
+% (defun o () (interactive) (find-LATEX "2021-1-C3-curvas-de-nivel.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C3-diag-nums"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C3-diag-nums.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C3-diag-nums")
+% (find-pdf-page   "~/LATEX/2021-2-C3-diag-nums.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-diag-nums.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-diag-nums.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C3-diag-nums.pdf")
+%   file:///home/edrx/LATEX/2021-2-C3-diag-nums.pdf
+%               file:///tmp/2021-2-C3-diag-nums.pdf
+%           file:///tmp/pen/2021-2-C3-diag-nums.pdf
+% http://angg.twu.net/LATEX/2021-2-C3-diag-nums.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C3-diag-nums" "3" "c3m212dn" "c3dn")
+
+% «.videos-antigos»	(to "videos-antigos")
+%
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% «videos-antigos»  (to ".videos-antigos")
+% (c3m211cna "video-1")
+% (c3m211cna "video-2")
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c3m212dn" "2021-2-C3-diag-nums")
+% (code-eevvideo      "c3m212dn" "2021-2-C3-diag-nums")
+% (code-eevlinksvideo "c3m212dn" "2021-2-C3-diag-nums")
+% (find-c3m212dnvideo "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+%\catcode`\^^J=10
+%\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C3.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C3.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m212dnp 1 "title")
+% (c3m212dna   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2021.2}
+
+\bsk
+
+Aula 16: diagramas de numerozinhos
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C3.html}
+
+\end{center}
+
+\newpage
+
+
+{\bf Minecraft}
+
+Aqui tem um vídeo sobre o Minecraft que eu achei muito bom:
+
+\ssk
+
+{\footnotesize
+
+\url{http://www.youtube.com/watch?v=fjZAgoxFKiQ}
+
+}
+
+\ssk
+
+Assistam o trecho entre 3:00 e 8:30 dele.
+
+\bsk
+
+O mundo do Minecraft é feito de cubos, e se não fosse
+
+pelas árvores, cavernas, nuvens, castelos e umas outras
+
+coisas complicadas nós poderíamos descrever a superfície
+
+desse mundo só dizendo a altura dela em cada ponto $(x,y)$
+
+--- onde esses $x$ e $y$ são inteiros e a altura também é um
+
+número inteiro.
+
+
+
+% (find-youtubedl-links "/sda5/videos/Math/" nil "fjZAgoxFKiQ" nil "minecraft")
+% (code-video "minecraftvideo" "/sda5/videos/Math/Why_Minecraft_is_a_Technical_Feat_Explaining_the_Engineering_Behind_an_Indie_Icon-fjZAgoxFKiQ.webm")
+% (find-minecraftvideo "3:03")
+% (find-minecraftvideo "5:00")
+% (find-minecraftvideo "8:00")
+
+
+\newpage
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C3/")
+# (find-fline "~/LATEX/2021-2-C3/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C3/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C3/
+       cat <<%%%
+% (find-latexscan-links "C3" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C3-diag-nums veryclean
+make -f 2019.mk STEM=2021-2-C3-diag-nums pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3dn"
+% ee-tla: "c3m212dn"
+% End:

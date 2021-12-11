@@ -71,6 +71,8 @@ tar -xvzf /tmp/2021-2.tgz
 # git init
 # git add README.org
   git add $(cat /tmp/2021-2.fls)
+# (magit-status "~/2021-2-C2-C3/")
+
 # git commit -m "Initial commit."
 
 # git branch -M main

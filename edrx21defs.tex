@@ -1,0 +1,315 @@
+% This file: (find-LATEX "edrx21defs.tex")
+%       See: (find-LATEX "edrx17defs.tex")
+%            (find-LATEX "edrx15defs.tex")
+%
+% Miscellaneous defs, mostly symbols.
+
+
+% «.categories»			(to "categories")
+% «.greek-letters»		(to "greek-letters")
+% «.combinators»		(to "combinators")
+% «.colors»			(to "colors")
+% «.bhbox»			(to "bhbox")
+% «.bgcolorhbox»		(to "bgcolorhbox")
+% «.firstcol-anothercol»	(to "firstcol-anothercol")
+% «.co»				(to "co")
+
+
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\Z{\mathbb{Z}}
+
+
+% «categories»  (to ".categories")
+%
+\def\Set {\mathbf{Set}}
+\def\Sets{\mathbf{Sets}}
+\def\Cat {\mathbf{Cat}}
+\def\Grp {{\bf Grp}}
+\def\Mon {{\bf Mon}}
+\def\PTop{{\bf PTop}}
+\def\Top {{\bf Top}}
+\def\Vect{{\bf Vect}}
+%
+\def\catA{\mathbf{A}}
+\def\catB{\mathbf{B}}
+\def\catC{\mathbf{C}}
+\def\catD{\mathbf{D}}
+\def\catE{\mathbf{E}}
+\def\catH{\mathbf{H}}
+\def\catI{\mathbf{I}}
+\def\catJ{\mathbf{J}}
+\def\catP{\mathbf{P}}
+%\def\OX{{\mathcal{O}_X}}
+%\def\E{\mathbf{E}}
+%\def\T{\mathbf{T}}
+%\def\SetI{{\Set^{\mathbb{I}}}}
+%\def\SetF{{\Set^{\mathcal{F}}}}
+%\def\SetU{{\Set^{\mathcal{U}}}}
+%\def\SetP{{\Set^{\mathbf{P}}}}
+%\def\SetM{{\Set^{\mathbf{M}}}}
+%\def\SetC{{\Set^{\bf C}}}
+%\def\bbA{\mathbb{A}}
+%\def\bbB{\mathbb{B}}
+%\def\bbC{\mathbb{C}}
+%\def\bbD{\mathbb{D}}
+%\def\bbE{\mathbb{E}}
+%\def\bbH{\mathbb{H}}
+%\def\bbV{\mathbb{V}}
+
+
+
+
+
+% Quantificadores,
+%
+\def\Ex{\exists}
+\def\Fa{\forall}
+%\def\Exob#1{\mathop{\exists\;{#1}}}
+%\def\Exbangob#1{\mathop{\exists!\;{#1}}}
+%\def\Faob#1{\mathop{\forall\;{#1}}}
+%\def\Exbang{\exists!}
+
+\def\void {\varnothing}
+\def\bsl  {\backslash}
+\def\False{\Finv}
+\def\nat  {\natural}
+
+
+
+% «greek-letters»  (to ".greek-letters")
+%
+\def\aa{\alpha}
+\def\bb{\beta}
+\def\cc{\gamma}
+\def\dd{\delta}
+%\def\ee{\epsilon}
+\def\ee{\varepsilon}    % (find-texbookpage (+ 12 128) "\\varepsilon")
+\def\gg{\gamma}
+\def\kk{\kappa}
+\def\ww{\omega}
+\def\Om{\Omega}
+\def\Th{\Theta}
+\def\GG{\Gamma}
+\def\DD{\Delta}
+\def\LL{\Lambda}
+%
+% (find-es "tex" "varphi")
+%\let\origphi=\phi
+%\def\phi{\varphi}
+
+\def\superscriptOne  {^1}
+\def\superscriptTwo  {^2}
+\def\superscriptThree{^3}
+
+
+
+\def\calA{\mathcal{A}}
+\def\calB{\mathcal{B}}
+\def\calC{\mathcal{C}}
+\def\calD{\mathcal{D}}
+\def\calE{\mathcal{E}}
+\def\calF{\mathcal{F}}
+\def\calG{\mathcal{G}}
+\def\calL{\mathcal{L}}
+\def\calN{\mathcal{N}}
+\def\calR{\mathcal{R}}
+\def\calV{\mathcal{V}}
+
+
+
+\def\id   {\mathrm{id}}
+\def\ev   {\mathrm{ev}}
+\def\cur  {\operatorname{\textsf{cur}}}
+\def\uncur{\operatorname{\textsf{uncur}}}
+\def\app  {\operatorname{app}}
+
+\def\compr{\operatorname{compr}}
+\def\Int  {\operatorname{Int}}
+
+\def\adj   {\operatorname{adj}}
+
+\def\hom   {\operatorname{hom}}
+\def\Hom   {\operatorname{Hom}}
+\def\op    {{\operatorname{op}}}
+\def\colim {{\operatorname{colim}}}
+\def\Colim {{\operatorname{Colim}}}
+\def\Lim   {{\operatorname{Lim}}}
+\def\src   {\operatorname{src}}
+\def\tgt   {\operatorname{tgt}}
+\def\dom   {\operatorname{dom}}
+\def\cod   {\operatorname{cod}}
+\def\Cod   {\operatorname{Cod}}
+\def\Sub   {\operatorname{Sub}}
+\def\CanSub{\operatorname{CanSub}}
+\def\Objs  {\operatorname{Objs}}
+
+\def\Props {\operatorname{Props}}
+\def\Prfs  {\operatorname{Prfs}}
+\def\prf   {\operatorname{prf}}
+
+\def\fv     {\operatorname{fv}}
+\def\FV     {\operatorname{FV}}
+\def\welldef{{\operatorname{wd}}}
+\def\welld  {{\operatorname{wd}}}
+
+
+
+
+\def\setof    #1{\{\,#1\,\}}
+\def\setofst#1#2{\{\,#1\;|\;#2\,\}}
+\def\setofsc#1#2{\{\,#1\;;\;#2\,\}}
+\def\Pts        {\mathcal{P}}
+
+
+
+\def\ovl{\overline}
+
+\def\nameof#1{\ulcorner#1\urcorner}
+%
+% (find-es "tex" "llangle-and-rrangle")
+% (find-es "tex" "llbracket-and-rrbracket")
+%
+\def\llangle{\langle\!\langle}
+\def\rrangle{\rangle\!\rangle}
+\def\ang #1{\langle #1 \rangle}
+\def\angg#1{\llangle#1\rrangle}
+\def\angc  {\ang{\,,}}
+%\def\<{\langle}
+%\def\>{\rangle}
+%
+% Bananas
+\def\ban#1{(\mskip-1.2\thinmuskip| #1 |\mskip-1.2\thinmuskip)}
+
+
+
+
+
+
+
+% Calculus:
+\def\sen   {\operatorname{sen}}
+\def\arcsen{\operatorname{arcsen}}
+\def\sec   {\operatorname{sec}}
+\def\arcsec{\operatorname{arcsec}}
+
+\def\uu{\vec u}
+\def\vv{\vec v}
+\def\ww{\vec w}
+\def\Vec#1{{\overrightarrow{#1}}}
+\def\VEC#1{{\overrightarrow{(#1)}}}
+
+
+
+% «combinators»  (to ".combinators")
+%
+\def\cbS{\mathbf{S}}
+\def\cbK{\mathbf{K}}
+\def\cbI{\mathbf{I}}
+\def\cbP{\mathbf{P}}
+\def\cbD{\mathbf{D}}
+\def\cbV{\mathbf{V}}
+\def\cbT{\mathbf{T}}
+\def\cbF{\mathbf{F}}
+\def\SKI{\mathbf{SKI}}
+
+
+% «colors»  (to ".colors")
+% Mainly for slides.
+%
+\long\def\ColorRed   #1{{\color{Red1}#1}}
+\long\def\ColorViolet#1{{\color{MagentaVioletLight}#1}}
+\long\def\ColorViolet#1{{\color{Violet!50!black}#1}}
+\long\def\ColorGreen #1{{\color{SpringDarkHard}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreenDark}#1}}
+\long\def\ColorGreen #1{{\color{SpringGreen4}#1}}
+\long\def\ColorGray  #1{{\color{GrayLight}#1}}
+\long\def\ColorGray  #1{{\color{black!30!white}#1}}
+\long\def\ColorBrown #1{{\color{Brown}#1}}
+\long\def\ColorBrown #1{{\color{brown}#1}}
+\long\def\ColorOrange#1{{\color{orange}#1}}
+
+% See: (find-es "tex" "xcolor")
+%      (find-es "tex" "xcolor" "fcolorbox")
+\def\standout#1{\fcolorbox{red}{yellow}{#1}}
+
+
+% «bhbox»  (to ".bhbox")
+% See: (find-es "tex" "bhbox")
+\def\smashedvrule#1#2#3{\vrule width#1 height#2 depth#3 \kern-#1}
+\def\bhboxuppercolor{yellow}
+\def\bhboxlowercolor{orange}
+\def\bhboxm#1{\bhbox{$#1$}}
+\def\bhbox #1{\hbox{\bhboxz{#1}}}
+\def\bhboxz#1{%
+    \setbox0\hbox{#1}%
+    {\color{\bhboxuppercolor}{\smashedvrule{\wd0}{\ht0}{0pt}}}%
+    {\color{\bhboxlowercolor}{\smashedvrule{\wd0}{0pt}{\dp0}}}%
+    \box0%
+  }
+
+% «bgcolorhbox»  (to ".bgcolorhbox")
+% See: (find-dednat6 "tug-slides.tex" "bgcolorhbox")
+\def\bgcolorhbox#1#2{{%
+  \setbox0\hbox{#2}%
+  \setbox0\vbox{\vskip\fboxsep\box0\vskip\fboxsep}%
+  \setbox0\hbox{\kern\fboxsep\box0\kern\fboxsep}%
+  {\color{#1}{\smashedvrule{\wd0}{\ht0}{\dp0}}}%
+  \box0%
+  }}
+
+
+% «firstcol-anothercol»  (to ".firstcol-anothercol")
+% (find-es "tex" "firstcol-anothercol")
+\def\colwidth{8cm}
+\long\def\firstcol#1{\begin{minipage}[t]{\colwidth} #1 \end{minipage}}
+\long\def\anothercol#1{\qquad\firstcol{#1}}
+
+% «co»  (to ".co")
+% (find-es "tex" "co")
+% \co: a low-level way to typeset code; a poor man's "\verb"
+% It conflicts with the `\co' of Category Theory =(
+\def\co#1{{%
+  \def\%{\char37}%
+  \def\\{\char92}%
+  \def\^{\char94}%
+  \def\~{\char126}%
+  \tt#1%
+  }}
+\def\qco#1{`\co{#1}'}
+\def\qqco#1{``\co{#1}''}
+
+
+
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\smile{\ensuremath{{=}{)}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+\def\D    {\displaystyle}
+\def\ph   {\phantom}
+
+
+%\def\comp {\operatorname{comp}}
+
+%\def\und#1{{\underline{#1}}}
+% Often redefined to:
+%\def\und#1#2{\underbrace{#1}_{#2}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Local Variables:
+% coding:               utf-8-unix
+% End:

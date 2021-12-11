@@ -1,0 +1,321 @@
+% This file: (find-LATEX "edrx21.sty")
+% Based on:  (find-LATEX "edrx17.sty")
+%            (find-LATEX "edrx15.sty")
+%            (find-LATEX "edrx08.sty")
+% Loads: (find-LATEX "edrx21defs.tex")
+
+% «.arrows»		(to "arrows")
+% «.pbsymbol»		(to "pbsymbol")
+% «.fcded»		(to "fcded")
+% «.savebox»		(to "savebox")
+% «.crossover»		(to "crossover")
+% «.picture-cells»	(to "picture-cells")
+% «.diagprep»		(to "diagprep")
+% «.psm-and-pmat»	(to "psm-and-pmat")
+% «.pmtt-and-smtt»	(to "pmtt-and-smtt")
+% «.dednat6»		(to "dednat6")
+%   «.defzha»		(to "defzha")
+%   «.deftcg»		(to "deftcg")
+%   «.defub»		(to "defub")
+%   «.defftch»		(to "defftch")
+%   «.defvbt»		(to "defvbt")
+%   «.sa-and-ga»	(to "sa-and-ga")
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{mathrsfs}
+%\usepackage{stmaryrd}
+\usepackage{array}       % (find-es "tex" "array")
+\usepackage{shortvrb}    % (find-es "tex" "shortvrb")
+\usepackage{graphicx}    % (find-es "tex" "graphicx")
+
+
+
+% Not here:
+% (find-LATEX "edrx17.sty" "bbold")
+% (find-LATEX "edrx17.sty" "ttchars")
+
+
+%                                   
+%   __ _ _ __ _ __ _____      _____ 
+%  / _` | '__| '__/ _ \ \ /\ / / __|
+% | (_| | |  | | | (_) \ V  V /\__ \
+%  \__,_|_|  |_|  \___/ \_/\_/ |___/
+%                                   
+% «arrows»  (to ".arrows")
+% (find-symbolspage 41)
+
+\def\ito     {\hookrightarrow}
+\def\isoto   {\underset{iso}{\to}}
+\def\epito   {{\twoheadrightarrow}}
+\def\bij     {\leftrightarrow}
+\def\toto    {\rightrightarrows}
+\def\functo  {\Rightarrow}
+\def\ton   #1{\overset{#1}{\to}}
+\def\xton  #1{\xrightarrow{#1}}
+\def\iton  #1{\overset{#1}{\ito}}
+\def\otn   #1{\overset{#1}{\ot}}
+\def\TNto    {\overset{.}{\to}}
+\def\idto    {\overset{id}{\to}}
+\def\vaipra  {\quad\Longrightarrow\quad}
+\def\funto   {\Rightarrow}
+\def\funton#1{\overset{#1}\Rightarrow}
+\def\tnto    {\ton{\bullet}}
+%\def\iff{\Leftrightarrow}
+\def\Bij     {\Leftrightarrow}
+\def\funot   {\Leftarrow}
+\def\dnto    {\downarrow}
+\def\upto    {\uparrow}
+\def\dnfunto {\Downarrow}
+\def\upfunto {\Uparrow}
+\def\monicto {\rightarrowtail}
+\def\monicot {\leftarrowtail}
+\def\ot      {\leftarrow}
+\def\squigto {\rightsquigarrow}
+\def\squigbij{\leftrightsquigarrow}
+\def\sqto    {\rightsquigarrow}
+\def\sqbij   {\leftrightsquigarrow}
+\def\vbij    {\updownarrow}
+\def\lrto    {\leftrightarrows}
+
+\def\mto     {{\mapsto}}
+\def\mton  #1{\overset{#1}{\mto}}
+\def\widemtos{\def\mto{\mapsto}}
+\def\thinmtos{\def\mto{{\mapsto}}}
+
+\def\lmto    {\mapsto}
+\def\tnton #1{\underset{#1}{\overset{\bullet}{\to}}}
+
+\def\mapsot  {\leftarrow\mapsfromchar}
+\def\mot     {{\mapsot}}
+\def\iot     {\hookleftarrow}
+\def\dashto  {\dashrightarrow}
+\def\dashot  {\dashleftarrow}
+\def\mdashto {\mapstochar\dashrightarrow}
+\def\mdashot {\dashleftarrow\mapsfromchar}
+
+\def\origphi {\phi}
+
+
+
+%        _                         _           _ 
+%  _ __ | |__  ___ _   _ _ __ ___ | |__   ___ | |
+% | '_ \| '_ \/ __| | | | '_ ` _ \| '_ \ / _ \| |
+% | |_) | |_) \__ \ |_| | | | | | | |_) | (_) | |
+% | .__/|_.__/|___/\__, |_| |_| |_|_.__/ \___/|_|
+% |_|              |___/                         
+%
+% «pbsymbol»  (to ".pbsymbol")
+\def\pbsymbol#1{%
+  \begin{picture}(#1,#1)
+    \put(0,0){\line(1,0){#1}}
+    \put(#1,#1){\line(0,-1){#1}}
+  \end{picture}}
+
+
+% Not here:
+% (find-LATEX "edrx17.sty" "limp")
+% (find-LATEX "edrx17.sty" "standardabbrevs")
+
+% «fcded» (to ".fcded")
+\def\cded #1{\begin{matrix}\ded {#1}\end{matrix}}
+\def\cdiag#1{\begin{matrix}\diag{#1}\end{matrix}}
+\def\pdiag#1{\left( \diag{#1} \right)}
+
+\def\fcded#1{\fbox{$\cded{#1}$}}
+\def\fbded#1{\fbox{$\ded{#1}$}}
+
+% Todo: compare using "matrix" and "vcenter" for cded and cdiag... See:
+% http://www.phil.cam.ac.uk/teaching_staff/Smith/LaTeX/ndexamples/proofsty3.html
+% I have not tested the \vcenter method much - but here are the definitions,
+% if they work they will be renamed \cded and \cdiag and will replace the
+% current ones.
+\def\vcded #1{\vcenter{\leavevmode$\ded {#1}$}}
+\def\vcdiag#1{\vcenter{\leavevmode$\diag{#1}$}}
+
+\def\myvcenter#1{\begin{matrix}#1\end{matrix}}
+
+\def\rotl#1{\rotatebox{90}{$#1$}}
+\def\rotr#1{\rotatebox{270}{$#1$}}
+
+
+%           _              _       __     
+%   ___  __| |_ ____  ____| | ___ / _|___ 
+%  / _ \/ _` | '__\ \/ / _` |/ _ \ |_/ __|
+% |  __/ (_| | |   >  < (_| |  __/  _\__ \
+%  \___|\__,_|_|  /_/\_\__,_|\___|_| |___/
+%                                         
+%\input edrx15defs.tex        % (find-LATEX "edrx15defs.tex")
+\input edrx21defs.tex         % (find-LATEX "edrx21defs.tex")
+\def\co{\mathrm{co}}
+\def\bsk{\bigskip}
+\def\msk{\medskip}
+\def\ssk{\smallskip}
+
+\def\Opens{\mathcal{O}}
+\def\compl{{\text{\,compl}}}
+%\def\interior{{\text{int}}}
+\def\sh{\sharp}
+\def\fl{\flat}
+
+
+
+
+
+\def\calU{{\mathcal{U}}}
+\def\calV{{\mathcal{V}}}
+
+% «savebox»  (to ".savebox")
+% These are mainly for nested diagrams
+% (find-LATEX "2008graphs.tex" "ess-and-star")
+% (find-LATEX "2008graphs.tex" "minimal-dag")
+% (find-LATEX "2008graphs.tex" "minimal-dag" "A .tex= \\usebox{\\myboxa}")
+% (find-kopkadaly4page (+ 12  87) "\\newsavebox{\\boxname}")
+% (find-kopkadaly4text            "\\newsavebox{\\boxname}")
+\newsavebox{\myboxa}
+\newsavebox{\myboxb}
+\newsavebox{\myboxc}
+\newsavebox{\myboxd}
+\newsavebox{\myboxe}
+\newsavebox{\myboxf}
+\newsavebox{\myboxg}
+\newsavebox{\myboxh}
+
+% «picture-cells» (to ".picture-cells")
+% (find-dn5 "newrect.lua" "makepicture")
+% Dednat6 uses "cells" in picture mode.
+%
+
+% «diagprep»  (to ".diagprep")
+% (find-dn4ex "edrxdnt.tex" "defdiag")
+% Experimental, 2010mar25
+
+% «crossover»  (to ".crossover")
+% (find-es "tex" "crossover")
+\def\crossover#1#2#3{%
+  \setbox0\hbox{#1}%
+  \copy0%
+  \hskip -\wd0%
+  \setbox1\hbox{\vrule height#2 width\wd0 depth0pt}%
+  \raise#3\copy1\relax}
+\def\mycrossover#1{\crossover{#1}{0.25pt}{1.75pt}}
+
+
+\def\emp{\emptyset}
+\def\ang#1{\langle#1\rangle}
+
+
+% «psm-and-pmat» (to ".psm-and-pmat")
+%
+\def\sm #1{\begin{smallmatrix}#1\end{smallmatrix}}
+\def\psm#1{\left (\begin{smallmatrix}#1\end{smallmatrix}\right )}
+\def\bsm#1{\left [\begin{smallmatrix}#1\end{smallmatrix}\right ]}
+\def\csm#1{\left\{\begin{smallmatrix}#1\end{smallmatrix}\right\}}
+%
+\def\mat #1{\begin{matrix}#1\end{matrix}}
+\def\pmat#1{\left (\begin{matrix}#1\end{matrix}\right )}
+\def\bmat#1{\left [\begin{matrix}#1\end{matrix}\right ]}
+\def\cmat#1{\left\{\begin{matrix}#1\end{matrix}\right\}}
+
+% «pmtt-and-smtt»  (to ".pmtt-and-smtt")
+%
+\def\pmt         #1{\pmat{\text{#1}}}
+\def\pmtt      #1#2{\pmat{\text{#1} \\ \text{#2}}}
+\def\pmttt   #1#2#3{\pmat{\text{#1} \\ \text{#2} \\ \text{#3}}}
+\def\pmtttt#1#2#3#4{\pmat{\text{#1} \\ \text{#2} \\ \text{#3} \\ \text{#4}}}
+%
+\def\smt         #1{\sm{\text{#1}}}
+\def\smtt      #1#2{\sm{\text{#1} \\ \text{#2}}}
+\def\smttt   #1#2#3{\sm{\text{#1} \\ \text{#2} \\ \text{#3}}}
+\def\smtttt#1#2#3#4{\sm{\text{#1} \\ \text{#2} \\ \text{#3} \\ \text{#4}}}
+
+
+
+
+%  ____           _             _    __   
+% |  _ \  ___  __| |_ __   __ _| |_ / /_  
+% | | | |/ _ \/ _` | '_ \ / _` | __| '_ \ 
+% | |_| |  __/ (_| | | | | (_| | |_| (_) |
+% |____/ \___|\__,_|_| |_|\__,_|\__|\___/ 
+%                                         
+% «dednat6» (to ".dednat6")
+% (find-dn6 "output.lua")
+\def\expr#1{\directlua{output(tostring(#1))}}
+\def\eval#1{\directlua{#1)}}
+%
+% (find-dn6 "texfile.lua" "TexFile")
+% (find-dn6 "texfile.lua" "TexFile" "pu =")
+\def\pu{\directlua{pu()}}
+
+% «defzha»  (to ".defzha")
+% «deftcg»  (to ".deftcg")
+% (find-es "dednat" "defzha-and-deftcg")
+\def\defzha#1#2{\expandafter\def\csname zha-#1\endcsname{#2}}
+\def\ifzhaundefined#1{\expandafter\ifx\csname zha-#1\endcsname\relax}
+\def\zha#1{\ifzhaundefined{#1}
+    \errmessage{UNDEFINED ZHA: #1}
+  \else
+    \csname zha-#1\endcsname
+  \fi
+}
+\def\deftcg#1#2{\expandafter\def\csname tcg-#1\endcsname{#2}}
+\def\iftcgundefined#1{\expandafter\ifx\csname tcg-#1\endcsname\relax}
+\def\tcg#1{\iftcgundefined{#1}
+    \errmessage{UNDEFINED TCG: #1}
+  \else
+    \csname tcg-#1\endcsname
+  \fi
+}
+
+% «defub»  (to ".defub")
+% (find-es "dednat" "defub")
+\def\defub#1#2{\expandafter\def\csname ub-#1\endcsname{#2}}
+\def\ifubundefined#1{\expandafter\ifx\csname ub-#1\endcsname\relax}
+\def\ub#1{\ifubundefined{#1}
+    \errmessage{UNDEFINED UB: #1}
+  \else
+    \csname ub-#1\endcsname
+  \fi
+}
+
+% «defftch»  (to ".defftch")
+% (find-LATEX "2021fitch.lua" "FitchGrid")
+% (find-LATEX "2021fitch.lua" "FitchGrid" "defftch =")
+\def\defftch#1#2{\expandafter\def\csname ftch-#1\endcsname{#2}}
+\def\ifftchundefined#1{\expandafter\ifx\csname ftch-#1\endcsname\relax}
+\def\ftch#1{\ifftchundefined{#1}
+    \errmessage{UNDEFINED FTCH: #1}
+  \else
+    \csname ftch-#1\endcsname
+  \fi
+}
+
+% «defvbt»  (to ".defvbt")
+% (find-LATEX "2021verbatim.lua")
+% (find-dednat6 "tug-slides.tex" "verbatim")
+% (find-dednat6 "tug-slides.tex" "verbatim" "\\def\\verbahbox")
+\def\defvbt#1#2{\expandafter\def\csname vbt-#1\endcsname{#2}}
+\def\ifvbtundefined#1{\expandafter\ifx\csname vbt-#1\endcsname\relax}
+\def\vbt#1{\ifvbtundefined{#1}
+    \errmessage{UNDEFINED VBT: #1}
+  \else
+    \csname vbt-#1\endcsname
+  \fi
+}
+\def\vbthbox#1{\hbox{\tt#1}}
+\def\vbtbgbox#1{\bgcolorhbox{YellowOrangeLight}{#1}}
+
+
+% «sa-and-ga»  (to ".sa-and-ga")
+\def\sa#1#2{\expandafter\def\csname myarg#1\endcsname{#2}}
+\def\ga#1{\csname myarg#1\endcsname}
+
+
+
+
+
+
+% Local Variables:
+% coding:               utf-8-unix
+% End:
