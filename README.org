@@ -1,0 +1,95 @@
+# This file:
+#  https://github.com/edrx/2021-2-C2-C3
+#      http://angg.twu.net/2021-2-C2-C3/README.org.html
+#      http://angg.twu.net/2021-2-C2-C3/README.org
+#              (find-angg "2021-2-C2-C3/README.org")
+# Author: Eduardo Ochs <eduardoochs@gmail.com>
+# 
+# Based on: (find-angg "edrxrepl/README.org")
+#           (find-angg "2021-1-C2-C3/README.org")
+#           (find-angg "2020-2-C2-C3/README.org")
+# 
+# (defun e () (interactive) (find-angg "2021-2-C2-C3/README.org"))
+# (defun o () (interactive) (find-angg "2021-1-C2-C3/README.org"))
+# 
+# Some eev-isms:
+# (defun c () (interactive) (eek "C-c C-e h h"))
+# (defun v () (interactive) (brg     "~/2021-2-C2-C3/README.html"))
+# (defun e () (interactive) (find-angg "2021-2-C2-C3/README.org"))
+# (defun cv () (interactive) (c) (v))
+#   (find-es "lua5" "Repl")
+#   (find-es "magit" "edrxrepl")
+# 
+# (find-orgnode "Table of Contents")
+#+OPTIONS: toc:nil num:nil
+# 
+# * Introdução
+
+Este repositório contém a fonte em LaTeX dos slides, testes e provas
+dos meus cursos de Cálculo 2 e Cálculo 3 do semestre 2021.2 da UFF -
+que por conta da pandemia começou em outubre de 2021.
+
+Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.net/2021.2-C2.html][C2]], [[http://angg.twu.net/2021.2-C3.html][C3]].
+
+[[http://angg.twu.net/2021aulas-por-telegram.html][Sobre aulas por Telegram]].
+
+[[http://angg.twu.net/contact.html][Como entrar em contato comigo]].
+
+
+#+begin_comment
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+
+cd ~/LATEX/
+ls 2021-2-C2-*.tex | cat
+ls 2021-2-C3-*.tex | cat
+ls 2021-2-C2-*.tex | tee    /tmp/.files.tex
+ls 2021-2-C3-*.tex | tee -a /tmp/.files.tex
+
+# (find-man "tee")
+# (find-fline "/tmp/.files.tex")
+
+for i in $(cat /tmp/.files.tex); do
+  basename $i .tex
+  done | tee /tmp/.files.bn
+
+for i in $(cat /tmp/.files.tex); do 
+  lualatex -record $i
+  done
+
+for i in $(cat /tmp/.files.bn); do 
+  flsfiles $i.fls
+  done | sort | uniq | tee /tmp/2021-2.fls
+
+cd ~/LATEX/
+tar -cvzf /tmp/2021-2.tgz $(cat /tmp/2021-2.fls)
+
+cd ~/2021-2-C2-C3/
+tar -xvzf /tmp/2021-2.tgz
+
+# git init
+# git add README.org
+  git add $(cat /tmp/2021-2.fls)
+# git commit -m "Initial commit."
+
+# git branch -M main
+# git remote add origin https://github.com/edrx/2021-2-C2-C3.git
+  git push -u origin main
+
+git add README.org
+git commit -m "Small changes."
+git push -u origin main
+
+# (find-angg ".zshrc" "flsfiles")
+# (find-angg "LUA/flsfiles.lua")
+# (find-fline "~/2021-2-C2-C3/")
+# (find-fline "~/2021-2-C2-C3/README.org")
+
+#+end_comment
+
+# Local Variables:
+# coding:               utf-8-unix
+# modes:                (org-mode fundamental-mode)
+# org-html-postamble:   nil
+# End:
