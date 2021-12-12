@@ -27,7 +27,7 @@
 
 Este repositório contém a fonte em LaTeX dos slides, testes e provas
 dos meus cursos de Cálculo 2 e Cálculo 3 do semestre 2021.2 da UFF -
-que por conta da pandemia começou em outubre de 2021.
+que por conta da pandemia começou em outubro de 2021.
 
 Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.net/2021.2-C2.html][C2]], [[http://angg.twu.net/2021.2-C3.html][C3]].
 
@@ -35,6 +35,19 @@ Páginas dos cursos (com links pra todos os PDFs e vídeos): [[http://angg.twu.n
 
 [[http://angg.twu.net/contact.html][Como entrar em contato comigo]].
 
+#+begin_src sh
+# Para baixar tudo e compilar
+# os .texs faca isto aqui:
+#
+rm -Rfv /tmp/2021-2-C2-C3/
+mkdir   /tmp/2021-2-C2-C3/
+cd      /tmp/2021-2-C2-C3/
+git clone https://github.com/edrx/2021-2-C2-C3 .
+
+for TEXFILE in 2021-2*.tex; do
+  lualatex $TEXFILE
+done
+#+end_src
 
 #+begin_comment
  (eepitch-shell)
