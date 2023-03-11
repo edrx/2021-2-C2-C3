@@ -7,27 +7,27 @@
 -- edrxtikz.lua, that runs loaddednat6()!
 --   See: (find-LATEX "edrxtikz.lua")
 
--- «.Points»		(to "Points")
--- «.Points-test»	(to "Points-test")
--- «.pictp0-pictp3»	(to "pictp0-pictp3")
--- «.pictbounds»	(to "pictbounds")
--- «.beginpicture»	(to "beginpicture")
--- «.pictaxes»		(to "pictaxes")
--- «.pictgrid»		(to "pictgrid")
--- «.pictpgrid»		(to "pictpgrid")
--- «.pictdots»		(to "pictdots")
--- «.Piecewise»		(to "Piecewise")
--- «.Piecewise-tests»	(to "Piecewise-tests")
--- «.pictFxy»		(to "pictFxy")
--- «.pict2evector»	(to "pict2evector")
--- «.TCG»		(to "TCG")
--- «.TCG-tests»		(to "TCG-tests")
--- «.calcpoints»	(to "calcpoints")
--- «.Pictdotsdef»	(to "Pictdotsdef")
--- «.Wrap»		(to "Wrap")
--- «.Wrap-tests»	(to "Wrap-tests")
--- «.defpictdots»	(to "defpictdots")
--- «.defpictdots-tests»	(to "defpictdots-tests")
+-- Â«.PointsÂ»		(to "Points")
+-- Â«.Points-testÂ»	(to "Points-test")
+-- Â«.pictp0-pictp3Â»	(to "pictp0-pictp3")
+-- Â«.pictboundsÂ»	(to "pictbounds")
+-- Â«.beginpictureÂ»	(to "beginpicture")
+-- Â«.pictaxesÂ»		(to "pictaxes")
+-- Â«.pictgridÂ»		(to "pictgrid")
+-- Â«.pictpgridÂ»		(to "pictpgrid")
+-- Â«.pictdotsÂ»		(to "pictdots")
+-- Â«.PiecewiseÂ»		(to "Piecewise")
+-- Â«.Piecewise-testsÂ»	(to "Piecewise-tests")
+-- Â«.pictFxyÂ»		(to "pictFxy")
+-- Â«.pict2evectorÂ»	(to "pict2evector")
+-- Â«.TCGÂ»		(to "TCG")
+-- Â«.TCG-testsÂ»		(to "TCG-tests")
+-- Â«.calcpointsÂ»	(to "calcpoints")
+-- Â«.PictdotsdefÂ»	(to "Pictdotsdef")
+-- Â«.WrapÂ»		(to "Wrap")
+-- Â«.Wrap-testsÂ»	(to "Wrap-tests")
+-- Â«.defpictdotsÂ»	(to "defpictdots")
+-- Â«.defpictdots-testsÂ»	(to "defpictdots-tests")
 
 -- loaddednat6()  -- (find-angg "LUA/lua50init.lua" "loaddednat6")
 require "edrxtikz"  -- (find-LATEX "edrxtikz.lua")
@@ -41,7 +41,7 @@ require "edrxtikz"  -- (find-LATEX "edrxtikz.lua")
 -- |  __/ (_) | | | | | |_\__ \
 -- |_|   \___/|_|_| |_|\__|___/
 --                             
--- «Points» (to ".Points")
+-- Â«PointsÂ» (to ".Points")
 -- A class for sequences of points.
 --
 Points = Class {
@@ -83,7 +83,7 @@ Points = Class {
 }
 
 
--- «Points-test» (to ".Points-test")
+-- Â«Points-testÂ» (to ".Points-test")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -112,7 +112,7 @@ ps = Points.fromfx(2, 3, 5, function (x) return 10*x end)
 -- | .__/|_|\___|\__\__,_|\___/ \__|___/
 -- |_|                                  
 --
--- «pictdots» (to ".pictdots")
+-- Â«pictdotsÂ» (to ".pictdots")
 -- Used by: (find-LATEX "edrxgac2.tex" "beginpicture")
 --          (find-LATEX "edrxgac2.tex" "beginpicture" "\\pictdots")
 --          (find-LATEX "edrxgac2.tex" "beginpicture" "\\picturedots")
@@ -148,14 +148,14 @@ dofile "edrxpict.lua"
 --
 -- An ugly hack. We store
 
--- «pictp0-pictp3» (to ".pictp0-pictp3")
+-- Â«pictp0-pictp3Â» (to ".pictp0-pictp3")
 -- global variables, sample values
 pictp1 = v(-1,-2)           -- lower left,  integer coordinates
 pictp2 = v( 3, 5)           -- upper right, integer coordinates
 pictp0 = pictp1 - v(.2,.2)  -- lower left
 pictp3 = pictp2 + v(.2,.2)  -- upper right
 
--- «pictbounds» (to ".pictbounds")
+-- Â«pictboundsÂ» (to ".pictbounds")
 pictbounds = function (p1, p2, e)
     e = e or .2
     pictp1 = p1
@@ -185,7 +185,7 @@ dofile "edrxpict.lua"
 -- |_.__/ \___|\__, |_|_| |_| .__/|_|\___|\__|\__,_|_|  \___|
 --             |___/        |_|                              
 --
--- «beginpicture» (to ".beginpicture")
+-- Â«beginpictureÂ» (to ".beginpicture")
 -- (find-LATEX "edrxgac2.tex" "beginpicture")
 -- (find-es "tex" "begin-picture" "(XSIZE,YSIZE)(XORG,YORG)")
 -- (find-es "tex" "beginpicture")
@@ -219,7 +219,7 @@ dofile "edrxpict.lua"
 -- | .__/|_|\___|\__\__,_/_/\_\___||___/
 -- |_|                                  
 --
--- «pictaxes» (to ".pictaxes")
+-- Â«pictaxesÂ» (to ".pictaxes")
 -- (find-LATEX "edrxgac2.tex" "beginpicture" "pictaxes")
 pictaxes = function (p1, p2)
     p1, p2 = p1 or pictp1, p2 or pictp2
@@ -267,7 +267,7 @@ dofile "edrxpict.lua"
 -- | .__/|_|\___|\__\__, |_|  |_|\__,_|
 -- |_|              |___/              
 --
--- «pictgrid» (to ".pictgrid")
+-- Â«pictgridÂ» (to ".pictgrid")
 -- (find-LATEX "edrxgac2.tex" "beginpicture" "pictgrid")
 -- (find-LATEX "2018-1-GA-material.tex" "varias-coords")
 pictgrid = function (p1, p2)
@@ -311,7 +311,7 @@ dofile "edrxpict.lua"
 -- | .__/|_|\___|\__| .__/ \__, |_|  |_|\__,_|
 -- |_|              |_|    |___/              
 --
--- «pictpgrid» (to ".pictpgrid")
+-- Â«pictpgridÂ» (to ".pictpgrid")
 -- This is similar do pictgrid, but it uses the function p and draws
 -- slanted grids.
 --
@@ -353,7 +353,7 @@ O, uu, vv = v(1, 1), v(0.1, 0), v(0, 0.1)
 -- |  __/| |  __/ (_|  __/\ V  V /| \__ \  __/
 -- |_|   |_|\___|\___\___| \_/\_/ |_|___/\___|
 --                                            
--- «Piecewise» (to ".Piecewise")
+-- Â«PiecewiseÂ» (to ".Piecewise")
 --
 Piecewise = Class {
   new = function (str)
@@ -459,7 +459,7 @@ pictpiecewise = function (str)
 
 
 --[[
--- «Piecewise-tests» (to ".Piecewise-tests")
+-- Â«Piecewise-testsÂ» (to ".Piecewise-tests")
  (eepitch-lua51)
  (eepitch-kill)
  (eepitch-lua51)
@@ -494,7 +494,7 @@ PPV(pw:getijs())
 
 
 
--- «pictFxy» (to ".pictFxy")
+-- Â«pictFxyÂ» (to ".pictFxy")
 -- (find-angg "LUA/lua50init.lua" "eval-and-L")
 -- (find-angg "LUA/lua50init.lua" "lambda")
 pictFxy = function (Fstr)
@@ -532,7 +532,7 @@ dofile "edrxpict.lua"
 
 
 
--- «pict2evector» (to ".pict2evector")
+-- Â«pict2evectorÂ» (to ".pict2evector")
 -- Moved to: (find-dn6 "picture.lua" "pict2e")
 -- Used by: (find-LATEX "edrxgac2.tex" "pict-Vector")
 
@@ -592,7 +592,7 @@ vv = v(3,4)
 --   | || |__| |_| \__ \
 --   |_| \____\____|___/
 --                      
--- «TCG» (to ".TCG")
+-- Â«TCGÂ» (to ".TCG")
 -- Two-column graphs, old version.
 -- The new version is here:
 --   (find-dn6 "tcgs.lua" "TCGQ")
@@ -672,7 +672,7 @@ TCG = Class {
   },
 }
 
--- «TCG-tests» (to ".TCG-tests")
+-- Â«TCG-testsÂ» (to ".TCG-tests")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -695,7 +695,7 @@ tcg = TCG.new(opts, "foo", 4, 6, "12", "23 34"):lrs():vs():hs():lprint()
 
 
 
--- «calcpoints» (to ".calcpoints")
+-- Â«calcpointsÂ» (to ".calcpoints")
 -- (find-LATEX "2018-1-GA-material.tex" "calcpoints")
 -- (find-LATEX "2018-1-GA-material.tex" "distancia-ponto-reta")
 -- (find-LATEX "2018-1-GA-material.tex" "distancia-ponto-reta" "\\CalcPoints")
@@ -716,7 +716,7 @@ calcpoints = function (str)
 --    \_/\_/ |_|  \__,_| .__/ 
 --                     |_|    
 --
--- «Wrap»  (to ".Wrap")
+-- Â«WrapÂ»  (to ".Wrap")
 -- (find-es "lua5" "Wrap")
 wr = function (lstr, rstr) return Wrap.new(lstr, rstr or "") end
 Wrap = Class {
@@ -735,7 +735,7 @@ Wrap = Class {
   },
 }
 
--- «Wrap-tests»  (to ".Wrap-tests")
+-- Â«Wrap-testsÂ»  (to ".Wrap-tests")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -761,7 +761,7 @@ wc = Wrap.new ("<c ", " c>")
 --  \__,_|\___|_| | .__/|_|\___|\__\__,_|\___/ \__|___/
 --                |_|                                  
 --
--- «defpictdots»  (to ".defpictdots")
+-- Â«defpictdotsÂ»  (to ".defpictdots")
 -- An emergency hack for the Oxford abstract, used in:
 -- (find-LATEX "2019oxford-abs.tex" "defpictdots")
 -- (find-LATEX "2017planar-has-defs.tex" "defpido")
@@ -803,7 +803,7 @@ defpictdots0 = function (drawaxes, name, x0,y0,x1,y1,e, strdots)
     return def * vcb * bpb * axs * dts
   end
 
--- «defpictdots-tests»  (to ".defpictdots-tests")
+-- Â«defpictdots-testsÂ»  (to ".defpictdots-tests")
 --[[
  (eepitch-lua51)
  (eepitch-kill)
@@ -825,6 +825,6 @@ dofile "edrxpict.lua"
 
 
 -- Local Variables:
--- coding: raw-text-unix
+-- coding: utf-8-unix
 -- End:
 

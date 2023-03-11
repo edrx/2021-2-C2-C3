@@ -37,7 +37,9 @@
 -- «.makepicture-tests»		(to "makepicture-tests")
 -- «.texarrow»			(to "texarrow")
 -- «.pict2e»			(to "pict2e")
+-- «.pict2e-vector»		(to "pict2e-vector")
 -- «.pict2e-test»		(to "pict2e-test")
+-- «.pict2evector-test»		(to "pict2evector-test")
 -- «.LPicture»			(to "LPicture")
 -- «.LPicture-tests»		(to "LPicture-tests")
 --
@@ -619,6 +621,7 @@ texarrow_smart = function (usewhitemoves)
 -- |_|                         
 --
 -- «pict2e» (to ".pict2e")
+-- «pict2e-vector»  (to ".pict2e-vector")
 -- In the old picture-mode a line segment and an arrow from (x0,y0)
 -- to (x1,y1) had to be written as:
 --
@@ -691,7 +694,8 @@ pict2evector = function (x0, y0, x1, y1)
   end
 
 
--- «pict2e-test» (to ".pict2e-test")
+-- «pict2e-test»        (to ".pict2e-test")
+-- «pict2evector-test»  (to ".pict2evector-test")
 --[[
 • (eepitch-lua51)
 • (eepitch-kill)

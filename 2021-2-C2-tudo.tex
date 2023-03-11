@@ -1,0 +1,235 @@
+% (find-LATEX "2021-2-C2-tudo.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-tudo.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-tudo.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-tudo.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-tudo.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-tudo.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-tudo.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-tudo"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-tudo.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-tudo")
+% (find-pdf-page   "~/LATEX/2021-2-C2-tudo.pdf")
+% (find-pdf-text   "~/LATEX/2021-2-C2-tudo.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-tudo.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-tudo.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-tudo.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-tudo.pdf
+%               file:///tmp/2021-2-C2-tudo.pdf
+%           file:///tmp/pen/2021-2-C2-tudo.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-tudo.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-tudo" "2" "c2m212tudo" "c2tu")
+
+% «.defs»	(to "defs")
+% «.title»	(to "title")
+%
+% «.djvuize»	(to "djvuize")
+
+
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+\usepackage{pdfpages}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212tudop 1 "title")
+% (c2m212tudoa   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Todos os PDFs do semestre
+
+juntados num PDFzão só
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+\def\incl#1{\includepdf[pages=1-last]{#1.pdf}}
+
+
+% (c2m212introp 1 "title")
+% (c2m212introa   "title" "Aula 1: introdução ao curso")
+% (c2m212tudop 2)
+\incl{2021-2-C2-intro}
+
+% (c2m212somas1a "title")
+% (c2m212somas1a "title" "Aula 4: integrais como somas de retângulos (1)")
+% (c2m212tudop 15)
+\incl{2021-2-C2-somas-1}
+
+% (c2m212mt1a "title")
+% (c2m212mt1a "title" "Mini-teste 1")
+% (c2m212tudop 39)
+\incl{2021-2-C2-MT1}
+
+% (c2m212mt2a "title")
+% (c2m212mt2a "title" "Mini-teste 2")
+% (c2m212tudop 45)
+\incl{2021-2-C2-MT2}
+
+% (c2m212somas2a "title")
+% (c2m212somas2a "title" "Aula 13: integrais como somas de retângulos (2)")
+% (c2m212tudop 54)
+\incl{2021-2-C2-somas-2}
+
+% (c2m212somas24a "title")
+% (c2m212somas24a "title" "Comentários sobre o exercício 4 do")
+% (c2m212tudop 109)
+\incl{2021-2-C2-somas-2-4}
+
+% (c2m212isa "title")
+% (c2m212isa "title" "Aula 17: infs e sups")
+% (c2m212tudop 145)
+\incl{2021-2-C2-infs-e-sups}
+
+% (c2m212dia "title")
+% (c2m212dia "title" "Aula 19: a definição da integral")
+% (c2m212tudop 165)
+\incl{2021-2-C2-def-integral}
+
+% % (c2m212pia "title")
+% % (c2m212pia "title" "Aula ??: propriedades da integral")
+% \incl{2021-2-C2-props-int}
+
+% (c2m212tfc1a "title")
+% (c2m212tfc1a "title" "Aula 20: o TFC1")
+% (c2m212tudop 192)
+\incl{2021-2-C2-TFC1}
+
+% (c2m212mt3a "title")
+% (c2m212mt3a "title" "Mini-teste 3")
+% (c2m212tudop 222)
+\incl{2021-2-C2-MT3}
+
+% (c2m212intsa "title")
+% (c2m212intsa "title" "Aula 22: integração por substituição")
+% (c2m212tudop 156)
+\incl{2021-2-C2-int-subst}
+
+% (c2m212mva "title")
+% (c2m212mva "title" "Aula 26: mudança de variável")
+% (c2m212tudop 156)
+\incl{2021-2-C2-mud-var-gamb}
+
+% (c2m212p1a "title")
+% (c2m212p1a "title" "P1 (Primeira prova)")
+% (c2m212tudop 156)
+\incl{2021-2-C2-P1}
+
+% (c2m212edovsa "title")
+% (c2m212edovsa "title" "Aula 26: EDOs com variáveis separáveis")
+% (c2m212tudop 156)
+\incl{2021-2-C2-edovs}
+
+% (c2m212rp2a "title")
+% (c2m212rp2a "title" "Aula 28: revisão pra P2")
+% (c2m212tudop 156)
+\incl{2021-2-C2-revisao-pra-P2}
+
+% (c2m212p2a "title")
+% (c2m212p2a "title" "Segunda prova (P2)")
+% (c2m212tudop 156)
+\incl{2021-2-C2-P2}
+
+% (c2m212fpa "title")
+% (c2m212fpa "title" "Aula nn: frações parciais")
+% (c2m212tudop 156)
+\incl{2021-2-C2-fracoes-parciais}
+
+
+
+
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+lualatex                  2021-2-C2-tudo.tex
+# (find-pdf-page "~/LATEX/2021-2-C2-tudo.pdf")
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2tu"
+% ee-tla: "c2m212tudo"
+% End:
+

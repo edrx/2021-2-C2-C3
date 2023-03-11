@@ -1,0 +1,575 @@
+% (find-LATEX "2021-2-C3-P1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C3-P1.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C3-P1.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C3-P1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C3-P1.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C3-P1.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C3-P1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C3-P1"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C3-P1.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C3-P1")
+% (find-pdf-page   "~/LATEX/2021-2-C3-P1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-P1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-P1.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C3-P1.pdf")
+%   file:///home/edrx/LATEX/2021-2-C3-P1.pdf
+%               file:///tmp/2021-2-C3-P1.pdf
+%           file:///tmp/pen/2021-2-C3-P1.pdf
+% http://angg.twu.net/LATEX/2021-2-C3-P1.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C3-P1" "3" "c3m212p1" "c3p1")
+
+% «.defs»		(to "defs")
+% «.defs-T-and-B»	(to "defs-T-and-B")
+% «.title»		(to "title")
+% «.regras-e-dicas»	(to "regras-e-dicas")
+% «.questao-1»		(to "questao-1")
+% «.questao-2-abcde»	(to "questao-2-abcde")
+% «.questao-2-fghi»	(to "questao-2-fghi")
+% «.questao-2-jk»	(to "questao-2-jk")
+% «.gabarito-maxima»	(to "gabarito-maxima")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c3m212p1" "2021-2-C3-P1")
+% (code-eevvideo      "c3m212p1" "2021-2-C3-P1")
+% (code-eevlinksvideo "c3m212p1" "2021-2-C3-P1")
+% (find-c3m212p1video "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%L dofile "2022pict2e.lua"           -- (find-LATEX "2022pict2e.lua")
+%L Pict2e.__index.suffix = "%"
+
+% \pu
+% \def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+% \def\pictaxesstyle{\linethickness{0.5pt}}
+% % %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% % %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% % \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C3.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C3.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+\def\derivs{\mathsf{derivs}}
+\def\frt#1{\frac{f^{(#1)}(0)}{#1!}}
+\def\ddy{\frac{d}{dy}}
+
+
+% «defs-T-and-B»  (to ".defs-T-and-B")
+% (c3m202p1p 6 "questao-2")
+% (c3m202p1a   "questao-2")
+\long\def\ColorOrange#1{{\color{orange!90!black}#1}}
+\def\T(Total: #1 pts){{\bf(Total: #1)}}
+\def\T(Total: #1 pts){{\bf(Total: #1 pts)}}
+\def\T(Total: #1 pts){\ColorRed{\bf(Total: #1 pts)}}
+\def\B       (#1 pts){\ColorOrange{\bf(#1 pts)}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m212p1p 1 "title")
+% (c3m212p1a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2021.2}
+
+\bsk
+
+Primeira prova (P1)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C3.html}
+
+\end{center}
+
+\newpage
+
+% «regras-e-dicas»  (to ".regras-e-dicas")
+% (c3m212p1p 3 "regras-e-dicas")
+% (c3m212p1a   "regras-e-dicas")
+
+{\bf Regras e dicas}
+
+As regras e dicas são as mesmas dos mini-testes,
+
+\ssk
+
+\url{http://angg.twu.net/LATEX/2020-2-C3-MT1.pdf}
+
+\url{http://angg.twu.net/LATEX/2020-2-C3-MT2.pdf}
+
+\ssk
+
+exceto que a prova vai ser disponibilizada às 22:30 do dia
+
+21/janeiro/2022 e deve ser entregue até as 10:30 do dia
+
+23/janeiro/2022.
+
+\bsk
+
+Pra fazer essa prova você vai precisar de idéias que a gente
+
+viu durante o curso todo. Se você precisar saber onde estão
+
+as idéias necessárias pra resolver algum item pergunte
+
+\ColorRed{no grupo do Telegram da turma} que eu respondo com um
+
+link pros slides, vídeos, ou livros em que aquela idéia
+
+aparece.
+
+\newpage
+
+% «questao-1»  (to ".questao-1")
+% (c3m212p1p 3 "questao-1")
+% (c3m212p1a   "questao-1")
+% (c3m212tap 15 "exercicio-5")
+% (c3m212taa    "exercicio-5")
+
+{\bf Questão 1.}
+
+\T(Total: 5.0 pts)
+
+Esta questão é baseada no Exercício 5
+
+do PDF sobre Séries de Taylor.
+
+\ssk
+
+Digamos que $f,g:\R→\R$ são funções suaves,
+
+$x_0∈\R$, $y=y(x)=f(x)$, $z=z(y)=g(y)$, $h=g∘f$.
+
+\bsk
+\bsk
+
+Calcule $\derivs_{x_0}^3(h(x))$ em ``notação de físicos''.
+
+\bsk
+\bsk
+
+Dica: você pode começar fazendo MUITAS contas pequenas
+
+e traduções simples que você sabe que são verdade ---
+
+por exemplo ``$z=z(y(x))=g(f(x))$'', ``$z_x = \ddx g(f(x))$'',
+
+``$z_y = z_y(y) = \ddy g(y) = g'(y) = g'(y(x))$'', etc.
+
+
+
+\newpage
+
+
+% «questao-2-abcde»  (to ".questao-2-abcde")
+% (c3m212p1p 4 "questao-2-abcde")
+% (c3m212p1a   "questao-2-abcde")
+
+{\bf Questão 2.}
+
+\T(Total: 5.0 pts)
+
+Sejam $x=x(t)=f(t)$, $y=y(t)=g(t)$,
+
+$z=z(x,y)=H(x,y)=x+y-5$,
+
+$P(t)=(x(t),y(t))=(4-t^2,3+\ColorRed{t})$,
+
+$t_0=0$.
+
+\bsk
+
+
+Calcule:
+
+a) \B(0.2 pts) $x_0$, $y_0$, $P(0), P(1), P(-1)$,
+
+b) \B(0.3 pts) $P'(t), P''(t), P'(0), P'(1), P'(-1), P''(0)$.
+
+
+\msk
+
+Represente graficamente num gráfico só:
+
+c) \B(0.5 pts) $P(0)+P'(0), P(1)+P'(1), P(-1)+P'(-1)$,  
+
+d) \B(0.5 pts) A trajetória $P(t)$ entre $t=-1$ e $t=+1$,
+
+e) \B(0.5 pts) $P(0)+P''(0)$.
+
+
+
+\newpage
+
+% «questao-2-fghi»  (to ".questao-2-fghi")
+% (c3m212p1p 5 "questao-2-fghi")
+% (c3m212p1a   "questao-2-fghi")
+
+{\bf Questão 2 (cont.)}
+
+\msk
+
+f) \B(0.2 pts) Faça o diagrama de numerozinhos de $H(x,y)$
+
+para $x∈\{x_0-1, x_0, x_0+1\}$, $y∈\{y_0-1, y_0, y_0+1\}$.
+
+\msk
+
+g) \B(0.8 pts) Represente graficamente a superfície $z = H(x,y)$
+
+no quadrado com $x∈[x_0-1, x_0+1]$, $y∈[y_0-1, y_0+1]$.
+
+Faça um desenho em perspectiva improvisada com postes
+
+ligados por cabos, como aqui:
+
+\ssk
+
+{\footnotesize
+
+% (c3m212dnp 9 "figuras-3D")
+% (c3m212dna   "figuras-3D")
+%    http://angg.twu.net/LATEX/2021-2-C3-diag-nums.pdf#page=9
+\url{http://angg.twu.net/LATEX/2021-2-C3-diag-nums.pdf#page=9}
+
+}
+
+\bsk
+
+Desenhe sobre a sua figura do item anterior
+
+as seguintes trajetórias (para $t∈[-1,1]$):
+
+h) \B(0.2 pts) $(x(t), y(t), 0)$,
+
+i) \B(0.8 pts) $(x(t), y(t), z(x,y))$.
+
+
+\newpage
+
+% «questao-2-jk»  (to ".questao-2-jk")
+% (c3m212p1p 6 "questao-2-jk")
+% (c3m212p1a   "questao-2-jk")
+
+{\bf Questão 2 (cont.)}
+
+\ssk
+
+Sejam:
+
+$Q(t) = (x(t), y(t), 0)$,
+
+$R(t) = (x(t), y(t), z(x(t),y(t)))$.
+
+\bsk
+
+j) \B(0.8 pts) Calcule $R(0)$, $R'(0)$, $R''(0)$. 
+
+k) \B(0.2 pts) Calcule $Q(0)$, $Q'(0)$, $Q''(0)$. 
+
+% Versao original, errada:
+%
+% i) \B(0.8 pts) Calcule $R(0)$, $R'(0)$, $R''(0)$. 
+%
+% j) \B(0.2 pts) Calcule $Q(0)$, $Q'(0)$, $Q''(0)$. 
+
+
+
+\newpage
+
+% «gabarito-maxima»  (to ".gabarito-maxima")
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^%T ")
+%
+%T  (eepitch-maxima)
+%T  (eepitch-kill)
+%T  (eepitch-maxima)
+%T x      : 4-t^2;
+%T y      : 3+t;
+%T z      : x+y-5;
+%T P      : [x,y];
+%T Q      : [x,y,0];
+%T R      : [x,y,z];
+%T P_t    : diff(P,   t);
+%T P_tt   : diff(P_t, t);
+%T subst([t= 0], z);
+%T subst([t= 1], P);
+%T subst([t= 0], P);
+%T subst([t=-1], P);
+%T subst(t, 0, z);
+%T ["a:", subst([t=0],x), subst([t=0],y),
+%T        subst([t=0],P), subst([t=1],P), subst([t=-1],P)]; 
+%T ["b:", P_t, P_tt,
+%T        subst([t=0],P_t), subst([t=1],P_t), subst([t=-1],P_t),
+%T        subst([t=0],P_tt)];
+%T ["c:", [subst([t=0],P), "+", subst([t=0],P_t)],
+%T        [subst([t=1],P), "+", subst([t=1],P_t)],
+%T        [subst([t=-1],P), "+", subst([t=-1],P_t)]
+%T        ];
+%T  d:
+%T    plot2d([parametric, x, y, [t, -1, 1]]);
+%T ["e:", [subst([t=0],P), "+", subst([t=0],P_tt)]];
+
+
+
+{\bf Questão 2: gabarito parcial}
+
+% ["a:", subst([t=0],x), subst([t=0],y),
+%        subst([t=0],P), subst([t=1],P), subst([t=-1],P)]; 
+% (%o14)                [a:, 4, 3, [4, 3], [3, 4], [3, 2]]
+% (%i15) ["b:", P_t, P_tt,
+% (%i15)        subst([t=0],P_t), subst([t=1],P_t), subst([t=-1],P_t),
+% (%i15)        subst([t=0],P_tt)];
+% (%o15)  [b:, [- 2 t, 1], [- 2, 0], [0, 1], [- 2, 1], [2, 1], [- 2, 0]]
+% (%i16) ["c:", [subst([t=0],P), "+", subst([t=0],P_t)],
+%        [subst([t=1],P), "+", subst([t=1],P_t)],
+%        [subst([t=-1],P), "+", subst([t=-1],P_t)]
+%        ];
+% (%o16) [c:, [[4, 3], +, [0, 1]], [[3, 4], +, [- 2, 1]], [[3, 2], +, [2, 1]]]
+% (%i17) 
+
+%T x(t)   = 4-t^2;
+%T y(t)   = 3+t;
+%T z(x,y) = x+y-5;
+%T H(x,y) = x+y-5;
+%T zoft(t)   = z(x(t),y(t));
+%T xyzoft(t) = [x(t), y(t), zoft(t)];
+%T xyzoft(0);
+
+
+a) \B(0.2 pts)
+   $x_0=4$,
+   $y_0=3$,
+   $P(0) = (4, 3)$,
+
+   $P(1) = (3, 4)$,
+   $P(-1) = (3, 2)$
+
+b) \B(0.3 pts)
+   $P'(t)  = \VEC{-2t, 1}$,
+   $P''(t) = \VEC{-2, 0}$,
+   $P'(0)  = \VEC{0, 1}$,
+
+   $P'(1)  = \VEC{- 2, 1}$,
+   $P'(-1) = \VEC{2, 1}$,
+   $P''(0) = \VEC{- 2, 0}$
+
+\msk
+
+% (find-LATEX "2022pict2e.lua" "Pict2e")
+% (find-LATEX "2022pict2e.lua" "Pict2e" "b0show =")
+
+%L s2 = Surface {
+%L      unitlength="15pt", sw=v(-1,-3), ne=v(13,7),
+%L      p1=v(2,-0.5), p2=v(0.5,1.5), p3=v(0,0.5),
+%L      maxx=5, maxy=4, maxz=3,
+%L      x0=4, y0=3, nsteps=16,
+%L      -- f = function (x, y) return (x-4)^2 + (y-3)^2 end,
+%L      f = function (x, y) return (x-3) + (y-2) end,
+%L   }
+%L
+%L p = s2:base() + s2:fig()
+%L
+%L fP = function (t) return v3(4-t^2, 3+t, 0) end
+%L fQ = function (t) return v3(4-t^2, 3+t, 0) end
+%L fR = function (t) return v3(4-t^2, 3+t, (4-t^2)+(3+t)-5) end
+%L trajQ = Points2(map(fQ, seq(-1, 1, 1/16))):Line()
+%L trajR = Points2(map(fR, seq(-1, 1, 1/16))):Line()
+%L
+%L -- print(s2)
+%L -- p = (s2:base() + s2:fig() + s2:twoDgrid())
+%L --     :setbounds():bepcb():def("FOO")
+%L    
+%L    p = (s2:base() + s2:fig() + trajQ + trajR)
+%L        :setbounds():bep():def("FOO")
+%L p:output()
+
+\pu
+
+
+% \scalebox{1.0}{\def\colwidth{4cm}\firstcol{
+
+% c) \B(0.5 pts)
+
+% d) \B(0.5 pts)
+
+% e) \B(0.5 pts)
+
+% \msk
+
+% f) \B(0.2 pts) (numerozinhos
+
+% g) \B(0.8 pts)
+
+% h) \B(0.2 pts)
+
+% i) \B(0.8 pts)
+
+% }\anothercol{
+
+\unitlength=15pt
+
+$\FOO$
+
+Faltou desenhar:
+
+Diagrama de numerozinhos
+
+Vetores
+
+% }}
+
+
+
+
+\msk
+
+% j) \B(0.8 pts)
+
+% k) \B(0.2 pts)
+
+
+
+
+%T load("/usr/share/emacs/site-lisp/maxima/emaxima.lisp")$
+%T display2d:'emaxima$
+
+
+
+
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C3/")
+# (find-fline "~/LATEX/2021-2-C3/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C3/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C3/
+       cat <<%%%
+% (find-latexscan-links "C3" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C3-P1 veryclean
+make -f 2019.mk STEM=2021-2-C3-P1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3p1"
+% ee-tla: "c3m212p1"
+% End:

@@ -17,7 +17,7 @@
 -- «.Parabola-test»	(to "Parabola-test")
 -- «.drawdots0»		(to "drawdots0")
 
-loaddednat6()  -- (find-angg "LUA/lua50init.lua" "loaddednat6")
+loaddednat6("dednat6/")  -- (find-angg "LUA/lua50init.lua" "loaddednat6")
 seqndraw = function (a, b, n, f, sep)
     local A = {}
     for i=0,n do table.insert(A, tostring(f(a + (b-a)*(i/n)))) end

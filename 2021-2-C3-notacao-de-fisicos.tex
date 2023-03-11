@@ -21,6 +21,9 @@
 % (find-LATEX "2019.mk")
 % (find-CN-aula-links "2021-2-C3-notacao-de-fisicos" "3" "c3m212nf" "c3nf")
 
+% (defalias 'find-pdf-page 'find-pdftoolsr-page)
+% (defalias 'find-pdf-page 'find-xpdf-page)
+
 % «.defs»	(to "defs")
 % «.title»	(to "title")
 %
@@ -30,8 +33,10 @@
 % «.primeiro-exemplo»		(to "primeiro-exemplo")
 % «.omitir-nomes»		(to "omitir-nomes")
 % «.omitir-nomes-2»		(to "omitir-nomes-2")
+% «.regras-de-traducao»		(to "regras-de-traducao")
 % «.omitir-nomes-3»		(to "omitir-nomes-3")
 % «.exercicio-1»		(to "exercicio-1")
+% «.exercicio-1-maxima»		(to "exercicio-1-maxima")
 % «.exercicio-1-dica»		(to "exercicio-1-dica")
 % «.lendo-o-ST»			(to "lendo-o-ST")
 % «.silvanus-triangle»		(to "silvanus-triangle")
@@ -41,10 +46,14 @@
 % «.exercicio-2-dicas-2»	(to "exercicio-2-dicas-2")
 % «.variaveis-novas»		(to "variaveis-novas")
 % «.derivadas-parciais»		(to "derivadas-parciais")
+% «.exercicio-5»		(to "exercicio-5")
 % «.derivadas-parciais-th»	(to "derivadas-parciais-th")
 % «.derivadas-parciais-e-ts»	(to "derivadas-parciais-e-ts")
 % «.exercicio-7»		(to "exercicio-7")
 % «.exercicio-8»		(to "exercicio-8")
+%
+% «.exercicio-5-maxima»		(to "exercicio-5-maxima")
+% «.exercicio-5-latex»		(to "exercicio-5-latex")
 %
 % «.exercicio-2»		(to "exercicio-2")
 % «.quadraticas-exemplos»	(to "quadraticas-exemplos")
@@ -83,6 +92,7 @@
 \input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
 \input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
 \input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
 %
 %\usepackage[backend=biber,
 %   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
@@ -227,8 +237,10 @@ matemáticos ``estritos'' aceitam.
 % |_|  |_|\__,_|\__| |_____|\___/_____|_(_)_|
 %                                            
 % «material-de-2021.1»  (to ".material-de-2021.1")
-% (c3m212typesp 8 "material-de-2021.1")
-% (c3m212typesa   "material-de-2021.1")
+% (c3m212nfp 3 "material-de-2021.1")
+% (c3m212nfa   "material-de-2021.1")
+% (c3m212typesp 11 "material-de-2021.1")
+% (c3m212typesa    "material-de-2021.1")
 
 {\bf Material do semestre passado}
 
@@ -491,6 +503,10 @@ $$
 
 \newpage
 
+% «regras-de-traducao»  (to ".regras-de-traducao")
+% (c3m212nfp 9 "regras-de-traducao")
+% (c3m212nfa   "regras-de-traducao")
+
 % «omitir-nomes-3»  (to ".omitir-nomes-3")
 % (c3m212nfp 10 "omitir-nomes-3")
 % (c3m212nfa    "omitir-nomes-3")
@@ -604,6 +620,21 @@ c) Especialize as suas contas do item a pro caso
 \phantom{c) }$z(y) = \sen y$, $y(x) = e^{4x}$.
 
 d) Calcule $\frac{d}{dx}\frac{d}{dx} \sen(e^{4x})$ pelo método convencional.
+
+
+% «exercicio-1-maxima»  (to ".exercicio-1-maxima")
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^% ")
+%
+%  (eepitch-maxima)
+%  (eepitch-kill)
+%  (eepitch-maxima)
+% y(x) := exp(4*x);
+% z(y) := sin(y);
+%           z(y(x));
+%      diff(z(y(x)), x);
+% diff(diff(z(y(x)), x), x);
+
 
 
 \newpage
@@ -986,6 +1017,10 @@ Comece do último parágrafo da 168 -- o que começa com
 
 \bsk
 
+% «exercicio-5»  (to ".exercicio-5")
+% (c3m212nfp 20 "exercicio-5")
+% (c3m212nfa    "exercicio-5")
+
 {\bf Exercício 5.}
 
 Faça todos os itens do exercício 1 da página 177
@@ -1149,14 +1184,128 @@ Tudo que vem depois daqui vai ser reescrito.
 
 \newpage
 
+% «exercicio-5-maxima»  (to ".exercicio-5-maxima")
+% (c3m212nfp 26 "exercicio-5-maxima")
+% (c3m212nfa    "exercicio-5-maxima")
+% (find-books "__analysis/__analysis.el" "bortolossi")
+% (find-bortolossi5page (+ -162 177) "5.5. Exercícios")
+%
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^% ")
+%
+%  (eepitch-maxima)
+%  (eepitch-kill)
+%  (eepitch-maxima)
+% load("/usr/share/emacs/site-lisp/maxima/emaxima.lisp")$
+% display2d:'emaxima$
+% 
+%  Item a:
+% 
+% f : sqrt(r^2 + s^2);
+% [diff(f, r), diff(f, s)];
+% 
+%  Item b:
+% 
+% f : t/s - s/t;
+% [diff(f, s), diff(f, t)];
+% 
+%  Item c:
+% 
+% f : 2*x^4*y^3 - x*y^2 + 3*y + 1;
+% [diff(f, x), diff(f, y)];
+% 
+%  Item d:
+% 
+% f :          (t+v) / (t-v)  ;
+% g :     sqrt((t+v) / (t-v)) ;
+% h : log(sqrt((t+v) / (t-v)));
+% [diff(f, t), diff(f, v)];
+% [diff(g, t), diff(g, v)];
+% [diff(h, t), diff(h, v)];
+% 
+%  Item e:
+% 
+% f : (x^3 - y^2)^2;
+% [diff(f, x), diff(f, y)];
+% 
+%  Item f:
+% 
+% f : x*exp(y) + y*sin(x);
+% [diff(f, x), diff(f, y)];
+% 
+%  Item g:
+% 
+% f : exp(x) * log(x*y);
+% [diff(f, x), diff(f, y)];
+% 
+%  Item h:
+% 
+% f : x * cos(x/y);
+% [diff(f, x), diff(f, y)];
+
+{\bf Exercício 5: gabarito}
+
+% «exercicio-5-latex»  (to ".exercicio-5-latex")
+
+{\footnotesize
+
+\begin{maximasession}
+\maximaoutput*
+\i3. f : sqrt(r^2 + s^2); \\
+\o3. \sqrt{s^2+r^2} \\
+\i4. [diff(f, r), diff(f, s)]; \\
+\o4. \left[ {{r}\over{\sqrt{s^2+r^2}}} , {{s}\over{\sqrt{s^2+r^2}}} \right]  \\
+\i5. f : t/s - s/t; \\
+\o5. {{t}\over{s}}-{{s}\over{t}} \\
+\i6. [diff(f, s), diff(f, t)]; \\
+\o6. \left[ -{{t}\over{s^2}}-{{1}\over{t}} , {{s}\over{t^2}}+{{1}\over{s}} \right]  \\
+\i7. f : 2*x^4*y^3 - x*y^2 + 3*y + 1; \\
+\o7. 2\,x^4\,y^3-x\,y^2+3\,y+1 \\
+\i8. [diff(f, x), diff(f, y)]; \\
+\o8. \left[ 8\,x^3\,y^3-y^2 , 6\,x^4\,y^2-2\,x\,y+3 \right]  \\
+\i9. f :          (t+v) / (t-v)  ; \\
+\o9. {{v+t}\over{t-v}} \\
+\i10. g :     sqrt((t+v) / (t-v)) ; \\
+\o10. \sqrt{{{v+t}\over{t-v}}} \\
+\i11. h : log(sqrt((t+v) / (t-v))); \\
+\o11. {{\log \left({{v+t}\over{t-v}}\right)}\over{2}} \\
+\i12. [diff(f, t), diff(f, v)]; \\
+\o12. \left[ {{1}\over{t-v}}-{{v+t}\over{\left(t-v\right)^2}} , {{v+t}\over{\left(t-v\right)^2}}+{{1}\over{t-v}} \right]  \\
+\i13. [diff(g, t), diff(g, v)]; \\
+\o13. \left[ {{{{1}\over{t-v}}-{{v+t}\over{\left(t-v\right)^2}}}\over{2\,\sqrt{{{v+t}\over{t-v}}}}} , {{{{v+t}\over{\left(t-v\right)^2}}+{{1}\over{t-v}}}\over{2\,\sqrt{{{v+t}\over{t-v}}}}} \right]  \\
+\i14. [diff(h, t), diff(h, v)]; \\
+\o14. \left[ {{\left(t-v\right)\,\left({{1}\over{t-v}}-{{v+t}\over{\left(t-v\right)^2}}\right)}\over{2\,\left(v+t\right)}} , {{\left(t-v\right)\,\left({{v+t}\over{\left(t-v\right)^2}}+{{1}\over{t-v}}\right)}\over{2\,\left(v+t\right)}} \right]  \\
+\i15. f : (x^3 - y^2)^2; \\
+\o15. \left(x^3-y^2\right)^2 \\
+\i16. [diff(f, x), diff(f, y)]; \\
+\o16. \left[ 6\,x^2\,\left(x^3-y^2\right) , -4\,y\,\left(x^3-y^2\right) \right]  \\
+\i17. f : x*exp(y) + y*sin(x); \\
+\o17. x\,e^{y}+\sin x\,y \\
+\i18. [diff(f, x), diff(f, y)]; \\
+\o18. \left[ e^{y}+\cos x\,y , x\,e^{y}+\sin x \right]  \\
+\i19. f : exp(x) * log(x*y); \\
+\o19. e^{x}\,\log \left(x\,y\right) \\
+\i20. [diff(f, x), diff(f, y)]; \\
+\o20. \left[ e^{x}\,\log \left(x\,y\right)+{{e^{x}}\over{x}} , {{e^{x}}\over{y}} \right]  \\
+\i21. f : x * cos(x/y); \\
+\o21. x\,\cos \left({{x}\over{y}}\right) \\
+\i22. [diff(f, x), diff(f, y)]; \\
+\o22. \left[ \cos \left({{x}\over{y}}\right)-{{x\,\sin \left({{x}\over{y}}\right)}\over{y}} , {{x^2\,\sin \left({{x}\over{y}}\right)}\over{y^2}} \right]  \\
+\end{maximasession}
+
+}
+
+\newpage
+
 % «quadraticas-exemplos»  (to ".quadraticas-exemplos")
+% (c3m212nfp 32 "quadraticas-exemplos")
+% (c3m212nfa    "quadraticas-exemplos")
 % (c3m211nfp 18 "quadraticas-exemplos")
 % (c3m211nfa    "quadraticas-exemplos")
 % (c3m211qp 2 "figuras-3D")
 % (c3m211qa   "figuras-3D")
 
 {\bf Quadratics - tests}
-
 
 % (c3m211cnp 3 "exercicio-1")
 % (c3m211cna   "exercicio-1")

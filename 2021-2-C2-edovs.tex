@@ -1,0 +1,893 @@
+% (find-LATEX "2021-2-C2-edovs.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-edovs.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-edovs.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-edovs.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-edovs.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-edovs.tex"))
+% (defun o () (interactive) (find-LATEX "2021-1-C2-edovs.tex"))
+% (defun p () (interactive) (find-LATEX "2021-1-C2-P2.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-edovs"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-edovs.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-edovs")
+% (find-pdf-page   "~/LATEX/2021-2-C2-edovs.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-edovs.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-edovs.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-edovs.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-edovs.pdf
+%               file:///tmp/2021-2-C2-edovs.pdf
+%           file:///tmp/pen/2021-2-C2-edovs.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-edovs.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-edovs" "2" "c2m212edovs" "c2ev")
+
+% «.videos-antigos»		(to "videos-antigos")
+%
+% «.defs»			(to "defs")
+% «.title»			(to "title")
+% «.introducao»			(to "introducao")
+% «.campos-dirs»		(to "campos-dirs")
+% «.exercicio-1»		(to "exercicio-1")
+% «.exercicio-2»		(to "exercicio-2")
+% «.como-testar-uma-sol»	(to "como-testar-uma-sol")
+% «.exercicio-3»		(to "exercicio-3")
+% «.funcoes-inversas»		(to "funcoes-inversas")
+% «.exercicio-4»		(to "exercicio-4")
+% «.exercicio-5»		(to "exercicio-5")
+% «.duas-formulas»		(to "duas-formulas")
+% «.coisas-implicitas»		(to "coisas-implicitas")
+% «.exercicio-6»		(to "exercicio-6")
+% «.numeracao»			(to "numeracao")
+%
+% «.djvuize»			(to "djvuize")
+
+% «.defs»	(to "defs")
+% «.title»	(to "title")
+%
+% «.djvuize»	(to "djvuize")
+
+
+% «videos-antigos»  (to ".videos-antigos")
+% (c2m202edovsa   "video-1")
+% (c2m202edovsa   "video-2")
+% (c2m211edovsa   "video-1")
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c2m212edovs" "2021-2-C2-edovs" "{naoexiste}")
+% (code-eevvideo      "c2m212edovs" "2021-2-C2-edovs")
+% (code-eevlinksvideo "c2m212edovs" "2021-2-C2-edovs")
+% (find-c2m212edovsvideo "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+%\catcode`\^^J=10
+%\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%
+% %L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+% %L Pict2e.__index.suffix = "%"
+% \pu
+% \def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+% \def\pictaxesstyle{\linethickness{0.5pt}}
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\frown{\ensuremath{{=}{(}}}
+\def\True {\mathbf{V}}
+\def\False{\mathbf{F}}
+\def\D    {\displaystyle}
+
+\def\Rd#1{\ColorRed{#1}}
+
+\def\dydx{\frac{dy}{dx}}
+\def\pfo #1{\ensuremath{\mathsf{[#1]}}}
+\def\pfot#1{\ensuremath{\textsf{[#1]}}}
+
+\def\EDOVSGone{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{f(x)}{g(y)} \\ [10pt]
+        g(y) \, dy &=&   f(x) \, dx         \\ [5pt]
+      ∫ g(y) \, dy &=& ∫ f(x) \, dx         \\
+   \rotl{=}\ph{mm} & & \ph{mm}\rotl{=}      \\[-5pt]
+        G(y) + C_1 & & F(x) + C_2           \\
+                                               [5pt]
+        G(y) + C_1 &=& F(x) + C_2           \\ [5pt]
+        G(y)       &=& F(x) + C_2 - C_1     \\
+                   &=& F(x) + C_3           \\
+                                               [5pt]
+      G^{-1}(G(y)) &=& G^{-1}(F(x) + C_3)   \\
+   \rotl{=}\ph{mm} & &                      \\[-5pt]
+          y\ph{mm} & &                      \\
+  \end{array}
+  \right)
+  }
+
+\def\EDOVSGtwo{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{f(x)}{g(y)} \\ [10pt]
+                 y &=& G^{-1}(F(x) + C_3)   \\
+  \end{array}
+  \right)
+  }
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212edovsp 1 "title")
+% (c2m212edovsa   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Aula 26: EDOs com variáveis separáveis
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+
+% «introducao»  (to ".introducao")
+% (c2m211edovsp 2 "introducao")
+% (c2m211edovs    "introducao")
+
+{\bf Introdução}
+
+Seja $(*)$ a EDO abaixo:
+%
+$$f'(x) = 2x \qquad (*)$$
+
+Ela tem muitas soluções. Por exemplo, $f(x) = x^2$
+
+e $f(x) = x^2+3$ são duas soluções diferentes dela.
+
+\msk
+
+Desenhando várias soluções dela num gráfico ---
+
+veja o próximo slide --- dá pra entender como é o
+
+conjunto de todas as soluções dela: ele é um conjunto
+
+de infinitas curvas disjuntas, que ``cobrem o $\R^2$ todo'',
+
+no sentido de que cada ponto $(x,y)∈\R^2$ pertence a
+
+exatamente uma dessas curvas (ou: ``soluções'').
+
+\msk
+
+Por exemplo, o ponto $(2,5)$ pertence à solução $f(x) = x^2+1$.
+
+\newpage
+
+
+A ``solução geral'' da EDO $f'(x) = 2x$ é $f(x) = x^2 + C;$
+
+para obter soluções particulares substituimos esse $C$
+
+por números. Por exemplo, a solução de
+%
+$$f'(x) = 2x, \qquad f(2)=5$$
+
+é $f(x) = x^2 + 1.$ 
+
+\newpage
+
+% «campos-dirs»  (to ".campos-dirs")
+% (c2m211edovsp 4 "campos-dirs")
+% (c2m211edovs    "campos-dirs")
+
+{\bf Campos de direções}
+
+Vamos agora considerar esta outra EDO:
+%
+$$f'(x) = -\frac xy$$
+
+Nós ainda não sabemos quais são as soluções dela...
+
+Mas existe um jeito simples de interpretar graficamente 
+
+o que ela quer dizer. Para cada ponto $(x,y)∈\R^2$ a
+
+\ColorRed{fórmula} $\frac{dy}{dx} = -\frac xy$ nos permite calcular o coeficiente
+
+angular \ColorRed{no ponto $(x,y)$} da solução que passa pelo ponto $(x,y)$.
+
+Por exemplo:
+%
+\def\atpt#1#2{\sm{(x,y)=(#1) \\ ⇒ \; \frac{dy}{dx}=#2 }}
+%
+$$\begin{array}{ccccc}
+  \atpt{-2,2}{1} & \atpt{-1,2}{1/2} & \atpt{0,2}{0} & \atpt{1,2}{-1/2} & \atpt{2,2}{-1} \\ \\
+  \atpt{-2,1}{2} & \atpt{-1,1}{1} & \atpt{0,1}{0} & \atpt{1,1}{1} & \atpt{2,1}{-2} \\
+  % \atpt{-2,2}{1} & \atpt{-1,2}{1/2} & \atpt{0,2}{0} & \atpt{1,2}{1} & \atpt{2,2}{1} \\
+  \end{array}
+$$
+
+\newpage
+
+Veja as figuras daqui:
+
+\ssk
+
+{
+\footnotesize
+
+% http://angg.twu.net/2020.2-C2/thomas_secoes_15.1_ate_15.3.pdf
+% (code-pdf-page "thomas15" "$S/http/angg.twu.net/2020.2-C2/thomas_secoes_15.1_ate_15.3.pdf")
+% (code-pdf-text "thomas15" "$S/http/angg.twu.net/2020.2-C2/thomas_secoes_15.1_ate_15.3.pdf")
+% (find-thomas15page)
+% (find-thomas15text)
+\url{http://angg.twu.net/2020.2-C2/thomas_secoes_15.1_ate_15.3.pdf}
+
+}
+
+\ssk
+
+Os gráficos que usam tracinhos em certos pontos pra indicar
+
+coeficientes angulares naqueles pontos são gráficos de
+
+{\sl campos de direções}.
+
+\msk
+
+
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m211edovsp 5 "exercicio-1")
+% (c2m211edovs    "exercicio-1")
+
+{\bf Exercício 1.}
+
+Represente graficamente os campos de direções abaixo desenhando
+tracinhos com os coeficientes angulares adequados nos pontos com
+$x,y∈\{-2,-1,0,1,2\}$; ou seja, em cada item você vai ter que desenhar
+25 tracinhos. Quando $\frac{dy}{dx} = ∞$ desenhe o tracinho na
+vertical.
+
+\msk
+
+\begin{tabular}[t]{rl}
+a) & $\dydx = -1$ \\
+b) & $\dydx = x$ \\
+c) & $\dydx = 2x$ \\
+d) & $\dydx = -x/y$ \\
+\end{tabular}
+\qquad
+\begin{tabular}[t]{rl}
+e) & $\dydx = 1/y$ \\
+f) & $\dydx = 2/y$ \\
+g) & $\dydx = -y/x$ \\
+% d) & $ $ \\
+\end{tabular}
+
+\newpage
+
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m211edovsp 6 "exercicio-2")
+% (c2m211edovs    "exercicio-2")
+
+{\bf Exercício 2.}
+
+Tente imaginar o resto de cada um dos 7 campos de direções que você
+desenhou no exercício 1. Para cada um dos campos tente imaginar as
+curvas que você obteria se ligasse todos os tracinhos, e tente
+interpretar essas curvas como o conjunto de soluções da EDO que
+representamos graficamente como o campo de direções. Neste exercício
+você vai tentar encontrar soluções para EDOs no olhômetro a partir dos
+campos de direções delas.
+
+Para cada uma das funções abaixo diga quais das 7 EDOs do exercício 1
+podem ter aquela função como solução.
+
+\msk
+
+a) $y=x^2$
+
+b) $y=\sqrt{x}$
+
+c) $y=1/x$
+
+d) $y=\sqrt{1-x^2}$
+
+
+
+\newpage
+
+Na página seguinte temos o método geral para resolver EDOs
+
+com variáveis separáveis. Vou chamá-lo de $\pfo{EDOVSG}$ pra
+
+podermos discutir como obter casos particulares dele usando
+
+a operação `$[:=]$', ao invés de termos que escrever coisas
+
+como ``substituindo $f(x)$ por $▁▁$ acima obtemos...''.
+
+\ssk
+
+O método \pfo{EDOVSG} usa algumas gambiarras --- veja o
+
+vídeo pra explicações.
+
+\newpage
+
+$\pfo{EDOVSG} =
+ \left(
+ % (find-latexscan-links "C2" "20210416_edovs_caso_geral")
+ % (find-xpdf-page "~/LATEX/2020-2-C2/20210416_edovs_caso_geral.pdf")
+ \myvcenter{
+ \includegraphics[height=7.5cm]{2020-2-C2/20210416_edovs_caso_geral.pdf}
+ }
+ \right)
+$
+
+\newpage
+
+Digamos que queremos resolver esta EDO:
+%
+$$\dydx = -\frac{x}{y}$$
+
+Aparentemente dá pra resolvê-la usando
+%
+$$\pfo{EDOVSG}\bmat{f(x):=-x \\ g(y):=y}\;,$$
+
+mas também precisamos das primitivas $F(x)$ e $G(y)$,
+
+e da inversa $G^{-1}(y)$... a substituição certa é:
+%
+$$\pfo{EDOVSG}
+  \bmat{f(x):=-x \\
+        g(y):=y \\
+        F(x) := -\frac{x^2}{2} \\
+        G(y) := \frac{y^2}{2} \\
+        G^{-1}(z) := \sqrt{2z} \\
+       }
+$$
+
+\newpage
+
+$\text{...que dá isto:}
+  \qquad
+  % (find-latexscan-links "C2" "20210416_edovs_circulos")
+  % (find-xpdf-page "~/LATEX/2020-2-C2/20210416_edovs_circulos.pdf")
+  \myvcenter{
+  \includegraphics[height=7cm]{2020-2-C2/20210416_edovs_circulos.pdf}
+  }
+$
+
+(As últimas linhas têm passos extras.)
+
+
+\newpage
+
+% «como-testar-uma-sol»  (to ".como-testar-uma-sol")
+% (c2m211edovsp 11 "como-testar-uma-sol")
+% (c2m211edovs     "como-testar-uma-sol")
+
+{\bf Como testar uma solução}
+
+Digamos que estamos tentando resolver a EDO
+%
+$$\begin{array}{rcll}
+  f'(x) &=& \D -\frac{x}{f(x)}, & \qquad\text{ou:} \\[10pt]
+  \D \dydx &=& \D -\frac{x}{y}  \\
+  \end{array}
+$$
+
+e queremos ver se estas duas funções são solução dela:
+
+$f_1(x) = x^2 + 3$, $f_2(x) = \sqrt{25-x^2}$.
+
+\newpage
+
+{\bf Como testar uma solução (2)}
+
+Basta fazer:
+%
+$$\scalebox{0.85}{$
+  \begin{array}{rcll}
+  \left( f'(x) = \D -\frac{x}{f(x)} \right)
+  \; \bmat{ f(x) := x^2 + 3 \\ f'(x) = 2x }
+  &=&
+  \left( 2x = \D -\frac{x}{x^2+3} \right)
+  \\[15pt]
+  \left( f'(x) = \D -\frac{x}{f(x)} \right)
+  \; \bmat{ f(x) := \sqrt{25-x^2} \\ f'(x) = \frac{-x}{\sqrt{25-x^2}} }
+  &=&
+  \left( \D \frac{-x}{\sqrt{25-x^2}} = \D -\frac{x}{\sqrt{25-x^2}} \right)
+  \\
+  \end{array}
+  $}
+$$
+
+e ver se as igualdades da direita são verdadeiras para todo $x$
+
+no domínio de cada função --- aliás, nos pontos em que a função
+
+é derivável...
+
+\msk
+
+A função $f_1(x)=x^2$ está definida em todo $\R$ e é derivável
+
+em $\R$, e a função $f_2(x) = \sqrt{25-x^2}$ está definida no intervalo
+
+fechado $[-5,5]$ e é derivável no intervalo aberto $(-5,5)$.
+
+\msk
+
+Também dá pra testar soluções gerais, basta tratar os `$C$'s
+
+delas como constantes.
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m211edovsp 13 "exercicio-3")
+% (c2m211edovs     "exercicio-3")
+
+{\bf Exercício 3.}
+
+No exercício 1g você desenhou o campo de direções desta EDO:
+%
+$$ \frac{dy}{dx} = - \frac{y}{x} \qquad (**)$$
+
+e pelo campo de direções você deve ter conseguido ter uma noção
+
+de quais são as soluções dela... (dica: hipérboles!)
+
+\msk
+
+a) Resolva a EDO $(**)$ fazendo isto aqui:
+%
+$$\pfo{EDOVSG}
+  \bmat{f(x) = -1/x \\
+        g(y) = 1/y \\
+        F(x) = \Rd{?} \\
+        G(y) = \Rd{?} \\
+        G^{-1}(y) = \Rd{?} \\
+        }
+$$
+
+(Dica: preencha os `$\Rd{?}$'s corretamente)
+
+\newpage
+
+{\bf Exercício 3.}
+
+b) Diga qual é a solução geral.
+
+c) Teste a sua solução geral.
+
+d) Obtenha a solução que passa pelo ponto $(2,3)$.
+
+e) Obtenha a solução que passa pelo ponto $(2,-2)$.
+
+
+
+\newpage
+
+% «funcoes-inversas»  (to ".funcoes-inversas")
+% (c2m211edovsp 15 "funcoes-inversas")
+% (c2m211edovsa    "funcoes-inversas")
+
+{\bf Funções inversas por chutar e testar}
+
+Digamos que 
+%
+$$\begin{array}{rcl}
+  y &=& 3 + \sqrt{x+4}, \quad \text{isto é}, \\
+  f(x) &=& 3 + \sqrt{x+4},
+  \end{array}
+$$
+
+e sejam:
+%
+$$\begin{array}{rcl}
+  g(y) &=& (y-3)^2 + 4, \\
+  h(y) &=& (y-4)^2 + 3. \\
+  \end{array}
+$$
+
+Eu acho difícil ver só fazendo contas de cabeça se $f^{-1}(y) = g(y)$
+ou se $f^{-1}(y) = h(y)$... então é bom a gente saber testar se as
+inversas que a gente obteve de cabeça estão certas. O teste é:
+%
+$$\begin{array}{rcl}
+  (f^{-1}(f(x)) = x) \bsm{ f(x) := 3 + \sqrt{x+4} \\ f^{-1}(y) := (y-3)^2 + 4 } &=& \ColorRed{?} \\
+  (f^{-1}(f(x)) = x) \bsm{ f(x) := 3 + \sqrt{x+4} \\ f^{-1}(y) := (y-4)^2 + 3 } &=& \ColorRed{?} \\
+  \end{array}
+$$
+
+
+\newpage
+
+
+{\bf Funções inversas por chutar e testar (2)}
+
+O modo tradicional de obter inversas é por
+
+uma série de passos, como:
+%
+$$\begin{array}{rcl}
+  f(x) &=& 3 + \sqrt{x+4} \\
+  y &=& 3 + \sqrt{x+4} \\
+  y - 3 &=& \sqrt{x+4} \\
+  (y - 3)^2 &=& x+4 \\
+  (y - 3)^2 - 4 &=& x \\
+  (y - 3)^2 - 4 &=& f^{-1}(y) \\
+  \end{array}
+$$
+
+...mas é importante a gente saber testar se
+
+chegou na inversa certa.
+
+
+\newpage
+
+% «exercicio-4»  (to ".exercicio-4")
+% (c2m211edovsp 17 "exercicio-4")
+% (c2m211edovs     "exercicio-4")
+
+{\bf Exercício 4.} 
+
+Obtenha inversas para as seguintes funções:
+
+%
+$$\begin{array}{rcl}
+  f_1(x) &=& 2 + 3 \sqrt   {5x+6} \\
+  f_2(x) &=& 2 + 3 \sqrt[4]{5x+6} \\
+  f_3(x) &=& 2 + 3 (4x+5)^6 \\
+  f_4(x) &=& 2 + 3 \ln(4x + 5) \\
+  f_5(x) &=& 2 + 3 e^{4x + 5} \\
+  f_6(x) &=& \sqrt{2 + 3 e^{4x + 5}} \\[10pt]
+  f_7(x) &=& \ln x \\
+  f_8(x) &=& \ln -x\\
+  f_9(x) &=& |x|\\
+  f_{10}(x) &=& \ln |x|\\
+  \end{array}
+$$
+
+\msk
+
+Porque é que $f_9^{-1}(x)$ e $f_{10}^{-1}(x)$ não existem?
+
+
+\newpage
+
+
+{\bf Resolvendo ``direto''}
+
+No segundo vídeo sobre esta parte da matéria -- este aqui:
+
+\ssk
+
+{\footnotesize
+
+\url{http://angg.twu.net/eev-videos/2020-2-C2-edovs-2.mp4}
+
+}
+
+\ssk
+
+eu comecei mostrando como resolver a EDO $$\frac{dy}{dx} = - \frac xy,$$
+
+depois passei pro caso geral, $$\frac{dy}{dx} = \frac{f(x)}{g(y)},$$
+
+e aí defini o ``método'' $\pfo{EDOVSG}$... e nos exercícios
+
+que vieram depois disso nós usamos o $\pfo{EDOVSG}$
+
+e a operação `$[:=]$'.
+
+
+\newpage
+
+% «exercicio-5»  (to ".exercicio-5")
+% (c2m211edovsp 18 "exercicio-5")
+% (c2m211edovs     "exercicio-5")
+
+{\bf Exercício 5.}
+
+a) Tente resolver esta EDO ``direto'',
+
+como no início do vídeo:
+%
+$$\frac{dy}{dx} = \frac{1}{2y}$$
+
+E pare quando você chegar neste ponto:
+%
+$$y^2 = x + C_4$$
+
+O passo seguinte, se seguirmos o método do vídeo, é
+%
+$$y = \ColorRed{±}\sqrt{x + C_4}...$$
+
+\newpage
+
+{\bf Exercício 5 (cont.)}
+
+Podemos considerar que temos duas soluções gerais:
+%
+$$\begin{array}{rcl}
+  f_1(x) &=& \ColorRed{+}\sqrt{x + C_4}, \quad \text{e} \\
+  f_2(x) &=& \ColorRed{-}\sqrt{x + C_4}. \\
+  \end{array}
+$$
+
+b) Encontre o valor que $C_4$ que faz com que $f_1(2)=3$.
+
+c) Encontre o valor que $C_4$ que faz com que $f_2(4)=-5$.
+
+d) Encontre a solução que passa pelo ponto $(-3,-4)$.
+
+
+\newpage
+
+% «duas-formulas»  (to ".duas-formulas")
+% (c2m211edovsp 21 "duas-formulas")
+% (c2m211edovsa    "duas-formulas")
+
+{\bf Duas fórmulas. Sejam:}
+%
+$$\begin{array}{rcl}
+  \pfo{EDOVSG1} &=& \scalebox{0.8}{$\EDOVSGone$} \\
+  \\[-5pt]
+  \pfo{EDOVSG2} &=& \scalebox{0.8}{$\EDOVSGtwo$} \\
+  \end{array}
+$$
+
+\newpage
+
+% «coisas-implicitas»  (to ".coisas-implicitas")
+% (c2m211edovsp 22 "coisas-implicitas")
+% (c2m211edovsa    "coisas-implicitas")
+
+Lembre que eu expliquei nos vídeos que à medida que a
+
+matéria dos Cálculos avança cada vez mais coisas passam
+
+a ser implícitas ao invés de explícitas...
+
+\msk
+
+A linha de cima do \pfo{S2I} dizia ``Se $F'(u) = f(u)$ então:''...
+
+\msk
+
+No \pfo{EDOVSG1} e no \pfo{EDOVSG2} vai ficar \ColorRed{implícito}
+
+que temos que ter $F'(x) = f(x)$, $G'(y) = g(y)$,
+
+$C_3 = C_2 - C_1$, $G^{-1}(G(y))$, e \ColorRed{todos} os domínios
+
+também são omitidos...
+
+\newpage
+
+% «exercicio-6»  (to ".exercicio-6")
+% (c2m211edovsp 23 "exercicio-6")
+% (c2m211edovsa    "exercicio-6")
+
+{\bf Exercício 6.}
+
+\def\SubstExSix{
+  \bmat{ f(x) := 2x \\
+         g(y) := y^4 \\
+         G(y) := e^y \\
+         G^{-1}(x) := \ln x \\
+       }
+  }
+
+a) Escreva o resultado da substituição 
+%
+$$\pfo{EDOVSG1} \; \SubstExSix
+$$
+
+e escreva ``$= \pfo{E6}$'' à direita do seu resultado
+
+pra indicar que nós vamos usar a expressão $\pfo{E6}$
+
+pra nos referir a essa expressãozona.
+
+\msk
+
+b) Nessa substituição nós não obedecemos a condição
+
+$G'(y) = g(y)$, e isso deve ter feito com que alguns dos
+
+`$=$'s na sua \pfo{E6} sejam falsos. Quais?
+
+
+\newpage
+
+% «exercicio-6-dica»  (to ".exercicio-6-dica")
+% (c2m211edovsp 24 "exercicio-6-dica")
+% (c2m211edovsa    "exercicio-6-dica")
+
+{\bf Dica pro exercício 6}
+
+O resultado da 6a deve ser algo desta forma:
+%
+$$\scalebox{0.55}{$
+  \EDOVSGone \SubstExSix
+  \;\;=\;\;
+    \left(
+      \begin{array}{c} \ph{mmmmmmmmmmmmmmm} \\[150pt] \\ \ph{a} \end{array}
+    \right) 
+    \;\; = \;\;
+    \pfo{E6}
+  $}
+$$
+
+\bsk
+
+{\footnotesize
+
+Outra dica...
+
+Faça um retângulo de papel com a \pfo{EDOVSG1}, como este:
+
+\url{http://angg.twu.net/2021.1-C2/retangulo_de_papel.jpg}
+
+}
+
+
+\newpage
+
+% «numeracao»  (to ".numeracao")
+% (c2m211edovsp 25 "numeracao")
+% (c2m211edovsa    "numeracao")
+
+{\bf Tipos de `$=$'s}
+
+Vamos numerar os `$=$'s da \pfo{EDOVSG1}:
+
+$$\scalebox{0.8}{$\EDOVSGone$}
+  \qquad
+  \left(
+  \myvcenter{
+  % (find-latexscan-links "C2" "20210916_EDOVSG1_numeracao")
+  % (find-xpdf-page "~/LATEX/2021-1-C2/20210916_EDOVSG1_numeracao.pdf")
+  \includegraphics[height=5.15cm]{2021-1-C2/20210916_EDOVSG1_numeracao.pdf}
+  }
+  \right)
+$$
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C2/")
+# (find-fline "~/LATEX/2021-2-C2/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C2/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C2/
+       cat <<%%%
+% (find-latexscan-links "C2" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C2-edovs veryclean
+make -f 2019.mk STEM=2021-2-C2-edovs pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2ev"
+% ee-tla: "c2m212edovs"
+% End:

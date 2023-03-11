@@ -1,8 +1,8 @@
 % This file: (find-LATEX "edrx21.sty")
+% Loads:     (find-LATEX "edrx21defs.tex")
 % Based on:  (find-LATEX "edrx17.sty")
 %            (find-LATEX "edrx15.sty")
 %            (find-LATEX "edrx08.sty")
-% Loads: (find-LATEX "edrx21defs.tex")
 
 % «.arrows»		(to "arrows")
 % «.pbsymbol»		(to "pbsymbol")
@@ -27,7 +27,7 @@
 %\usepackage{mathrsfs}
 %\usepackage{stmaryrd}
 \usepackage{array}       % (find-es "tex" "array")
-\usepackage{shortvrb}    % (find-es "tex" "shortvrb")
+%\usepackage{shortvrb}   % (find-es "tex" "shortvrb")
 \usepackage{graphicx}    % (find-es "tex" "graphicx")
 
 
@@ -308,6 +308,8 @@
 
 
 % «sa-and-ga»  (to ".sa-and-ga")
+% Example: \sa{01}{foo}
+%          \ga{01}
 \def\sa#1#2{\expandafter\def\csname myarg#1\endcsname{#2}}
 \def\ga#1{\csname myarg#1\endcsname}
 

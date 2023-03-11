@@ -1,0 +1,925 @@
+% (find-LATEX "2021-2-C2-P2.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-P2.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-P2.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-P2.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-P2.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-P2.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C3-P2.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-P2.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-P1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-P2"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-P2.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-P2")
+% (find-pdf-page   "~/LATEX/2021-2-C2-P2.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-P2.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-P2.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-P2.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-P2.pdf
+%               file:///tmp/2021-2-C2-P2.pdf
+%           file:///tmp/pen/2021-2-C2-P2.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-P2.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-P2" "2" "c2m212p2" "c2p2")
+
+% «.defs»		(to "defs")
+% «.defs-T-and-B»	(to "defs-T-and-B")
+% «.title»		(to "title")
+% «.regras-e-dicas»	(to "regras-e-dicas")
+%
+% «.questao-1»		(to "questao-1")
+% «.questao-2-intro»	(to "questao-2-intro")
+% «.questao-2»		(to "questao-2")
+% «.questao-3-intro»	(to "questao-3-intro")
+% «.questao-3-intro-2»	(to "questao-3-intro-2")
+% «.questao-3»		(to "questao-3")
+% «.questao-3-bcd»	(to "questao-3-bcd")
+% «.questao-3-maxima»	(to "questao-3-maxima")
+%
+% «.questao-1-gab»	(to "questao-1-gab")
+% «.questao-2-gab»	(to "questao-2-gab")
+% «.ideias»		(to "ideias")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c2m212p2" "2021-2-C2-P2" "{naoexiste}")
+% (code-eevvideo      "c2m212p2" "2021-2-C2-P2")
+% (code-eevlinksvideo "c2m212p2" "2021-2-C2-P2")
+% (find-c2m212p2video "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+%\catcode`\^^J=10
+%\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%
+% %L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+% %L Pict2e.__index.suffix = "%"
+% \pu
+% \def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+% \def\pictaxesstyle{\linethickness{0.5pt}}
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+% «defs-T-and-B»  (to ".defs-T-and-B")
+% (c3m202p1p 6 "questao-2")
+% (c3m202p1a   "questao-2")
+\long\def\ColorOrange#1{{\color{orange!90!black}#1}}
+\def\T(Total: #1 pts){{\bf(Total: #1)}}
+\def\T(Total: #1 pts){{\bf(Total: #1 pts)}}
+\def\T(Total: #1 pts){\ColorRed{\bf(Total: #1 pts)}}
+\def\B       (#1 pts){\ColorOrange{\bf(#1 pts)}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212p2p 1 "title")
+% (c2m212p2a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Segunda prova (P2)
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+% «regras-e-dicas»  (to ".regras-e-dicas")
+% (c2m212p2p 2 "regras-e-dicas")
+% (c2m212p2a   "regras-e-dicas")
+
+{\bf Regras e dicas}
+
+As regras e dicas são as mesmas dos mini-testes,
+
+exceto que a prova será disponibilizada às 22:00
+
+da quinta, 3/fev/2022, e você deverá entregá-la
+
+até as 22:00 do sábado, 5/fev/2022.
+
+
+
+\bsk
+
+\newpage
+
+{\bf Importante}
+
+\ssk
+
+Os símbolos ``[MVG]'', ``[RP2]'' e ``[EVS]''
+
+nas questões são referências a estes PDFs:
+
+\ssk
+
+{\footnotesize
+
+% (c2m212mvp 2)
+%    http://angg.twu.net/LATEX/2021-2-C2-mud-var-gamb.pdf
+\url{http://angg.twu.net/LATEX/2021-2-C2-mud-var-gamb.pdf}
+
+% (c2m212rp2p 5)
+%    http://angg.twu.net/LATEX/2021-2-C2-revisao-pra-P2.pdf
+\url{http://angg.twu.net/LATEX/2021-2-C2-revisao-pra-P2.pdf}
+
+% (c2m211edovsp 2 "introducao")
+% (c2m211edovs    "introducao")
+%    http://angg.twu.net/LATEX/2021-2-C2-edovs.pdf
+\url{http://angg.twu.net/LATEX/2021-2-C2-edovs.pdf}
+
+}
+
+\bsk
+
+Nas questões 1 e 2 desta prova você {\bf VAI TER QUE}
+
+usar a notação das caixinhas de truques do [MVG].
+
+% (c2m212rp2p 5 "exercicio-3")
+% (c2m212rp2a   "exercicio-3")
+% (find-books "__analysis/__analysis.el" "miranda")
+
+
+
+% \msk
+% 
+% Várias das questões desta prova são baseadas nos
+% 
+% exercícios sobre funções homogêneas que nós discutimos
+% 
+% na última aula antes da prova. Leia o log aqui:
+
+
+\newpage
+
+% «questao-1»  (to ".questao-1")
+% (c2m212p2p 3 "questao-1")
+% (c2m212p2a   "questao-1")
+% (c2m212rp2p 5 "exercicio-3")
+% (c2m212rp2a   "exercicio-3")
+
+{\bf Questão 1.}
+
+\T(Total: 3.0 pts)
+
+Obs: esta questão é muito parecida
+
+com o exercício 3 do [RP2].
+
+% você integrou isto aqui:
+%
+%$$\intth {(\cos θ)^2(\sen θ)^2·\sen θ}$$
+
+\bsk
+\bsk
+
+a) \B(2.0 pts) Use a substituição $c = \cos θ$ pra integrar
+%
+$$\intth {(\sen θ)^3(\cos θ)^3}.$$
+
+b) \B(1.0 pts) Confira a sua resposta derivando-a.
+
+
+\newpage
+
+% «questao-2-intro»  (to ".questao-2-intro")
+% (c2m211cc2p 8 "d-arcsen-3")
+% (c2m211cc2a   "d-arcsen-3")
+% (find-LATEXgrep "grep --color=auto -niH --null -e trigo 2*.tex")
+% (find-dmirandacalcpage 263 "8.4 Substituição Trigonométrica")
+
+{\bf Introdução à questão 2}
+
+
+Os livros costumam ensinar Substituição Trigonométrica
+
+exatamente do jeito que o Daniel Miranda faz na seção 8.4
+
+do livro dele --- que é um jeito que só funciona pra pessoas
+
+com muito mais memória que eu. Pra mim o jeito que usa
+
+a caixinha de truques que está explicada aqui:
+
+\msk
+
+{\footnotesize
+
+% (c2m211cc2p 8 "d-arcsen-3")
+% (c2m211cc2a   "d-arcsen-3")
+%    http://angg.twu.net/LATEX/2021-1-C2-contas-em-C2.pdf#page=8
+\url{http://angg.twu.net/LATEX/2021-1-C2-contas-em-C2.pdf\#page=8}
+
+}
+
+\msk
+
+é bem mais fácil...
+
+Você {\bf VAI TER QUE} usá-lo na questão 2.
+
+\newpage
+
+{\bf Introdução à questão 2 (cont.)}
+
+\ssk
+
+Dá pra resolver a questão 2 usando mudanças
+
+de variáveis bem simples. O objetivo da questão 2
+
+é treinar você pra resolver integrais que só podem
+
+ser resolvidas por substituição trigonométrica,
+
+então se você resolver a 2 por outros métodos você
+
+vai estar treinando outras coisas e contornando o
+
+objetivo da questão. Releia o ``VAI TER QUE''
+
+que eu pus em negrito no slide anterior!
+
+\bsk
+
+Em alguns outros lugares da prova eu também pedi
+
+que a resolução seja feita por um determinando
+
+método ou posta num determinado formato.
+
+Recomendo que você leve esses pedidos muito a sério.
+
+
+
+
+\newpage
+
+% «questao-2»  (to ".questao-2")
+% (c2m212p2p 6 "questao-2")
+% (c2m212p2a   "questao-2")
+
+{\bf Questão 2.}
+
+\T(Total: 3.0 pts)
+
+\ssk
+
+a) \B(2.0 pts) Use o método do slide anterior pra integrar
+%
+$$\ints {s \sqrt{1 - s^2}}.$$
+
+b) \B(1.0 pts) Confira a sua resposta derivando-a.
+
+
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^%T ")
+%
+%T  (eepitch-maxima)
+%T  (eepitch-kill)
+%T  (eepitch-maxima)
+%T rs : sqrt(1 - s^2);
+%T integrate(s * rs, s);
+%T integrate(s^2 * rs, s);
+%T integrate(s^2 * rs, s) - asin(s) / 8;
+
+
+
+\newpage
+
+% «questao-3-intro»  (to ".questao-3-intro")
+% (c2m212p2p 7 "questao-3-intro")
+% (c2m212p2a   "questao-3-intro")
+
+{\bf Introdução à questão 3}
+
+\ssk
+
+Na parte do curso sobre EDOs com variáveis separáveis
+
+nos vimos um \ColorRed{método} para resolvê-las...
+
+\msk
+
+Nós vimos porque o método funciona --- a ``demonstração''
+
+dele tem umas gambiarras bem difíceis de formalizar --- e
+
+vimos que podemos \ColorRed{aplicar} o método mesmo sem entender
+
+ele direito, só usando o `$[:=]$'...
+
+\bsk
+
+Pra ``aplicar o método'' nós primeiro usamos o `$[:=]$'
+
+pra obter várias ``soluções gerais'', e depois pra procurar
+
+a solução que passa por um certo ponto $(x,y)$ dado nós
+
+precisamos escolher a ``solução geral'' certa, ajustar
+
+umas constantes nela, e depois precisamos testar essa
+
+solução.
+
+
+
+
+\newpage
+
+% «questao-3-intro-2»  (to ".questao-3-intro-2")
+% (c2m212p2p 8 "questao-3-intro-2")
+% (c2m212p2a   "questao-3-intro-2")
+
+
+\msk
+
+{\bf Introdução à questão 3 (cont.)}
+
+\ssk
+
+\def\ssqrt#1{\ColorRed{#1}\sqrt{\mathstrut\ldots}}
+
+Nos slides 19 e 20 do [EVS] eu falei sobre  de três tipos
+
+de soluções gerais: um com `$\ColorRed{\pm}\sqrt{\ldots}$' , um com
+`$\ColorRed{+}\sqrt{\ldots}$',
+
+e um com `$\ColorRed{-}\sqrt{\ldots}$'.
+
+\msk
+
+Às vezes os enunciados vão dizer qual tipo você vai ter
+
+que usar e às vezes você vai ter que descobrir o tipo
+
+certo.
+
+
+\newpage
+
+% (c2m211edovsp 21 "duas-formulas")
+% (c2m211edovsa    "duas-formulas")
+
+{\bf Uma dica pra questão 3}
+
+\ssk
+
+No slide 21 do [EVS] eu defini as fórmulas
+
+[EDOVSG1] e [EDOVSG2]. A [EDOVSG1]
+
+é bem grande, e eu recomendo \underline{{\bf MUITO}} que
+
+antes de fazer a questão 3 você copie ela numa
+
+folha de papel e recorte-a --- como você fez com
+
+a [S2I] no início do curso, aqui:
+
+\ssk
+
+{\footnotesize
+
+% (c2m212introp 10 "exercicio-1")
+% (c2m212introa    "exercicio-1")
+%    http://angg.twu.net/LATEX/2021-2-C2-intro.pdf#page=10
+\url{http://angg.twu.net/LATEX/2021-2-C2-intro.pdf#page=10}
+
+}
+
+
+
+
+
+\newpage
+
+% «questao-3»  (to ".questao-3")
+% (c2m212p2p 8 "questao-3")
+% (c2m212p2a   "questao-3")
+% (c2m211edovsp 21 "duas-formulas")
+% (c2m211edovsa    "duas-formulas")
+
+\def\rq{\ColorRed{?}}
+
+
+\sa{EDOVSG1}{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{f(x)}{g(y)} \\ [10pt]
+        g(y) \, dy &=&   f(x) \, dx         \\ [5pt]
+      ∫ g(y) \, dy &=& ∫ f(x) \, dx         \\
+   \rotl{=}\ph{mm} & & \ph{mm}\rotl{=}      \\[-5pt]
+        G(y) + C_1 & & F(x) + C_2           \\
+                                               [5pt]
+        G(y) + C_1 &=& F(x) + C_2           \\ [5pt]
+        G(y)       &=& F(x) + C_2 - C_1     \\
+                   &=& F(x) + C_3           \\
+                                               [5pt]
+      G^{-1}(G(y)) &=& G^{-1}(F(x) + C_3)   \\
+   \rotl{=}\ph{mm} & &                      \\[-5pt]
+          y\ph{mm} & &                      \\
+  \end{array}
+  \right)
+  }
+\sa{EDOVSG2}{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{f(x)}{g(y)} \\ [10pt]
+                 y &=& G^{-1}(F(x) + C_3)   \\
+  \end{array}
+  \right)
+  }
+
+\sa{Edovsg1}{\text{[EDOVSG1]}}
+\sa{Edovsg2}{\text{[EDOVSG2]}}
+\sa{Daigoro}{\text{[Daigoro]}}
+\sa{Itto}   {\text{[Itto]}}
+\sa{Ogami}  {\text{[Ogami]}}
+\sa{SDaigoro}{\bsm{
+    f(x) = \rq \\
+    g(y) = \rq \\
+    F(x) = \rq \\
+    G(y) = \rq \\
+    G^{-1}(y) = \rq \\
+  }}
+\sa{SItto}{\bsm{
+    f(x) = \rq \\
+    g(y) = \rq \\
+    F(x) = \rq \\
+    G(y) = \rq \\
+    G^{-1}(y) = \rq \\
+    C_3 = \rq \\
+  }}
+
+{\bf Questão 3.}
+
+\T(Total: 5.0 pts)
+
+Seja $(*)$ esta EDO:
+%
+$$\frac{dy}{dx} = -\frac{4x}{y} \qquad (*)$$
+
+a) \B(1.0 pts) Encontre uma substituição para a [EDOVSG2]
+
+que dá a solução geral da EDO $(*)$ com `$\ssqrt{\pm}$' e chame o
+
+resultado desta substituição de [Daigoro]. A sua resposta
+
+deve ser algo desta forma:
+%
+$$\ga{Daigoro} \;\;=\;\; \ga{Edovsg2} \ga{SDaigoro} \;\;=\;\; (\rq)$$
+
+
+\newpage
+
+% «questao-3-bcd»  (to ".questao-3-bcd")
+% (c2m212p2p 9 "questao-3-bcd")
+% (c2m212p2a   "questao-3-bcd")
+
+{\bf Questão 3 (cont.)}
+
+\msk
+
+
+b) \B(1.0 pts) Encontre uma substituição para a
+
+[EDOVSG2] que dá a solução da EDO $(*)$ que
+
+passa pelo ponto $(x,y)=(2,3)$. Aqui você vai
+
+ter que usar `$\ssqrt{+}$' ou `$\ssqrt{-}$', e a sua
+
+resposta deve ser algo desta forma:
+%
+$$\ga{Itto} \;\;=\;\; \ga{Edovsg2} \ga{SItto} \;\;=\;\; (\rq)$$
+
+
+c) \B(1.0 pts) Verifique a sua solução obedece $\frac{dy}{dx}=-\frac{4x}{y}$.
+
+d) \B(1.0 pts) Verifique a sua solução passa pelo ponto $(2,3)$.
+
+
+
+\newpage
+
+{\bf Questão 3 (cont.)}
+
+\msk
+
+e) \B(1.0 pts) Mostre qual é o resultado de aplicar
+
+a substituição que você obteve no item (b) na
+
+[EDOVSG1]. O resultado deve ser algo desta forma:
+%
+$$\ga{Ogami} \;\;=\;\; \ga{Edovsg1} \ga{SItto} \;\;=\;\; (\rq)$$
+
+
+\newpage
+
+
+% «questao-3-maxima»  (to ".questao-3-maxima")
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^%T ?")
+%
+%T  (eepitch-maxima)
+%T  (eepitch-kill)
+%T  (eepitch-maxima)
+%T load("/usr/share/emacs/site-lisp/maxima/emaxima.lisp")$
+%T display2d:'emaxima$
+%T
+%T  (eepitch-maxima)
+%T  (eepitch-kill)
+%T  (eepitch-maxima)
+%T dydx    :  'diff(y,x);
+%T myeq    : ('diff(y,x) = - 4*x/y);
+%T mysolg  : ode2 (myeq, y, x);
+%T mysol1  : ic1(mysolg, x=4, y=6);
+%T mysol1  : ic1(mysolg, x=2, y=3);
+%T mysol2  : solve(mysol1, y);
+%T x0      : 2;
+%T y0      : 3;
+%T mysol3  : subst([x=x0],       mysol2);
+%T mysol3  : subst([x=x0, y=y0], mysol2);
+%T my_y    : mysol2[2];
+%T my_y    : rhs(mysol2[2]);
+%T my_y_x  : diff(my_y, x);
+%T subst([],                    myeq);
+%T subst([dydx=my_y_x],         myeq);
+%T subst([dydx=my_y_x, y=my_y], myeq);
+%T 
+%T solve(ode2(('diff(y,x)=-4*x/y), y, x), y);
+
+\newpage
+
+% «questao-1-gab»  (to ".questao-1-gab")
+% (c2m212p2p 14 "questao-1-gab")
+% (c2m212p2a    "questao-1-gab")
+% (c2m212rp2p 4 "exercicio-2")
+% (c2m212rp2a   "exercicio-2")
+
+{\bf Questão 1: gabarito}
+
+\sa{caixa s=sen theta}{
+    s = \sen θ \\
+    \frac{ds}{dθ} = \frac{d}{dθ} \sen θ = \cos θ \\
+    ds = \cos θ \, dθ \\
+    (\cosθ)^2 + (\senθ)^2 = 1 \\
+    (\cosθ)^2 = 1 - (\senθ)^2 \\
+    (\cosθ)^2 = 1 - s^2 \\
+  }
+\sa{caixa c=cos theta}{
+    c = \sen θ \\
+    \frac{dc}{dθ} = \frac{d}{dθ} \cos θ = -\sen θ \\
+    dc = -\sen θ \, dθ \\
+    (-1)dc = \sen θ \, dθ \\
+    (\cosθ)^2 + (\senθ)^2 = 1 \\
+    (\senθ)^2 = 1 - (\cosθ)^2 \\
+    (\senθ)^2 = 1 - c^2 \\
+  }
+\sa{caixa s=sen theta trig}{
+    s = \sen θ \\
+    \frac{ds}{dθ} = \frac{d}{dθ} \sen θ = \cos θ \\
+    ds = \cos θ \, dθ\\
+    1 - s^2 = \cos^2 θ \\
+    \sqrt{1 - s^2} = \cos θ \\
+    θ = \arcsen s \\
+  }
+
+
+\scalebox{0.85}{\def\colwidth{12cm}\firstcol{
+
+\msk
+
+a) \;\;
+%
+$\begin{array}{l}
+  \intth {(\sen θ)^3(\cos θ)^3} \\
+  = \intth {(\sen θ)^2(\cos θ)^3(\sen θ)} \\
+  = \intc {(1-c^2)(c)^3(-1)} \\
+  = \intc {(c^2-1)(c)^3} \\
+  = \intc {c^5-c^3} \\
+  = \frac{c^6}{6} - \frac{c^4}{4} \\
+  = \frac{(\cos θ)^6}{6} - \frac{(\cos θ)^4}{4} \\
+  \end{array}
+  \qquad
+  \bsm{\ga{caixa c=cos theta}}
+$
+
+\bsk
+\bsk
+
+b) \;\; $\begin{array}{l}
+  \frac{d}{dθ} \left( \frac{(\cos θ)^6}{6} - \frac{(\cos θ)^4}{4} \right) \\
+  = 6\frac{(\cos θ)^5}{6}(\cos'θ) - 4\frac{(\cos θ)^3}{4} (\cos'θ) \\
+  = ((\cos θ)^5 - (\cos θ)^3) (-\sen θ) \\
+  = (\cos θ)^3((\cos θ)^2 - 1) (-\sen θ) \\
+  = (\cos θ)^3(-1)(\sen θ)^2 (-\sen θ) \\
+  = (\sen θ)^3(\cos θ)^3 \\
+  \end{array}
+$
+
+%}\anothercol{
+}}
+
+
+\newpage
+
+% «questao-2-gab»  (to ".questao-2-gab")
+% (c2m212p2p 15 "questao-2-gab")
+% (c2m212p2a    "questao-2-gab")
+
+{\bf Questão 2: gabarito}
+
+\scalebox{0.8}{\def\colwidth{12cm}\firstcol{
+
+a) \;\;
+%
+$\begin{array}{l}
+ \ints {s \sqrt{1 - s^2}} \\
+ = \intth {(\sen θ) (\cos θ) (\cos θ)} \\
+ = \intth {(\cos θ)^2 (\sen θ)} \\
+ = \intc {c^2·(-1)} \\
+ = -\frac{c^3}{3} \\
+ = -\frac{(\cos θ)^3}{3} \\
+ = -\frac{\sqrt{1-s^2}^3}{3} \\
+ \end{array}
+ %
+ \qquad
+ \begin{array}{c}
+   \bsm{\ga{caixa s=sen theta trig}} \\[25pt]
+   \bsm{\ga{caixa c=cos theta}}
+ \end{array}
+$
+
+\bsk
+
+b) \;\;
+%
+$\begin{array}{l}
+ \frac{d}{ds} \left( -\frac{\sqrt{1-s^2}^3}{3} \right) \\
+ = \frac{d}{ds} \left( -\frac{1}{3}(1-s^2)^{3/2} \right) \\
+ = -\frac{1}{3} \frac{3}{2} (1-s^2)^{1/2} · \frac{d}{ds} (1-s^2)\\
+ = -\frac{1}{3} \frac{3}{2} (1-s^2)^{1/2} · (-2s) \\
+ = s \sqrt{1-s^2} \\
+ \end{array}
+$
+
+%}\anothercol{
+}}
+
+
+%\bmat{\ga{caixa c=cos theta}}
+%\bmat{\ga{caixa s=sen theta trig}}
+
+
+\newpage
+
+{\bf Questão 3: mini-gabarito}
+
+\sa{Edovsg1}{\text{[EDOVSG1]}}
+\sa{Edovsg2}{\text{[EDOVSG2]}}
+\sa{Daigoro}{\text{[Daigoro]}}
+\sa{Itto}   {\text{[Itto]}}
+\sa{Ogami}  {\text{[Ogami]}}
+\sa{SDaigoro}{\bsm{
+    f(x) = \rq \\
+    g(y) = \rq \\
+    F(x) = \rq \\
+    G(y) = \rq \\
+    G^{-1}(y) = \rq \\
+  }}
+\sa{SDaigoro2}{\bsm{
+    f(x) = -4x \\
+    g(y) = y \\
+    F(x) = -2x^2 \\
+    G(y) = y^2/2 \\
+    G^{-1}(y) = \sqrt{2y} \\
+  }}
+\sa{SItto}{\bsm{
+    f(x) = -4x \\
+    g(y) = y \\
+    F(x) = -2x^2 \\
+    G(y) = y^2/2 \\
+    G^{-1}(y) = \sqrt{2y} \\
+    C_3 = 25/2 \\
+  }}
+\sa{EDOVSG2}{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{f(x)}{g(y)} \\ [10pt]
+                 y &=& G^{-1}(F(x) + C_3)   \\
+  \end{array}
+  \right)
+  }
+\sa{DAIGORO}{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{-4x}{y} \\ [10pt]
+                 y &=& +\sqrt{2(-2x^2 + C_3)} \\
+  \end{array}
+  \right)
+  }
+\sa{ITTO}{
+  \left(
+  \begin{array}{rcl}
+  \D \frac{dy}{dx} &=& \D \frac{-4x}{y} \\ [10pt]
+                 y &=& +\sqrt{2(-2x^2 + 25/2)} \\
+  \end{array}
+  \right)
+  }
+
+
+\scalebox{0.6}{\def\colwidth{12cm}\firstcol{
+
+$$\begin{array}{rcl}
+  \ga{Edovsg2} &=& \ga{EDOVSG2} \\[20pt]
+  \ga{Daigoro} \;\;=\;\; \ga{Edovsg2} \ga{SDaigoro2} 
+               &=& \ga{DAIGORO} \\[20pt]
+  \ga{Itto}    \;\;=\;\; \ga{Edovsg2} \ga{SItto}
+               &=& \ga{ITTO} \\
+  \end{array}
+$$
+
+$$\begin{array}{l}
+  y = \sqrt{2(-2x^2+C_3)} \\
+  3 = \sqrt{2(-2(2)^2+C_3)} = \sqrt{- 16 + 2C_3}\\
+  9 = - 16 + 2C_3 \\
+  2C_3 = 25 \\
+  C_3 = 25/2 \\
+  y = \sqrt{2(-2x^2+25/2)}  = \sqrt{25-4x^2} \\
+  \frac{dy}{dx} = \frac{d}{dx} (25-4x^2)^{1/2}
+                = \frac{1}{2} (25-4x^2)^{-1/2} · (-8x)
+                = \frac{-4}{\sqrt{25-4x^2}} \\
+  \frac{-4x}{y} = \frac{-4}{\sqrt{25-4x^2}} \\
+  \end{array}
+$$
+
+}\anothercol{
+}}
+
+
+
+
+
+% «ideias»  (to ".ideias")
+% (c2m212p2p 2 "ideias")
+% (c2m212p2a   "ideias")
+
+%Uma questão de variáveis separáveis
+% (c2m211edovsp 4 "campos-dirs")
+% (c2m211edovs    "campos-dirs")
+
+%Uma questão de subst trigonométrica
+% (c2m212intsp 10 "exercicio-4")
+% (c2m212intsa    "exercicio-4")
+
+%Dica: não misture as variáveis
+% (c2m212mvp 7 "importante")
+% (c2m212mva   "importante")
+
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C2/")
+# (find-fline "~/LATEX/2021-2-C2/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C2/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C2/
+       cat <<%%%
+% (find-latexscan-links "C2" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C2-P2 veryclean
+make -f 2019.mk STEM=2021-2-C2-P2 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2p2"
+% ee-tla: "c2m212p2"
+% End:
+

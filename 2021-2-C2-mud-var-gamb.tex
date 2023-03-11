@@ -1,0 +1,584 @@
+% (find-LATEX "2021-2-C2-mud-var-gamb.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-mud-var-gamb.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-mud-var-gamb.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-mud-var-gamb.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-mud-var-gamb.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-mud-var-gamb.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-mud-var-gamb.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-mud-var-gamb"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-mud-var-gamb.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-mud-var-gamb")
+% (find-pdf-page   "~/LATEX/2021-2-C2-mud-var-gamb.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-mud-var-gamb.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-mud-var-gamb.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-mud-var-gamb.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-mud-var-gamb.pdf
+%               file:///tmp/2021-2-C2-mud-var-gamb.pdf
+%           file:///tmp/pen/2021-2-C2-mud-var-gamb.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-mud-var-gamb.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-mud-var-gamb" "2" "c2m212mv" "c2mv")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.introducao»		(to "introducao")
+% «.introducao-2»	(to "introducao-2")
+% «.exemplo»		(to "exemplo")
+% «.limites-int»	(to "limites-int")
+% «.importante»		(to "importante")
+% «.caixinhas»		(to "caixinhas")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c2m212mv" "2021-2-C2-mud-var-gamb" "{naoexiste}")
+% (code-eevvideo      "c2m212mv" "2021-2-C2-mud-var-gamb")
+% (code-eevlinksvideo "c2m212mv" "2021-2-C2-mud-var-gamb")
+% (find-c2m212mvvideo "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+%\catcode`\^^J=10
+%\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%
+% %L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+% %L Pict2e.__index.suffix = "%"
+% \pu
+% \def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+% \def\pictaxesstyle{\linethickness{0.5pt}}
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212mvp 1 "title")
+% (c2m212mva   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Aula 26: mudança de variável
+
+por gambiarras
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+% «introducao»  (to ".introducao")
+% (c2m212mvp 2 "introducao")
+% (c2m212mva   "introducao")
+
+{\bf Introdução}
+
+No último PDF e na P1 a gente viu como fazer
+
+``integração por substituição'' de um jeito mais ou menos
+
+fácil de formalizar... agora a gente vai ver o método
+
+que os livros usam, que nos permite fazer as contas bem
+
+rápido, mas que usa várias gambiarras, algumas delas
+
+bem difíceis de formalizar.
+
+\msk
+
+Os nomes ``integração por substituição'' e ``integração
+
+por mudança de variável'' costumam ser equivalentes.
+
+Vou me referir ao método que a gente vai ver agora como
+
+``mudança de variável'', ``mudança de variável por
+
+gambiarras'', ``MV'', ou ``MVG'', pra gente poder usar
+
+o termo ``substituição'' pro `[:=]'.
+
+\newpage
+
+% «introducao-2»  (to ".introducao-2")
+% (c2m212mvp 3 "introducao-2")
+% (c2m212mva   "introducao-2")
+
+{\bf Introdução (2)}
+
+\scalebox{0.95}{\def\colwidth{12cm}\firstcol{
+
+Cada livro usa convenções um pouco diferentes pra como
+
+escrever as contas por MVG. Eu vou usar a convenção do
+
+exemplo do próximo slide, em que a resolução da integral
+
+fica à esquerda e as caixinhas indicando os truques que
+
+usamos em \ColorRed{cada} MV ficam à direita, separadas da contas
+
+da integral.
+
+\msk
+
+A primeira caixinha tem os truques pra mudar
+
+da variável $x$ pra variável $u$ e pra voltar de $u$ pra $x$.
+
+\ssk
+
+A segunda caixinha tem os truques pra mudar
+
+da variável $u$ pra variável $v$ e pra voltar de $v$ pra $u$.
+
+\ssk
+
+A terceira caixinha tem os truques pra mudar
+
+da variável $v$ pra variável $w$ e pra voltar de $w$ pra $v$.
+
+\ssk
+
+A quarta caixinha tem os truques pra mudar
+
+da variável $w$ pra variável $y$ e pra voltar de $y$ pra $w$.
+
+%}\anothercol{
+}}
+
+
+\newpage
+
+% «exemplo»  (to ".exemplo")
+% (c2m212mvp 4 "exemplo")
+% (c2m212mva   "exemplo")
+% (c2m211isp 7 "exemplo-contas-2")
+% (c2m211isa   "exemplo-contas-2")
+% (c2m211p1p 15 "gabarito-2-2020.2")
+% (c2m211p1a    "gabarito-2-2020.2")
+
+$$\scalebox{1.25}{$
+ \begin{array}{l}
+   \begin{array}{l}
+   \intx {\frac{3 \cos{\left (2 + \sqrt{3 x + 4} \right )}}
+         {2 \sqrt{3 x + 4}}
+         } \\
+   = \intu {\frac{\cos{\left (2 + \sqrt{u + 4} \right )}}
+           {2 \sqrt{u + 4}}
+           } \\
+   = \intv {\frac{\cos{\left (2 + \sqrt{v} \right )}}
+           {2 \sqrt{v}}
+           } \\
+   = \intw {\cos{\left (2 + w \right )}
+           } \\
+   = \inty {\cos y}
+           \\
+   = \sen y \\
+   = \sen \left( 2+w \right) \\
+   = \sen \left( 2+\sqrt{v} \right) \\
+   = \sen \left( 2+\sqrt{u+4} \right) \\
+   = \sen \left( 2+\sqrt{3x+4} \right) \\
+   \end{array}
+   %
+   \begin{array}{c}
+     \bsm{u = 3x \\ \frac{du}{dx} = 3 \\ du = 3\,dx \\ dx = \frac13 du}
+     \\[15pt]
+     \bsm{v = u+4 \\ du=dv }
+     \\[5pt]
+     \bsm{w = \sqrt{v} \\ \frac{dw}{dv} = \frac12 v^{-1/2} = \frac{1}{2\sqrt{v}} \\}
+     \\[5pt]
+     \bsm{y = 2+w \\ dy=dw }
+     \\[60pt]
+   \end{array}
+   %
+  \end{array}
+  $}
+$$
+
+\newpage
+
+% «limites-int»  (to ".limites-int")
+% (c2m212mvp 5 "limites-int")
+% (c2m212mva   "limites-int")
+
+{\bf Limites de integração}
+
+A coluna da esquerda tem uma série de integrais sem
+
+limites de integração --- a gente está trabalhando numa
+
+notação abreviada em que os limites de integração foram
+
+apagados. Eles podem ser recolocados de novo no final,
+
+quando a gente for transformar essas contas abreviadas
+
+numa versão ``desabreviada'' delas.
+
+\msk
+
+Os limites de integração em $x$ são diferentes
+
+dos limites de integração em $u$, que são diferentes
+
+dos limites de integração em $v$, que são diferentes
+
+dos limites de integração em $w$, que são diferentes
+
+dos limites de integração em $y$.
+
+\msk
+
+Detalhes em breve!
+
+
+\newpage
+
+
+\def\expr#1{〈\mathsf{expr_{#1}}〉}
+
+
+A coluna da esquerda tem uma série de igualdades.
+
+Ela é da forma $\expr1 = \expr2 = \ldots = \expr{n}$,
+
+mas a gente escreve essa série de igualdades na
+
+vertical.
+
+\msk
+
+Repare que na coluna da esquerda
+
+``as variáveis não se misturam'':
+
+$\expr{1}$ e $\expr{10}$ são ``expressões em $x$'',
+
+$\expr{2}$ e $\expr{9}$ são ``expressões em $u$'',
+
+$\expr{3}$ e $\expr{8}$ são ``expressões em $v$'',
+
+$\expr{4}$ e $\expr{7}$ são ``expressões em $w$'',
+
+$\expr{5}$ e $\expr{6}$ são ``expressões em $y$''.
+
+
+\newpage
+
+% «importante»  (to ".importante")
+% (c2m212mvp 7 "importante")
+% (c2m212mva   "importante")
+
+{\bf A regra mais importante de todas}
+
+
+\scalebox{0.85}{\def\colwidth{9cm}\firstcol{
+
+Na coluna da esquerda cada expressão é
+
+uma expressão ``em uma variável só''.
+
+Se você escrever algo como
+%
+$$\inty{\cos(2+w)}$$
+
+Isso é um \ColorRed{ERRO CONCEITUAL GRAVÍSSIMO}
+
+e a sua questão é \ColorRed{ZERADA}.
+
+
+\bsk
+
+
+
+A gente não vai ter tempo de ver o porquê disso...
+
+O motivo é que com essa proibição o método pra
+
+``desabreviar'' as contas fica simples ---
+
+sem essa proibição ele fica BEM mais complicado,
+
+e a gente precisaria de uns truques de ``notação
+
+de físicos'', que é um assunto bem difícil de
+
+Cálculo 3, pra definir o método de desabreviação.
+
+%}\anothercol{
+}}
+
+\newpage
+
+% «caixinhas»  (to ".caixinhas")
+% (c2m212mvp 8 "caixinhas")
+% (c2m212mva   "caixinhas")
+
+{\bf As caixinhas de truques}
+
+As caixinhas de truques da MVG têm uma sintaxe
+
+\ColorRed{BEM} diferente das caixinhas do `[:=]'.
+
+Pra enfatizar isso a gente usa `$=$'s dentro delas,
+
+não `$:=$'s, e a gente escreve elas separadas
+
+do resto, à direita.
+
+
+\msk
+
+Dê uma olhada nas 9 primeiras páginas daqui:
+
+\ssk
+
+{\footnotesize
+
+% (c3m212nfp 1 "title")
+% (c3m212nfa   "title")
+%    http://angg.twu.net/LATEX/2021-2-C3-notacao-de-fisicos.pdf
+\url{http://angg.twu.net/LATEX/2021-2-C3-notacao-de-fisicos.pdf}
+
+}
+
+\msk
+
+Dentro cada caixinha de truques da MVG a gente
+
+vai usar algumas expressões que só podem ser
+
+formalizadas \ColorRed{direito} usando a ``notação de físicos'',
+
+que a gente vai ver com detalhes em C3...
+
+Vou mostrar como ``ler em voz alta'' uma caixinha
+
+e a gente vai tentar usar elas meio de improviso.
+
+
+\newpage
+
+{\bf Lendo uma caixinha de truques em voz alta}
+
+$$\bmat{u = 3x \\ \frac{du}{dx} = 3 \\ du = 3\,dx \\ dx = \frac13 du}$$
+
+Digamos que $u$ e $x$ são variáveis dependentes,
+
+que obedecem a equação $u=3x$.
+
+Então podemos tratar $u$ como uma função de $x$,
+
+e temos $\frac{du}{dx} = \frac{d}{dx}(u(x)) = \frac{d}{dx}(3x) = \frac{d}{dx}(u(x)) = 3$.
+
+Multiplicando os dois lados de $\frac{du}{dx} = 3$ por $dx$
+
+obtemos $du = 3\,dx$; e multiplicando os dois lados de
+
+$du = 3\,dx$ por $\frac13$ obtemos $dx = \frac{1}{3}$.
+
+\newpage
+
+Na caixinha
+%
+$$\bmat{u = 3x \\ \frac{du}{dx} = 3 \\ du = 3\,dx \\ dx = \frac13 du}$$
+
+\msk
+
+as duas últimas linhas são igualdades entre expressões
+
+incompletas. Você viu na P1 como substituir expressões
+
+incompletas, como parênteses, bananas e lentes...
+
+\msk
+
+Em expressões das formas `$\intx{\ldots}$' e `$\intu{\ldots}$' o `$dx$'
+
+e o `$du$' fazem papel de ``fecha parênteses'', e as igualdades
+
+$du = 3\,dx$ e $dx = \frac13 du$ indicam substituições que você vai
+
+poder fazer nas integrais do lado esquerda que vão ser
+
+\ColorRed{parecidas} com as da questão 2 da P1.
+
+
+
+\newpage
+
+{\bf Exercício 1.}
+
+Reescreva os exemplos 1 a 4 da seção 6.2 do livro do
+
+Daniel Miranda na notação que eu disse que nós vamos
+
+usar, em que todas caixinhas de truques são escritas
+
+explicitamente.
+
+\msk
+
+Link:
+
+\ssk
+
+{\scriptsize
+
+\url{http://hostel.ufabc.edu.br/~daniel.miranda/calculo/calculo.pdf\#page=189}
+
+}
+
+
+% sobre
+% 
+% ;; (find-books "__analysis/__analysis.el" "miranda")
+% ;; (find-es "ead" "daniel-miranda")
+% ;; http://hostel.ufabc.edu.br/~daniel.miranda/calculo/calculo.pdf
+% 
+% 
+% ;; (find-dmirandacalcpage 189 "6.2 Integração por Substituição")
+
+
+
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C2/")
+# (find-fline "~/LATEX/2021-2-C2/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C2/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C2/
+       cat <<%%%
+% (find-latexscan-links "C2" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C2-mud-var-gamb veryclean
+make -f 2019.mk STEM=2021-2-C2-mud-var-gamb pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2mv"
+% ee-tla: "c2m212mv"
+% End:

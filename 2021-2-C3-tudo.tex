@@ -1,0 +1,204 @@
+% (find-LATEX "2021-2-C3-tudo.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C3-tudo.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C3-tudo.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C3-tudo.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C3-tudo.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C3-tudo.tex"))
+% (defun o () (interactive) (find-LATEX "2021-1-C3-tudo.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C3-tudo"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C3-tudo.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C3-tudo")
+% (find-pdf-page   "~/LATEX/2021-2-C3-tudo.pdf")
+% (find-pdf-text   "~/LATEX/2021-2-C3-tudo.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-tudo.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C3-tudo.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C3-tudo.pdf")
+%   file:///home/edrx/LATEX/2021-2-C3-tudo.pdf
+%               file:///tmp/2021-2-C3-tudo.pdf
+%           file:///tmp/pen/2021-2-C3-tudo.pdf
+% http://angg.twu.net/LATEX/2021-2-C3-tudo.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C3-tudo" "3" "c3m212tudo" "c3tu")
+
+% «.defs»	(to "defs")
+% «.title»	(to "title")
+% «.parts»	(to "parts")
+
+
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c3m212tudo" "2021-2-C3-tudo")
+% (code-eevvideo      "c3m212tudo" "2021-2-C3-tudo")
+% (code-eevlinksvideo "c3m212tudo" "2021-2-C3-tudo")
+% (find-c3m212tudovideo "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+\usepackage{pdfpages}
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C3.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C3.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c3m212tudop 1 "title")
+% (c3m212tudoa   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 3 - 2021.2}
+
+\bsk
+
+Todos os PDFs do semestre
+
+juntados num PDFzão só
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C3.html}
+
+\end{center}
+
+\newpage
+
+\def\incl#1{\includepdf[pages=1-last]{#1.pdf}}
+
+% «parts»  (to ".parts")
+% (c3m212tudop 2 "parts")
+% (c3m212tudoa   "parts")
+
+% (c3m212introa "title")
+% (c3m212introa "title" "Aula 1: introdução ao curso")
+% (c3m212tudop 2)
+\incl{2021-2-C3-intro}
+
+% (c3m212vta "title")
+% (c3m212vta "title" "Aula 6: Vetores tangentes em" "R^2")
+% (c3m212tudop 15)
+\incl{2021-2-C3-vetor-tangente}
+
+% (c3m212beziera "title")
+% (c3m212beziera "title" "Aula 7: um vídeo sobre curvas de Bézier")
+% (c3m212tudop 25)
+\incl{2021-2-C3-bezier}
+
+% (c3m212mt1a "title")
+% (c3m212mt1a "title" "Mini-teste 1")
+% (c3m212tudop 35)
+\incl{2021-2-C3-MT1}
+
+% (c3m212typesa "title")
+% (c3m212typesa "title" "Aula 9: tipos")
+% (c3m212tudop 40)
+\incl{2021-2-C3-tipos}
+
+% (c3m212nfa "title")
+% (c3m212nfa "title" "Aula 11: ``notação de físicos''")
+% (c3m212tudop 51)
+\incl{2021-2-C3-notacao-de-fisicos}
+
+% (c3m212dna "title")
+% (c3m212dna "title" "Aula 16: diagramas de numerozinhos")
+% (c3m212tudop 87)
+\incl{2021-2-C3-diag-nums}
+
+% (c3m212mt2a "title")
+% (c3m212mt2a "title" "Mini-teste 2")
+% (c3m212tudop 110)
+\incl{2021-2-C3-MT2}
+
+% (c3m212fha "title")
+% (c3m212fha "title" "Aula 23: funções homogêneas")
+% (c3m212tudop 117)
+\incl{2021-2-C3-funcoes-homogeneas}
+
+% (c3m212taa "title")
+% (c3m212taa "title" "Aula 24: Séries de Taylor")
+% (c3m212tudop 119)
+\incl{2021-2-C3-taylor}
+
+% (c3m212p1a "title")
+% (c3m212p1a "title" "Primeira prova (P1)")
+% (c3m212tudop 139)
+\incl{2021-2-C3-P1}
+
+% (c3m212t2a "title")
+% (c3m212t2a "title" "Aula 26: Taylor em $\\R^2$")
+% (c3m212tudop 145)
+\incl{2021-2-C3-taylor-R2}
+
+% (c3m212p2a "title")
+% (c3m212p2a "title" "Segunda prova (P2)")
+% (c3m212tudop 156)
+\incl{2021-2-C3-P2}
+
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+lualatex                  2021-2-C3-tudo.tex
+# (find-pdf-page "~/LATEX/2021-2-C3-tudo.pdf")
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c3tu"
+% ee-tla: "c3m212tudo"
+% End:

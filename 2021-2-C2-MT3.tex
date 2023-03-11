@@ -1,0 +1,375 @@
+% (find-LATEX "2021-2-C2-MT3.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-MT3.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-MT3.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-MT3.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-MT3.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-MT3.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-MT3.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-MT3"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-MT3.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-MT3")
+% (find-pdf-page   "~/LATEX/2021-2-C2-MT3.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-MT3.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-MT3.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-MT3.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-MT3.pdf
+%               file:///tmp/2021-2-C2-MT3.pdf
+%           file:///tmp/pen/2021-2-C2-MT3.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-MT3.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-MT3" "2" "c2m212mt3" "c2mt3")
+
+% «.defs»		(to "defs")
+% «.title»		(to "title")
+% «.questao»		(to "questao")
+% «.from-piecewise»	(to "from-piecewise")
+% «.gabarito»		(to "gabarito")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% <videos>
+% Video (not yet):
+% (find-ssr-links     "c2m212mt3" "2021-2-C2-MT3" "{naoexiste}")
+% (code-eevvideo      "c2m212mt3" "2021-2-C2-MT3")
+% (code-eevlinksvideo "c2m212mt3" "2021-2-C2-MT3")
+% (find-c2m212mt3video "0:00")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%
+%L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+%L Pict2e.__index.suffix = "%"
+\pu
+\def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+\def\pictaxesstyle{\linethickness{0.5pt}}
+
+% %L dofile "edrxtikz.lua"  -- (find-LATEX "edrxtikz.lua")
+% %L dofile "edrxpict.lua"  -- (find-LATEX "edrxpict.lua")
+% \pu
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212mt3p 1 "title")
+% (c2m212mt3a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Mini-teste 3
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+{\bf Avisos}
+
+O mini-teste 3 vai acontecer no início de janeiro.
+
+Ele vai ter problemas parecidos com estes aqui,
+
+de integrar uma função escada no olhômetro:
+
+
+\ssk
+
+{\footnotesize
+
+% (c2m202mt1p 4 "miniteste-funcao")
+% (c2m202mt1a   "miniteste-funcao")
+%    http://angg.twu.net/LATEX/2020-2-C2-MT1.pdf#page=4
+\url{http://angg.twu.net/LATEX/2020-2-C2-MT1.pdf#page=4}
+
+% (c2m211mt2p 4 "questoes-1-e-2")
+% (c2m211mt2a   "questoes-1-e-2")
+%    http://angg.twu.net/LATEX/2021-1-C2-MT2.pdf#page=4
+\url{http://angg.twu.net/LATEX/2021-1-C2-MT2.pdf#page=4}
+
+}
+
+
+
+\bsk
+
+As regras vão ser as mesmas dos outros mini-testes.
+
+As questões do MT3 serão disponibilizadas às 20:00
+
+da sexta 7/jan/2022 e você vai ter 24 horas pra
+
+entregar as respostas.
+
+
+\bsk
+
+Lembre que tudo tem que ser feito à mão e em papel!
+
+Desenhos feitos no computador não serão considerados.
+
+\newpage
+
+% «questao»  (to ".questao")
+% (c2m212mt3p 3 "questao")
+% (c2m212mt3a   "questao")
+
+% (c2m212tfc1p 26 "exercicio-3")
+% (c2m212tfc1a    "exercicio-3")
+% (find-LATEX "2021pict2e.lua" "Piecewise-tests")
+% (find-LATEX "2021pict2e.lua" "Piecewise-tests" ":fun0")
+
+% «from-piecewise»  (to ".from-piecewise")
+% (c2m212mt3p 4 "from-piecewise")
+% (c2m212mt3a   "from-piecewise")
+%
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^\\(% \\)?%L ?")
+% %L  (eepitch-lua51)
+% %L  (eepitch-kill)
+% %L  (eepitch-lua51)
+% %L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+%L
+%L funcaof_piecewise_spec = [[
+%L     (0,0)--(1,0)o
+%L     (1,1)c--(2,1)o (2,-1)c--(3,-1)o
+%L     (3,2)c--(4,2)o (4,-1)c--(5,-1)o
+%L     (5,1)c--(6,1)o (6,0)c--(8,0)o
+%L     (8,4)c--(9,4)o (9,-3)c--(10,-3)o
+%L     (8,4)c--(9,4)o (9,-3)c--(10,-3)o
+%L     (10,2)c--(11,2)o (11,-1)c--(12,-1)o
+%L     (12,1)c--(13,1)o (13,-1)c--(15,-1)
+%L   ]]
+%L funcaof = Piecewise.new(funcaof_piecewise_spec):fun()
+%L pwif    = Piecewisify.new(funcaof, seq(0, 12, 1))
+%L pwifpol = function (a, b)
+%L     return Pict2e.new():add(pwif:pol(a, b, "*")):color("orange")
+%L   end
+% %L = pwifpol(3.5, 4.5)
+%L
+%L Pict2e.new()
+%L   :setbounds(v(0,-4), v(15,5))
+%L     :grid()
+%L     :add("#1")
+%L     :axesandticks()
+%L     :add(pictpiecewise(funcaof_piecewise_spec):as("\\linethickness{1pt}"))
+%L   :add("#2")
+%L   :bepc()
+%L   :def("funcaof#1#2")
+%L   :output()
+\pu
+
+\def\funcaofnumeros{%
+    \def\cellfont{\scriptsize}%
+    \put(5,-0.6){\cell{5}}%
+    \put(10,-0.6){\cell{10}}%
+  }
+
+Sejam:
+%
+\vspace*{-0.25cm}
+%
+$$f(x) \;\;=\;\;
+  \unitlength=12pt
+  \funcaof{}{\funcaofnumeros}
+  %\funcaof{\expr{pwifpol(3.5, 8.5)}}{\funcaofnumeros}
+$$
+
+e $G(x) = \Intt{3.5}{x}{f(t)}$.
+
+\msk
+
+a) Represente graficamente $G(8.5)$.
+
+b) Dê o valor numérico de $G(8.5)$.
+
+c) Desenhe o gráfico da função $G$. Dica: o domínio dela é $[0,15]$.
+
+\newpage
+
+% «gabarito»  (to ".gabarito")
+% (c2m212mt3p 4 "gabarito")
+% (c2m212mt3a   "gabarito")
+
+{\bf Gabarito}
+
+\unitlength=9pt
+
+a) $G(8.5) \;\;=\;\;
+    %\funcaof{}{\funcaofnumeros}
+    \funcaof{\expr{pwifpol(3.5, 8.5)}}{\funcaofnumeros}
+   $
+
+b) $G(8.5) = 3$
+
+%L funcaoG_piecewise_spec = 
+%L   "(0,-1)--(1,-1)--(2,0)--(3,-1)--(3.5,0)--" ..
+%L   "(4,1)--(5,0)--(6,1)--(8,1)--(9,5)--(10,2)--(11,4)--(12,3)--(13,4)--(15,2)"
+%L funcaof = Piecewise.new(funcaof_piecewise_spec):fun()
+%L pwif    = Piecewisify.new(funcaof, seq(0, 12, 1))
+%L pwifpol = function (a, b)
+%L     return Pict2e.new():add(pwif:pol(a, b, "*")):color("orange")
+%L   end
+% %L = pwifpol(3.5, 4.5)
+%L
+%L Pict2e.new()
+%L   :setbounds(v(0,-4), v(15,5))
+%L     :grid()
+%L     :add("#1")
+%L     :axesandticks()
+%L     :add(pictpiecewise(funcaoG_piecewise_spec):as("\\linethickness{1pt}"))
+%L   :add("#2")
+%L   :bepc()
+%L   :def("funcaoG#1#2")
+%L   :output()
+\pu
+
+c) $G(x) \;\;\;=\;\;\;\, \funcaoG{}{\funcaofnumeros}$
+
+
+
+\newpage
+
+% Duvida da Alice:
+%
+% $G(0) \;\;=\;\;
+%  %\funcaof{}{\funcaofnumeros}
+%  \funcaof{\expr{pwifpol(0, 3.5)}}{\funcaofnumeros}
+% $
+
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C2/")
+# (find-fline "~/LATEX/2021-2-C2/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C2/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C2/
+       cat <<%%%
+% (find-latexscan-links "C2" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C2-MT3 veryclean
+make -f 2019.mk STEM=2021-2-C2-MT3 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2mt3"
+% ee-tla: "c2m212mt3"
+% End:

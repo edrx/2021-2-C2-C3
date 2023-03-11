@@ -1,7 +1,8 @@
--- This file: http://angg.twu.net/LUA/lua50init.lua.html
---            http://angg.twu.net/LATEX/dednat6/edrxlib.lua.html
---            http://angg.twu.net/dednat6/dednat6/edrxlib.lua.html
---            http://angg.twu.net/blogme3/edrxlib.lua.html
+-- This file: http://anggtwu.net/LUA/lua50init.lua.html
+--            http://anggtwu.net/LATEX/dednat6/edrxlib.lua.html
+--            http://anggtwu.net/dednat6/dednat6/edrxlib.lua.html
+--            http://anggtwu.net/blogme3/edrxlib.lua.html
+--            http://anggtwu.net/emlua/edrxlib.lua.html
 --
 -- This is my "init file" for Lua. As I have LUA_INIT set
 -- to "@$HOME/LUA/lua50init.lua", the Lua interpreter loads
@@ -9,19 +10,22 @@
 -- See: (find-angg ".zshrc" "lua" "LUA_INIT")
 --      (find-lua51manual "#6" "LUA_INIT" "@filename")
 --      (find-es "lua5" "LUA_INIT")
+--      (find-es "lua5" "lua-init-from-emacs")
 --
--- This is _also_ the module "edrxlib.lua" in dednat6 and blogme3!
+-- This is _also_ the module "edrxlib.lua" in dednat6, blogme3, and emlua!
 -- I use these sexps to keep them in sync:
 --   (find-tkdiff    "~/LUA/lua50init.lua"   "~/LATEX/dednat6/edrxlib.lua")
 --   (find-tkdiff    "~/LUA/lua50init.lua" "~/dednat6/dednat6/edrxlib.lua")
 --   (find-sh0 "cp -v ~/LUA/lua50init.lua     ~/LATEX/dednat6/edrxlib.lua")
+--   (find-sh0 "cp -v ~/LUA/lua50init.lua     ~/LATEX/dednat7/edrxlib.lua")
 --   (find-sh0 "cp -v ~/LUA/lua50init.lua   ~/dednat6/dednat6/edrxlib.lua")
 --   (find-sh0 "cp -v ~/LUA/lua50init.lua           ~/blogme3/edrxlib.lua")
+--   (find-sh0 "cp -v ~/LUA/lua50init.lua             ~/emlua/edrxlib.lua")
 -- Old way: (find-es "emacs" "hard-links")
 -- See also: (to "edrxlib")
 --
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
--- Version: 2021oct13  <- don't trust this date
+-- Version: 2023jan31  <- don't trust this date
 -- Public domain.
 --
 -- Note: "dednat4.lua" and "dednat6.lua" try to load this at startup,
@@ -38,8 +42,10 @@
 --
 -- This init file used to work both on lua-5.0 and lua-5.1...
 -- I have stopped using lua-5.0, but I kept the name of this file.
--- This works on Lua 5.1, 5.2, 5.3, and 5.4.
--- Beware: this file has A LOT of cruft!...
+-- This file works on Lua 5.1, 5.2, 5.3, and 5.4.
+--
+-- This file still has _A LOT_ of cruft!
+
 
 
 
@@ -68,6 +74,8 @@
 -- «.Class»			(to "Class")
 --   «.over0»			(to "over0")
 --   «.over»			(to "over")
+--   «.methodsover»		(to "methodsover")
+-- «.Code»			(to "Code")
 -- «.Tos»			(to "Tos")
 --   «.mytostring»		(to "mytostring")
 --   «.PP»			(to "PP")
@@ -76,6 +84,10 @@
 -- «.Set»			(to "Set")
 --   «.SetL»			(to "SetL")
 -- «.Path»			(to "Path")
+-- «.DGetInfo»			(to "DGetInfo")
+--   «.DGetInfo-method»		(to "DGetInfo-method")
+--   «.DGetInfo-luatb»		(to "DGetInfo-luatb")
+-- «.DGetInfos»			(to "DGetInfos")
 -- «.Rect»			(to "Rect")
 --   «.SynTree»			(to "SynTree")
 --   «.DedTree»			(to "DedTree")
@@ -94,10 +106,13 @@
 -- «.divmod»			(to "divmod")
 -- «.userocks»			(to "userocks")
 -- «.loadblogme3»		(to "loadblogme3")
--- «.trailing-zeroes»		(to "trailing-zeroes")
--- «.pformat»			(to "pformat")
--- «.dformat»			(to "dformat")
 -- «.savevars»			(to "savevars")
+-- «.variants-of-format»	(to "variants-of-format")
+--   «.minus-0»			(to "minus-0")
+--   «.trailing-zeroes»		(to "trailing-zeroes")
+--   «.pformat»			(to "pformat")
+--   «.dformat»			(to "dformat")
+--   «.gformat»			(to "gformat")
 --
 -- «.loaddednat6»		(to "loaddednat6")
 -- «.loadluarocks»		(to "loadluarocks")
@@ -121,13 +136,11 @@
 -- «.ee_loadlib»		(to "ee_loadlib")
 -- «.ee_ls»			(to "ee_ls")
 -- «.load_dednat4»		(to "load_dednat4")
--- «.load_rex»			(to "load_rex")
 -- «.load_posix»		(to "load_posix")
 -- «.load_PP»			(to "load_PP")
 -- «.PPeval»			(to "PPeval")
--- «.loadswigso»		(to "loadswigso")
--- «.loadcinvoke»		(to "loadcinvoke")
 -- «.loadlpeg»			(to "loadlpeg")
+-- «.loadlpegrex»		(to "loadlpegrex")
 -- «.loadbitlib»		(to "loadbitlib")
 -- «.autoload»			(to "autoload")
 -- «.loadtcl»			(to "loadtcl")
@@ -137,31 +150,34 @@
 -- «.loadposix»			(to "loadposix")
 -- «.curl»			(to "curl")
 -- «.preparef2n»		(to "preparef2n")
--- «.gformat»			(to "gformat")
 -- «.each2»			(to "each2")
 -- «.translatechars»		(to "translatechars")
--- «.sbeconcat»			(to "sbeconcat")
--- «.concatbestrings»		(to "concatbestrings")
--- «.lpeg_togsub»		(to "lpeg_togsub")
--- «.lpeg_gsub»			(to "lpeg_gsub")
--- «.lpeg_gsub_»		(to "lpeg_gsub_")
--- «.lpeg_balanced»		(to "lpeg_balanced")
--- «.mytraceback»		(to "mytraceback")
--- «.errorfb_line»		(to "errorfb_line")
--- «.ee_template»		(to "ee_template")
+-- «.lpeg»			(to "lpeg")
+--   «.sbeconcat»		(to "sbeconcat")
+--   «.concatbestrings»		(to "concatbestrings")
+--   «.lpeg_togsub»		(to "lpeg_togsub")
+--   «.lpeg_gsub»		(to "lpeg_gsub")
+--   «.lpeg_gsub_»		(to "lpeg_gsub_")
+--   «.lpeg_balanced»		(to "lpeg_balanced")
 -- «.ee_into»			(to "ee_into")
 -- «.chdir»			(to "chdir")
 -- «.hms_to_s»			(to "hms_to_s")
 -- «.s_to_hms»			(to "s_to_hms")
 -- «.icollect»			(to "icollect")
+-- «.Repl1.lua»			(to "Repl1.lua")
+-- «.Repl2.lua»			(to "Repl2.lua")
 --
+-- «.mytraceback»		(to "mytraceback")
+-- «.errorfb_line»		(to "errorfb_line")
+-- «.ee_template»		(to "ee_template")
 -- «.interactor»		(to "interactor")
 -- «.MyXpcall»			(to "MyXpcall")
 -- «.Repl»			(to "Repl")
---
 -- «.loadluarepl»		(to "loadluarepl")
+
 -- «.replaceranges»		(to "replaceranges")
 -- «.string.replace»		(to "string.replace")
+-- «.anggurl-and-angg_url»	(to "anggurl-and-angg_url")
 --
 -- «.Sexp»			(to "Sexp")
 -- «.youtube_make_url»		(to "youtube_make_url")
@@ -222,6 +238,9 @@ myunpack = function (arg) return unpack(arg, 1, arg.n) end
 -- «printf»  (to ".printf")
 printf = function (...) write(format(...)) end
 
+-- (find-es "lua5" "loadstring")
+loadstring = loadstring or load
+
 
 
 -- «ee_expand»  (to ".ee_expand")
@@ -234,6 +253,10 @@ ee_expand = function (path)
   end
 
 -- «ee_dofile»  (to ".ee_dofile")
+-- For example,
+--   ee_dofile("~/LUA/tikz1.lua")
+-- works as expected; with the standard dofile we would need this:
+--   dofile(os.getenv("HOME").."/LUA/tikz1.lua")
 ee_dofile  = function (path) return dofile(ee_expand(path)) end
 
 -- «readfile»  (to ".readfile")
@@ -344,6 +367,10 @@ seq = function (a, b, c)
     for i=a,b,(c or 1) do table.insert(arr, i) end
     return arr
   end
+seqn = function (a, b, n)
+    local f = function (k) return a + (b-a)*(k/n) end
+    return map(f, seq(0, n))
+  end
 
 nop = function () end
 id  = function (...) return ... end
@@ -395,6 +422,12 @@ maplines = function (f, bigstr)
     return mapconcat(f, splitlines(bigstr), "\n")
   end
 
+transpose = function (A)
+    local TA = {}
+    for k,v in pairs(A) do TA[v] = k end
+    return TA
+  end
+
 -- «sorted»  (to ".sorted")
 -- (find-es "lua5" "sorted")
 -- (find-lua51manual "#pdf-table.sort")
@@ -402,11 +435,18 @@ maplines = function (f, bigstr)
 sorted = function (tbl, lt) table.sort(tbl, lt); return tbl end
 
 -- «fold»  (to ".fold")
+-- (find-es "lua5" "fold")
+-- (find-es "haskell" "foldr")
 -- (find-hugsbasefile "Prelude.hs" "\nfoldl ")
 -- foldl :: (a -> b -> a) -> a -> [b] -> a
 foldl = function (f, a, B, i, j)
     for k=(i or 1),(j or #B) do a = f(a, B[k]) end
     return a
+  end
+foldl1 = function (f, A)
+    local o = A[1]
+    for i=2,#A do o = f(o, A[i]) end
+    return o
   end
 
 -- «min-and-max» (to ".min-and-max")
@@ -447,6 +487,8 @@ coy = coroutine.yield
 cow = coroutine.wrap
 
 -- «eval-and-L» (to ".eval-and-L")
+-- (find-es "lua5" "lambda-with-L")
+-- (find-es "lua5" "lambda-with-Code")
 -- (find-LATEX "2014-1-GA-P2-gab.lua")
 eval = function (str) return assert(loadstring(str))() end
 expr = function (str) return eval("return "..str) end
@@ -499,6 +541,16 @@ Over = function (class)
     return over(class.__index)
   end
 
+-- «methodsover»  (to ".methodsover")
+-- (find-es "lua5" "methodsover")
+methodsover = function (class1index)
+    return function (class2index)
+        local class2indexmetatable = { __index = class1index }
+        setmetatable(class2index, class2indexmetatable)
+        return class2index
+      end
+  end
+
 -- (find-es "lua5" "rawtostring")
 rawtostring = function (o)
     if type(o) == "table" then
@@ -508,6 +560,35 @@ rawtostring = function (o)
     end
     return tostring(o)
   end
+
+
+-- «Code»  (to ".Code")
+-- The class Code "converts strings to executable code" in nice ways.
+-- Commented version: (find-angg "LUA/Code.lua")
+--
+Code = Class {
+  type   = "Code",
+  parse2 = function (src)
+      local vars,rest = src:match("^%s*([%w_,]+)%s*=>(.*)$")
+      if not vars then error("Code.parse2 can't parse: "..src) end
+      return vars, rest
+    end,
+  format2 = function (fmt, src)
+      return format(fmt, Code.parse2(src))
+    end,
+  ve = function (src)                       -- src is "vars => expression"
+      local fmt = "local %s=...; return %s"
+      return Code {src=src, code=Code.format2(fmt, src)}
+    end,
+  vc = function (src)                       -- src is "vars => code"
+      local fmt = "local %s=...; %s"
+      return Code {src=src, code=Code.format2(fmt, src)}
+    end,
+  __tostring = function (c) return c.src end,
+  __call = function (c, ...) return assert(loadstring(c.code))(...) end,
+  __index = {
+  },
+}
 
 
 
@@ -788,6 +869,17 @@ Path = Class {
   prepend = function (field, fname) return Path.from(field):prepend(fname) end,
   prependtopath  = function (fname) return Path.prepend("path",  fname) end,
   prependtocpath = function (fname) return Path.prepend("cpath", fname) end,
+  find = function (field, modulename)
+      local modulepath = modulename:gsub("%.", "/")
+      for pathentry in package[field]:gmatch("([^;]+)") do
+        local filename = pathentry:gsub("%?", modulepath)
+        local file = io.open(filename, "rb")
+        if file then
+          file:close()
+          return filename
+        end
+      end
+    end,
   __tostring = function (p) return p:tostring() end,
   __index = {
     get = function (p) return package[p.field] end,
@@ -818,6 +910,222 @@ Path = Class {
 
 
 
+-- «DGetInfo»  (to ".DGetInfo")
+-- Commented version: (find-angg "LUA/GetInfo.lua")
+-- TODO: update the commented version!
+-- Idea: running something like
+--
+--   dgi = DGetInfo.atlevel(99, "getvalues")
+--
+-- calls debug.getinfo and debug.getlocal to get a lot of information
+-- about the stack frame at level 99, and puts that information in a
+-- static object that is easy to inspect. This class is used by the
+-- class DGetInfos, defined below.
+--
+DGetInfo = Class {
+  type = "DGetInfo",
+  what = "nSluf",
+  new  = function (A) return DGetInfo(A or {}) end,
+  --
+  atlevel = function (lvl, getvalues)
+      local dgi = debug.getinfo(lvl, DGetInfo.what)
+      if not dgi then return end
+      if getvalues then dgi.values = {} end
+      for i=1,1000 do
+	local name,value = debug.getlocal(lvl, i)
+        if not name then break end
+	dgi[i] = name
+        if getvalues then dgi.values[i] = value end
+      end
+      return DGetInfo(dgi)
+    end,
+  --
+  -- Adapted from (the middle part of) the traceback function
+  -- of Prosody. See the message by Matthew Wild in
+  -- http://lua-users.org/lists/lua-l/2022-03/msg00071.html
+  prosodytraceback = function (info)
+    local line
+    local func_type = info.namewhat.." "
+    local source_desc = (info.short_src == "[C]" and "C code")
+                      or info.short_src or "Unknown"
+    if   func_type == " "
+    then func_type = ""
+    end
+    if info.short_src == "[C]" then
+      line = "[ C ] "
+             ..func_type
+             .."C function "
+             ..(info.name and ("%q"):format(info.name) or "(unknown name)")
+    elseif info.what == "main" then
+      line = "[Lua] "
+             ..info.short_src
+             .." line "
+             ..info.currentline
+    else
+      local name = info.name or " "
+      if   name ~= " "
+      then name = ("%q"):format(name)
+      end
+      if   func_type == "global " or func_type == "local "
+      then func_type = func_type.."function "
+      end
+      line = "[Lua] "
+             ..info.short_src
+             .." line "
+             ..info.currentline
+             .." in "
+             ..func_type
+             ..name
+             .." (defined on line "
+             ..info.linedefined
+             ..")"
+    end
+    return line
+  end,
+  --  
+  __tostring = function (dgi) return dgi:tb() end,
+  __index = {
+    -- «DGetInfo-method»  (to ".DGetInfo-method")
+    -- method = "fvtb",
+    -- method = "prosodytb",
+    method    = "luatb",
+    tb        = function (dgi) return dgi[dgi.method](dgi) end,
+    tbi       = function (dgi, i) return format("%2d -> %s", i, dgi:tb()) end,
+    prosodytb = function (dgi) return DGetInfo.prosodytraceback(dgi) end,
+    fvtb      = function (dgi) return dgi:funname().." :: "..dgi:vars() end,
+    --
+    -- «DGetInfo-luatb»  (to ".DGetInfo-luatb")
+    -- See: (find-angg ".emacs" "find-luatb")
+    luatb = function (dgi)
+        if dgi.short_src == "[C]"         then return dgi:luatb_C() end
+        if dgi.what      == "main"        then return dgi:luatb_main() end
+        if dgi.short_src == "(tail call)" then return dgi:luatb_tailcall() end
+        return dgi:luatb_other()
+      end,
+    luatb_C = function (dgi)
+        return "[ C ]"
+               .." "..dgi.namewhat
+               .." C function"
+               .." "..(dgi.name and format("%q", dgi.name) or "(unknown name)")
+      end,
+    luatb_main = function (dgi)
+        return "[Lua] "
+               ..dgi.short_src
+               .." line "
+               ..dgi.currentline
+      end,
+    luatb_other = function (dgi)
+        return -- "[Lua] (find-luatb "
+               " (find-luatb "
+               ..'"'..(dgi.short_src or "")
+               .." "..(dgi.linedefined or "")
+               .." "..(dgi.currentline or "")
+               .." "..(dgi.namewhat or "")
+               .." "..(dgi.name or "")
+               ..'")'
+      end,
+    luatb_tailcall = function (dgi)
+        return "[Lua] tail call"
+      end,
+    --
+    funname = function (dgi) return dgi.name or "(noname)" end,
+    vars = function (dgi)
+        return table.concat(dgi, " ")
+      end,
+    --
+    varns = function (dgi)
+        local namens = {}
+        for i,name in ipairs(dgi) do namens[name] = i end
+        return namens
+      end,
+    vs = function (dgi)
+        local values = VTableP({})
+        for i,name in ipairs(dgi) do values[name] = dgi.values[i] end
+        return values
+      end,
+    v = function (dgi, name)
+        local n = dgi:varns()[name] or error("Bad var name: "..tostring(name))
+        return dgi.values[n]
+      end,
+    --
+    find_fline = function (dgi, line)
+        local src = dgi.short_src
+        return format("(find-fline \"%s\" %d)", src, line)
+      end,
+    fline = function (dgi)
+        local l0  = dgi.linedefined
+        local l1  = dgi.currentline
+        local l2  = dgi.lastlinedefined
+        return dgi:find_fline(l1)
+      end,
+    --
+    -- 2022jul17:
+    info = function (dgi, tostr)
+        return pformat("spec: %s\nsrc: %s\n%s", dgi, dgi:fline(), dgi:infovalns(tostr))
+      end,
+    infovaln = function (dgi, n, tostr)
+        tostr = tostr or mytostring
+        return format(" %d %q: %s", n, dgi[n], tostr(dgi.values[n]))
+      end,
+    infovalns = function (dgi, tostr)
+        local f = function (i) return dgi:infovaln(i, tostr) end
+        return mapconcat(f, seq(1, #dgi), "\n")
+      end,
+  },
+}
+
+-- «DGetInfos»  (to ".DGetInfos")
+-- Commented version: (find-angg "LUA/GetInfo.lua" "GetInfos")
+-- TODO: update the commented version!
+-- Idea: running something like
+--
+--   dgis = DGetInfos.newv()
+-- 
+-- runs lots of "debug.getinfo()"s and "debug.getlocal"s via DGetInfo,
+-- and returns a static structure that can be inspected in a repl
+-- (both inside an error handler and post-mortem).
+--
+DGetInfos = Class {
+  type = "DGetInfos",
+  new  = function (getvalues) return DGetInfos({}):getinfos(getvalues) end,
+  newv = function () return DGetInfos.new("getvalues") end,
+  __tostring = function (dgis) return dgis:tostring() end,
+  __index = {
+    getinfos = function (dgis, getvalues)
+        dgis.infos = {}
+        for i=0,1000 do
+          dgis[i] = DGetInfo.atlevel(i, getvalues)
+          if not dgis[i] then return dgis end
+        end
+      end,
+    firstsuch = function (dgis, f)
+        for i=0,#dgis do
+          if f(dgis[i], i) then return i end
+        end
+      end,
+    setbase = function (dgis, f)
+        local z = dgis:firstsuch(f)
+        if not z then error("setbase: not found") end
+        dgis.base = z
+        return dgis
+      end,
+    --
+    seq = function (dgis, a, b, dir)
+        a,b = (a or #dgis),(b or 0)
+        dir = dir or (a <= b and 1 or -1)
+        return seq(a, b, dir)
+      end,
+    tostring = function (dgis, a, b, dir)
+        local f = function (i) return dgis[i]:tbi(i) end
+        return mapconcat(f, dgis:seq(a, b, dir), "\n")
+      end,
+    --
+    tb  = function (dgis, a, b, dir) return dgis:tostring(a, b, dir) end,
+    tbn = function (dgis, a, b, dir) return dgis:tostring(a, b, dir) end,
+  },
+}
+
+
 
 -- «Rect» (to ".Rect")
 -- Commented version: (find-angg "LUA/Rect.lua")
@@ -834,7 +1142,11 @@ Rect = Class {
   type = "Rect",
   new  = function (str) return Rect(splitlines(str)) end,
   rep  = function (str, n) local r=Rect{}; for i=1,n do r[i]=str end; return r end,
-  from = function (o) return type(o) == "string" and Rect.new(o) or o end,
+  from = function (o)
+      if type(o) == "string" then return Rect.new(o) end
+      if type(o) == "number" then return Rect.new(tostring(o)) end
+      return o -- missing: test otypeness
+    end,
   --
   -- A hack to let us build syntax trees very quickly:
   syntree = function (op, a1, ...)
@@ -1168,6 +1480,34 @@ loadblogme3all = function (msg)
     loadblogme3rest()
   end
 
+-- «savevars»  (to ".savevars")
+-- (find-es "lua5" "savevars")
+savevars = function (restorefromargs, ...)
+    local values = pack(...)
+    local restorevars = function () restorefromargs(unpack(values)) end
+    return restorevars
+  end
+
+
+
+
+--   __                            _   
+--  / _| ___  _ __ _ __ ___   __ _| |_ 
+-- | |_ / _ \| '__| '_ ` _ \ / _` | __|
+-- |  _| (_) | |  | | | | | | (_| | |_ 
+-- |_|  \___/|_|  |_| |_| |_|\__,_|\__|
+--                                     
+-- «variants-of-format»  (to ".variants-of-format")
+-- See also: (find-es "lua5" "formatt-and-printt")
+--           (find-dn6 "output.lua" "formatt")
+
+-- «minus-0»  (to ".minus-0")
+-- (find-es "lua5" "minus-0-email")
+-- http://lua-users.org/lists/lua-l/2022-05/msg00082.html
+-- truncn = function (n) return trunc0(string.format("%.3f", n)) end
+-- truncn = function (n) return trunc0(string.format("%.3f", fix0(n))) end
+fix0 = function (x) if (x == 0) then return 0 else return x end end
+
 -- «trailing-zeroes» (to ".trailing-zeroes")
 -- «pformat» (to ".pformat")
 -- (find-es "lua5" "string.format")
@@ -1181,7 +1521,7 @@ pformat1 = function (o)
   end
 pformatargs = function (...)
     local n = select("#", ...)
-    return unpack(map(pformat1, {...}, n), 1, n)
+    return myunpack(map(pformat1, {...}, n), 1, n)
   end
 pformat = function (fmt, ...)
     return format(fmt, pformatargs(...))
@@ -1211,40 +1551,6 @@ else
   dformat = string.dformat
 end
 
--- «savevars»  (to ".savevars")
--- (find-es "lua5" "savevars")
-savevars = function (restorefromargs, ...)
-    local values = pack(...)
-    local restorevars = function () restorefromargs(unpack(values)) end
-    return restorevars
-  end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1254,10 +1560,6 @@ savevars = function (restorefromargs, ...)
 
 -- (find-lua53manual "#8" "integer subtype")
 toint    = math.floor        -- for 5.3
-
-
-
-
 
 -- «string-methods»  (to ".string-methods")
 -- A note about "string methods": if s is a string, then a piece of
@@ -1296,8 +1598,8 @@ toint    = math.floor        -- for 5.3
 -- (find-es "lua5" "0-based")
 -- 0-based string functions.
 -- (To do: remove this! I think I only use 0-based string functions at
--- dednat4 - and now I'm almost getting used to the 1-based
--- conventions...)
+--  dednat4 - and now I'm almost getting used to the 1-based
+--  conventions...)
 -- (find-sh "lua -e \"print(substr0('abcdef', 2, 3)) --> cde\"")
 substr0 = function (str, start0, len)
     return string.sub(str, start0 + 1, len and start0 + len)
@@ -1390,6 +1692,10 @@ follow = function (o, str)
 
 -- «NamedFunction» (to ".NamedFunction")
 -- (find-es "lua5" "NamedFunction")
+-- Obsolete, superseded by: (to "Code")
+--               (find-angg "LUA/Code.lua")
+--               (find-angg "LUA/Code.lua" "Code-tests")
+--
 NamedFunction = Class {
   type    = "NamedFunction",
   __tostring = function (o) return o.name end,
@@ -1552,20 +1858,6 @@ load_dednat4 = function ()
   end
 
 
--- «load_rex»  (to ".load_rex")
--- (find-es "lua5" "rexlib")
--- Usage: if not rex then load_rex() end
--- Note (2007): I haven't used this in ages!
--- Lpeg is much better, and nowadays I would try to use "require" here
--- instead of loadlib...
-load_rex = function ()
-    assert(loadlib(getenv("HOME").."/.lua50/lrexlib.so", "luaopen_rex"))()
-    setmetatable(rex,
-      {__call = function (self, p, cf, lo) return self.newPOSIX(p, cf, lo) end})
-    function rex.find(s, p, st)   return rex(p):match(s, st) end
-    function rex.gsub(s, p, f, n) return rex(p):gmatch(s, f, n) end
-  end
-
 -- «load_posix»  (to ".load_posix")
 -- This is for lua-5.0, for 5.1 see: (to "loadposix")
 -- (find-es "lua5" "load_posix")
@@ -1605,26 +1897,6 @@ PPeval = function (str)
     end
   end
 
--- -- «loadswigso»  (to ".loadswigso")
--- -- (find-es "swig" "myswiglua")
--- -- Example: loadswigso("C", "./myparser.so", "parser", "countwords")
--- loadswigso = function (modulename, fname_so, ...)
---     assert(loadlib(fname_so, modulename.."_Init"))()
---     local module = _G[modulename]
---     for i=1,arg.n do
---       _G[arg[i]] = module[arg[i]]  -- export to the table of globals
---     end
---   end
--- 
--- -- «loadcinvoke»  (to ".loadcinvoke")
--- -- (find-es "lua5" "cinvoke")
--- loadcinvoke = function ()
---     local oldcpath = package.cpath
---     package.cpath = ee_expand("~/usrc/cinvoke-1.0/bindings/lua/?.so")
---     require "cinvoke_lua"
---     package.cpath = oldcpath
---   end
-
 -- «loadlpeg»  (to ".loadlpeg")
 -- (find-es "lua5" "lpeg-0.7")
 -- (find-es "lua5" "lpeg-0.8.1")
@@ -1632,13 +1904,6 @@ PPeval = function (str)
 -- (find-es "lua5" "lpeg")
 loadlpeg = function ()
     local oldcpath = package.cpath
-    -- package.cpath = ee_expand("~/usrc/lpeg-0.4/?.so")
-    -- package.cpath = ee_expand("~/usrc/lpeg-0.5/?.so")
-    -- package.cpath = ee_expand("~/usrc/lpeg-0.7/?.so")..";"..oldcpath
-    -- (find-lua51manual "#pdf-package.cpath")
-    -- (find-sh0 "lua51 -e 'print(package.path)'")
-    -- (find-sh0 "lua51 -e 'print(package.cpath)'")
-    -- package.cpath = ee_expand("~/usrc/lpeg-0.8.1/?.so")..";"..oldcpath
     package.cpath = ee_expand("~/usrc/lpeg-0.9/?.so")..";"..oldcpath
     require "lpeg"
     package.cpath = oldcpath
@@ -1650,96 +1915,83 @@ loadlpeg = function ()
     lpeg.Balanced = lpeg_balanced   -- (to "lpeg_balanced")
   end
 
--- «loadbitlib»  (to ".loadbitlib")
--- (find-es "lua5" "bitlib-51")
-loadbitlib = function (fname)
-    if bit then return "bitlib already loaded" end
-    fname = fname or "~/usrc/bitlib-25/lbitlib.so"
-    assert(package.loadlib(ee_expand(fname), "luaopen_bit"))()
+-- «loadlpegrex»  (to ".loadlpegrex")
+-- (find-es "lpeg" "lpegrex")
+loadlpegrex = function ()
+    Path.prepend("path",  "~/usrc/lpeglabel/?.lua")
+    Path.prepend("cpath", "~/usrc/lpeglabel/?.so")
+    Path.prepend("path",  "~/usrc/lpegrex/?.lua")
+    lpegrex = require 'lpegrex'
   end
+
+
+-- «loadbitlib»  (to ".loadbitlib")
+-- Obsolete. See: (find-es "lua5" "bitlib-51")
 
 -- «autoload»  (to ".autoload")
--- Like in elisp. For global functions only.
--- (find-lua51manual "#pdf-require")
---
-autoload = function (funname, loader)
-    _G[funname] = function (...)
-        loader()
-        return _G[funname](unpack(arg)) -- todo: change to "..." (a 5.1-ism)
-      end
-  end
-
-tcl = function (...)   -- <-- this is a kind of autoload
-    local filename = ee_expand("~/.lua51/luatclbridge.so")
-    local initname = "luaopen_luatclbridge"
-    tcl = assert(package.loadlib(filename, initname))()
-    return tcl(unpack(arg))             -- todo: change to "..." (a 5.1-ism)
-  end
+-- Obsolete.
 
 -- «loadtcl»  (to ".loadtcl")
--- (find-es "lua5" "luatclbridge")
--- (find-angg "LUA/luatclbridge.c")
+-- Obsolete.
+-- -- (find-es "lua5" "luatclbridge")
+-- -- (find-angg "LUA/luatclbridge.c")
+-- -- loadtcl = function ()
+-- --     local filename = ee_expand("~/LUA/tlbridge.so")
+-- --     local initname = "luaopen_tlbridge"
+-- --     tcl = tcl or assert(package.loadlib(filename, initname))()
+-- --   end
 -- loadtcl = function ()
---     local filename = ee_expand("~/LUA/tlbridge.so")
---     local initname = "luaopen_tlbridge"
---     tcl = tcl or assert(package.loadlib(filename, initname))()
+--     -- local filename = ee_expand("~/LUA/luatclbridge.so")
+--     local filename = ee_expand("~/.lua51/luatclbridge.so")
+--     local initname = "luaopen_luatclbridge"
+--     if not tcl then
+--       tcl, tclfindexecutable = assert(package.loadlib(filename, initname))()
+--       tclfindexecutable("/home/edrx/usrc/tk8.4/tk8.4-8.4.12/unix/wish") -- test
+--     end
 --   end
-loadtcl = function ()
-    -- local filename = ee_expand("~/LUA/luatclbridge.so")
-    local filename = ee_expand("~/.lua51/luatclbridge.so")
-    local initname = "luaopen_luatclbridge"
-    if not tcl then
-      tcl, tclfindexecutable = assert(package.loadlib(filename, initname))()
-      tclfindexecutable("/home/edrx/usrc/tk8.4/tk8.4-8.4.12/unix/wish") -- test
-    end
-  end
-loadtk     = function () loadtcl(); return tcl("package require Tk") end
-loadexpect = function () loadtcl(); return tcl("package require Expect") end
-loadsnack  = function () loadtcl(); return tcl("package require sound") end
--- (find-es "tcl" "snack")
--- (find-anggfile "TCL/piano.tcl")
+-- loadtk     = function () loadtcl(); return tcl("package require Tk") end
+-- loadexpect = function () loadtcl(); return tcl("package require Expect") end
+-- loadsnack  = function () loadtcl(); return tcl("package require sound") end
+-- -- (find-es "tcl" "snack")
+-- -- (find-anggfile "TCL/piano.tcl")
+
 
 -- «loadldb»  (to ".loadldb")
--- (find-es "lua5" "ldb-from-tgz")
--- (find-es "lua5" "ldb")
-loadldb = function ()
-    local oldpath = package.path
-    -- package.path = ee_expand("$S/http/primero.ricilake.net/lua/?.lua")
-    -- package.path = ee_expand("~/LUA/?.lua")
-    package.path = ee_expand("~/usrc/ldb/?.lua")
-    ldb = require "ldb"
-    package.path = oldpath
-  end
+-- Obsolete.
+-- -- (find-es "lua5" "ldb-from-tgz")
+-- -- (find-es "lua5" "ldb")
+-- loadldb = function ()
+--     local oldpath = package.path
+--     -- package.path = ee_expand("$S/http/primero.ricilake.net/lua/?.lua")
+--     -- package.path = ee_expand("~/LUA/?.lua")
+--     package.path = ee_expand("~/usrc/ldb/?.lua")
+--     ldb = require "ldb"
+--     package.path = oldpath
+--   end
+
 
 -- «loadpeek»  (to ".loadpeek")
--- (find-angg "DAVINCI/peek.c")
--- (find-angg "DAVINCI/peek.lua")
-loadpeek = function ()
-    if not peek then
-      assert(package.loadlib(ee_expand("~/DAVINCI/peek.so"), "peek_init"))()
-    end
-  end
-getaddr = function (obj)
-    return tonumber(string.match(tostring(obj), " 0x([0-9A-Za-z]+)"), 16)
-  end
+-- Obsolete.
+-- -- (find-angg "DAVINCI/peek.c")
+-- -- (find-angg "DAVINCI/peek.lua")
+-- loadpeek = function ()
+--     if not peek then
+--       assert(package.loadlib(ee_expand("~/DAVINCI/peek.so"), "peek_init"))()
+--     end
+--   end
+-- getaddr = function (obj)
+--     return tonumber(string.match(tostring(obj), " 0x([0-9A-Za-z]+)"), 16)
+--   end
+
 
 -- «loadalarm»  (to ".loadalarm")
--- (find-es "lua5" "signal")
-loadalarm = function ()
-    if not alarm then
-      assert(package.loadlib(ee_expand("~/usrc/alarm/lalarm.so"), "luaopen_alarm"))()
-    end
-  end
+-- Obsolete. See: (find-es "lua5" "signal")
 
 -- «loadposix»  (to ".loadposix")
 -- New way (active below):  (find-es "lua5" "luaposix")
--- old way (commented out): (find-es "lua5" "posix-lua51")
+-- old way (deleted):       (find-es "lua5" "posix-lua51")
 loadposix = function ()
     userocks(); require "posix"
-    -- if not posix then
-    --   -- assert(package.loadlib(ee_expand("~/usrc/posix/lposix.so"), "luaopen_posix"))()
-    --   ee_loadlib("~/usrc/luaposix-5.1.4/posix.so", "luaopen_posix")
-    -- end
   end
 
 -- «curl» (to ".curl")
@@ -1751,57 +2003,8 @@ curl = function (url)
 
 
 -- «preparef2n»  (to ".preparef2n")
--- (find-es "lua5" "functionnames")
--- preparef2n: create a table with names of functions.
--- Example:
---   f2n = preparef2n()
---   print(f2n(loadstring)) --> "loadstring"
---
--- This is new (2007mar11), and not very well-tested.
--- Note: there's no support yet for submodules (like "socket.http").
--- I wrote this for my traceback functions...
---
-preparef2n__ = function (fun2name, dictname, dictnamedot, dict)
-    for name,value in pairs(dict or _G) do
-      if type(value) == "function" then
-        if string.match(name, "^[A-Za-z_][0-9A-Za-z_]*$") then
-          fun2name[value] = dictnamedot..name
-        else
-          fun2name[value] = string.format("%s[%q]", dictname, name)
-        end
-      end
-    end
-  end
-
-preparef2n_ = function (fun2name, dictnames)
-    for _,dn in ipairs(split(dictnames)) do
-      if dn == "_G"
-      then preparef2n__(fun2name, "_G", "",      _G)
-      else preparef2n__(fun2name, dn,   dn..".", _G[dn])
-      end
-    end
-  end
-
-preparef2n = function (otherdictnames)
-    local f2n = {}
-    local standarddicts = " coroutine debug io math os package string table "
-    preparef2n_(f2n, standarddicts .. (otherdictnames or "") .. " _G ")
-    return f2n
-  end
-
-
--- «gformat»  (to ".gformat")
--- A variant of "format" that uses "string.gsub".
--- This is surprisingly useful. 8-)
---           gformat "<%1_%1>" "foo"                   --> <foo_foo>
--- mapconcat(gformat "<%1_%1>", split "foo bar", ", ") --> <foo_foo>, <bar_bar>
--- See also: (find-es "emacs" "ee-gformat")
-gformat = function (fmt, pat)
-    return function (str)
-        return (str:gsub((pat or "^.*$"), fmt))
-      end
-  end
-
+-- Supersed by: (find-angg "LUA/DFS.lua")
+-- Very old notes: (find-es "lua5" "functionnames")
 
 
 -- «each2»  (to ".each2")
@@ -1831,6 +2034,16 @@ translatechars = function (str, re, tbl)
 --
 -- sgmlify = chartranslator(sgmlify_re, sgmlify_table)
 
+
+--  _                      
+-- | |    _ __   ___  __ _ 
+-- | |   | '_ \ / _ \/ _` |
+-- | |___| |_) |  __/ (_| |
+-- |_____| .__/ \___|\__, |
+--       |_|         |___/ 
+--
+-- «lpeg»  (to ".lpeg")
+
 -- «sbeconcat»  (to ".sbeconcat")
 -- Concatenate a table with strings and with begin/end pairs
 -- Example:
@@ -1855,8 +2068,6 @@ sbeconcat = function (subj, f)
         return table.concat(table2)
       end
   end
-
-
 
 -- «concatbestrings»  (to ".concatbestrings")
 -- A "table of bestrings" is a table containing pairs of numbers
@@ -1964,56 +2175,8 @@ lpeg_balanced = function (Open, MidChars, Close)
 
 
 
--- «mytraceback»  (to ".mytraceback")
--- (find-es "lua5" "xpcall" "mytraceback =")
--- (find-lua51manual "#pdf-xpcall")
--- (find-lua51manual "#pdf-debug.traceback")
--- (find-lua51manual "#pdf-error")
-mytraceback = function (errmsg)
-    io.output():flush()
-    print(debug.traceback(errmsg, 2))
-  end
-xxcall = function (f)
-    if not xpcall(f, mytraceback) then error() end
-  end
-
-
--- «errorfb_line»  (to ".errorfb_line")
--- (find-es "lua5" "traceback")
--- (find-lua51file "src/ldblib.c" "{\"traceback\", db_errorfb},")
--- (find-lua51file "src/ldblib.c" "static int db_errorfb")
--- (find-lua51file "src/ldblib.c" "static int db_errorfb" "lua_getinfo")
--- http://www.lua.org/source/5.1/ldblib.c.html#db_errorfb
--- http://www.lua.org/source/5.1/ldblib.c.html#dblib
--- (find-es "lua5" "loadstring_and_eof")
--- http://lua-users.org/lists/lua-l/2011-11/msg00110.html
--- (find-es "lua5" "lua_getstack")
-
-errorfb_line = function (ar)
-    local s = "\t"
-    local p = function (...) s = s..format(...) end
-    p("%s:", ar.short_src)
-    if ar.currentline > 0 then p("%d:", ar.currentline) end
-    if ar.namewhat ~= ""  then p(" in function '%s'", ar.name) else
-      if ar.what == "main" then p(" in main chunk")
-      elseif ar.what == "C" or ar.what == "tail" then p(" ?")
-      else p(" in function <%s:%d>", ar.short_src, ar.linedefined)
-      end
-    end
-    return s
-  end
-errorfb_lines = function (a, b, step, f)
-    local T = {}
-    for level=a,b,(step or 1) do
-      T[#T+1] = (f or errorfb_line)(debug.getinfo(level))
-    end
-    return table.concat(T, "\n")
-  end
-
-
-
 -- «ee_template»  (to ".ee_template")
--- (find-eev "eev-insert.el" "ee-template")
+-- (find-eev "eev-template0.el")
 -- ee_template({a="<AA>", b="<BB>"}, "foo{a}bar{c}plic")
 --   --> "foo<AA>bar{c}plic"
 ee_template = function (pairs, templatestr)
@@ -2093,50 +2256,57 @@ icollect = function (n, f, s, var)
   end
 
 
+-- «Repl1.lua»  (to ".Repl1.lua")
+-- (find-angg "LUA/Repl1.lua")
+run_my_repl_now = function ()
+    ee_dofile "~/LUA/Repl1.lua"
+    r = EdrxRepl.new()
+    r:repl()
+  end
+stop_my_repl_now = function ()
+    dg = dgis
+    r.STOP = "please"
+  end
+
+-- «Repl2.lua»  (to ".Repl2.lua")
+-- (find-angg "LUA/Repl2.lua" "Repl2")
+-- (find-angg "LUA/Repl2.lua" "Repl2" "while not r.STOP do")
+run_repl2_now = function ()
+    ee_dofile "~/LUA/Repl2.lua"
+    r = Repl2.new()
+    r:repl()
+  end
+stop_repl2_now = function ()
+    r.STOP = "please"
+  end
+
+-- «mytraceback»  (to ".mytraceback")
+-- «errorfb_line»  (to ".errorfb_line")
+-- Obsolete.
+-- See: (find-angg "LUA/Repl1.lua")
+-- and: (find-angg "LUA/lua50init.lua" "DGetInfos")
+--      (find-angg "LUA/lua50init.lua" "DGetInfos" "tb =")
+
 -- «interactor»  (to ".interactor")
 -- Obsolete (from 2007). Deleted.
 -- (find-es "lua5" "interactor")
 -- (find-TH "repl")
 
-
 -- «MyXpcall»  (to ".MyXpcall")
--- Obsolete.
--- Moved to: (find-angg "LUA/myxpcall.lua" "MyXpcall")
+-- Obsolete! Moved to: (find-angg "LUA/myxpcall.lua" "MyXpcall")
 -- Superseded by: (find-angg "edrxrepl/edrxpcall.lua")
 --
 -- «Repl» (to ".Repl")
 -- Obsolete. See: (find-es "lua5" "Repl")
 -- Superseded by: (find-angg "edrxrepl/edrxrepl.lua")
 --                (find-angg "edrxrepl/edrxrepl.lua" "Repl")
+--                (find-angg "LUA/Repl1.lua")
 
 -- «loadluarepl» (to ".loadluarepl")
--- (find-es "lua5" "lua-repl-0.8")
--- (find-dednat6 "dednat6/luarepl.lua")
--- TODO: stop using this, use instead the Repl class defined above.
---
--- loadluarepl = function (dir)
---     if repl then return "lua-repl-0.8 already loaded (it seems)" end
---     -- repldir   = ee_expand(dir or "~/usrc/lua-repl-0.8/")
---     repldir      = ee_expand(dir or "~/dednat6/dednat6/lua-repl/")
---     package.path = repldir.."?/init.lua;"..package.path
---     package.path = repldir.."?.lua;"     ..package.path
---     repl         = require "repl"
---     sync         = require "repl.sync"
---     function sync:showprompt() print ">>>" end
---     function sync:showprompt() io.write ">>> " end
---     function sync:showprompt(n) print(n); io.write ">>> " end
---     function sync:showprompt(p) io.write(p == ">" and ">>> " or ">>>> ") end
---     function sync:lines() return io.stdin:lines() end
---     function sync:displayerror(err) print(err) end
---     function sync:displayresults(results)
---         if results.n == 0 then return end
---         print(unpack(results, 1, results.n))
---       end
---     -- luarepl = function () print(); print(); sync:run() end
---     luarepl = function () sync:run() end
---     return "Loaded lua-repl-0.8"
---   end
-
+-- Obsolete.
+-- See: (find-es "lua5" "lua-repl-0.8")
+-- And: (find-dednat6 "dednat6/luarepl.lua")
+-- TODO: replace all uses of this by the Repl class defined above.
 
 
 -- «replaceranges» (to ".replaceranges")
@@ -2182,7 +2352,9 @@ string.replace = function (s, x, r, w)
   end
 
 
--- 2013jan16; to be moved to blogme3 / blogme4
+-- «anggurl-and-angg_url»  (to ".anggurl-and-angg_url")
+-- Obsolete! TODO: replace this by a class that shortens
+-- local filenames correctly.
 string.revgsub = function (str, ...)
     return str:reverse():gsub(...):reverse()
   end
@@ -2312,6 +2484,8 @@ youtube_time = function (time)
     if type(time) ~= "string" then return "" end
     local mm,ss = time:match("^(%d?%d):(%d%d)$")
     if ss then return "&t="..(mm*60+ss) end
+    local hh,mm,ss = time:match("^(%d?%d):(%d%d):(%d%d)$")
+    if ss then return "&t="..(hh*3600+mm*60+ss) end
     return ""
   end
 youtube_time_hhmmss = function (time)
@@ -2388,41 +2562,7 @@ url_split = function (url)
 
 
 -- «Blogme» (to ".Blogme")
--- An attempto to reimplement this: (find-blogme3 "brackets.lua")
--- as a class.
-Blogme = Class {
-  type    = "Blogme",
-  __index = {
-    ps = function (bme)  -- parse space chars
-        local s, p = bme.str:match("^([ \t\n]+)()", bme.pos)
-        if s then bme.pos = p; return s end
-      end,
-    pw = function (bme)  -- parse word chars (i.e., no spaces, no brackets)
-        local s, p = bme.str:match("^([^%[%] \t\n]+)()", bme.pos)
-        if s then bme.pos = p; return s end
-      end,
-    pr = function (bme)  -- parse regular chars (i.e., no brackets)
-        local s, p = bme.str:match("^([^%[%]]+)()", bme.pos)
-        if s then bme.pos = p; return s end
-      end,
-    pb0 = function (bme) -- parse bracket (without evaluation)
-        local b, e = bme.str:match("^()%b[]()", bme.pos)
-        if b then bme.pos = e; return b+1, e-1 end
-      end,
-    pqarg0 = function (bme) -- parse a quoted argument (without evaluation)
-        bme:ps()
-        local b = bme.pos
-        while bme:pb0() or bme:pw() do end
-        return b, bme.pos
-      end,
-    sub = function (bme, b, e) return b and bme.str:sub(b, e-1) end,
-  },
-}
-
-
-
-
-
+-- Obsolete, deleted! Superseded by: (find-anggfile "LUA/BlogMe3.lua")
 
 -- (find-blogme3 "anggdefs.lua" "basic-words-for-html" "HREF")
 HREF  = function (url, str) return format('<a href="%s">%s</a>', url, str) end
@@ -2430,6 +2570,8 @@ HREF1 = function (url, str) return url and HREF(url, str) or str end
 
 -- «EevIntro» (to ".EevIntro")
 -- (find-es "lua5" "EevIntro")
+-- Superseded by: (find-blogme3 "sandwiches.lua")
+--
 EevIntro = Class {
   type = "EevIntro",
   from = function (stem, sec)
@@ -2472,6 +2614,7 @@ introhtml = function (stem, sec)
 -- «ELispH» (to ".ELispH")
 -- See: (find-es "lua5" "ELispH")
 --      (find-es "lua5" "ELispH-tests")
+-- Superseded by: (find-blogme3 "sandwiches.lua")
 --
 -- An ELispH object holds data that can generate a "help url" and
 -- a "target url". For example:
@@ -2598,6 +2741,7 @@ code_video = function (c, urlorfnameorhash)
 
 
 -- «getsexp» (to ".getsexp")
+-- New version: (find-angg "LUA/SexpAtEol1.lua" "SexpAtEol-tests")
 -- (find-es "lua5" "getsexp")
 -- (find-blogme3 "sexp.lua" "getsexp")
 -- Version: 2019jan08.
@@ -2770,8 +2914,7 @@ ELispInfo = Class {
 --   end
 
 -- «SexpLine» (to ".SexpLine")
--- Obsolete.
--- Tests: (find-es "lua5" "SexpLine")
+-- Obsolete. See: (find-es "lua5" "SexpLine")
 -- This was intended to replace some parts of: (find-blogme3 "escripts.lua")
 --
 -- SexpLine = Class {
@@ -2879,8 +3022,6 @@ ydb_sort = function (bigstr)
     return table.concat(sorted(lines, lt), "\n")
   end
 ydb_sort1 = function () print(ydb_sort(io.read("*a"))) end
---[[
---]]
 
 
 -- «loaddednat6» (to ".loaddednat6")

@@ -20,7 +20,7 @@
 -- «.QuadraticFunction»		(to "QuadraticFunction")
 -- «.QuadraticFunction-tests»	(to "QuadraticFunction-tests")
 
-loaddednat6()
+loaddednat6("dednat6/")
 
 
 -- «V3»  (to ".V3")

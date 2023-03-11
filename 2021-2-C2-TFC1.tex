@@ -1,0 +1,1125 @@
+% (find-LATEX "2021-2-C2-TFC1.tex")
+% (defun c () (interactive) (find-LATEXsh "lualatex -record 2021-2-C2-TFC1.tex" :end))
+% (defun C () (interactive) (find-LATEXsh "lualatex 2021-2-C2-TFC1.tex" "Success!!!"))
+% (defun D () (interactive) (find-pdf-page      "~/LATEX/2021-2-C2-TFC1.pdf"))
+% (defun d () (interactive) (find-pdftools-page "~/LATEX/2021-2-C2-TFC1.pdf"))
+% (defun e () (interactive) (find-LATEX "2021-2-C2-TFC1.tex"))
+% (defun o () (interactive) (find-LATEX "2021-2-C2-TFC1.tex"))
+% (defun u () (interactive) (find-latex-upload-links "2021-2-C2-TFC1"))
+% (defun v () (interactive) (find-2a '(e) '(d)))
+% (defun d0 () (interactive) (find-ebuffer "2021-2-C2-TFC1.pdf"))
+% (defun cv () (interactive) (C) (ee-kill-this-buffer) (v) (g))
+%          (code-eec-LATEX "2021-2-C2-TFC1")
+% (find-pdf-page   "~/LATEX/2021-2-C2-TFC1.pdf")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-TFC1.pdf /tmp/")
+% (find-sh0 "cp -v  ~/LATEX/2021-2-C2-TFC1.pdf /tmp/pen/")
+%     (find-xournalpp "/tmp/2021-2-C2-TFC1.pdf")
+%   file:///home/edrx/LATEX/2021-2-C2-TFC1.pdf
+%               file:///tmp/2021-2-C2-TFC1.pdf
+%           file:///tmp/pen/2021-2-C2-TFC1.pdf
+% http://angg.twu.net/LATEX/2021-2-C2-TFC1.pdf
+% (find-LATEX "2019.mk")
+% (find-CN-aula-links "2021-2-C2-TFC1" "2" "c2m212tfc1" "c2t1")
+
+% «.video-1»		(to "video-1")
+%
+% «.defs»		(to "defs")
+% «.defs-parabola»	(to "defs-parabola")
+% «.title»		(to "title")
+% «.intro-1»		(to "intro-1")
+% «.intro-2»		(to "intro-2")
+% «.intro-3»		(to "intro-3")
+% «.exemplo-1»		(to "exemplo-1")
+% «.exemplo-1-left»	(to "exemplo-1-left")
+% «.exercicio-1»	(to "exercicio-1")
+% «.exercicio-2»	(to "exercicio-2")
+% «.descontinuidades»	(to "descontinuidades")
+% «.tfc1-complicado-1»	(to "tfc1-complicado-1")
+% «.exercicio-3»	(to "exercicio-3")
+% «.tfc1-complicado-3»	(to "tfc1-complicado-3")
+% «.tfc2-exemplo»	(to "tfc2-exemplo")
+% «.tfc2-exemplo-2»	(to "tfc2-exemplo-2")
+%
+% «.djvuize»		(to "djvuize")
+
+
+
+% «video-1»  (to ".video-1")
+% (c2m212tfc1a    "video-1")
+% (find-ssr-links     "c2m212tfc1" "2021-2-C2-TFC1" "XvzrNtle-c0")
+% (code-eevvideo      "c2m212tfc1" "2021-2-C2-TFC1" "XvzrNtle-c0")
+% (code-eevlinksvideo "c2m212tfc1" "2021-2-C2-TFC1" "XvzrNtle-c0")
+% (find-c2m212tfc1video "0:00")
+% (find-c2m212tfc1video "0:00" "Preparação pro Mini-Teste 3")
+
+\documentclass[oneside,12pt]{article}
+\usepackage[colorlinks,citecolor=DarkRed,urlcolor=DarkRed]{hyperref} % (find-es "tex" "hyperref")
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pict2e}
+\usepackage[x11names,svgnames]{xcolor} % (find-es "tex" "xcolor")
+\usepackage{colorweb}                  % (find-es "tex" "colorweb")
+%\usepackage{tikz}
+%
+% (find-dn6 "preamble6.lua" "preamble0")
+%\usepackage{proof}   % For derivation trees ("%:" lines)
+%\input diagxy        % For 2D diagrams ("%D" lines)
+%\xyoption{curve}     % For the ".curve=" feature in 2D diagrams
+%
+\usepackage{edrx21}               % (find-LATEX "edrx21.sty")
+\input edrxaccents.tex            % (find-LATEX "edrxaccents.tex")
+\input edrx21chars.tex            % (find-LATEX "edrx21chars.tex")
+\input edrxheadfoot.tex           % (find-LATEX "edrxheadfoot.tex")
+\input edrxgac2.tex               % (find-LATEX "edrxgac2.tex")
+%\usepackage{emaxima}              % (find-LATEX "emaxima.sty")
+%
+%\usepackage[backend=biber,
+%   style=alphabetic]{biblatex}            % (find-es "tex" "biber")
+%\addbibresource{catsem-slides.bib}        % (find-LATEX "catsem-slides.bib")
+%
+% (find-es "tex" "geometry")
+\usepackage[a6paper, landscape,
+            top=1.5cm, bottom=.25cm, left=1cm, right=1cm, includefoot
+           ]{geometry}
+%
+\begin{document}
+
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"}  % (find-LATEX "dednat6load.lua")
+%L dofile "2021pict2e.lua"           -- (find-LATEX "2021pict2e.lua")
+%L Pict2e.__index.suffix = "%"
+\pu
+\def\pictgridstyle{\color{GrayPale}\linethickness{0.3pt}}
+\def\pictaxesstyle{\linethickness{0.5pt}}
+
+% «defs»  (to ".defs")
+% (find-LATEX "edrx21defs.tex" "colors")
+% (find-LATEX "edrx21.sty")
+
+\def\u#1{\par{\footnotesize \url{#1}}}
+
+\def\drafturl{http://angg.twu.net/LATEX/2021-2-C2.pdf}
+\def\drafturl{http://angg.twu.net/2021.2-C2.html}
+\def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
+
+\def\mname#1{[\mathsf{#1}]}
+
+
+% «defs-parabola»  (to ".defs-parabola")
+% (find-LATEXgrep "grep --color=auto -nH --null -e Pict2e *.tex")
+% (find-LATEX "2021-2-C2-def-integral.lua")
+%
+%L fp = function (x)
+%L     return 4 - (x-2)^2
+%L   end
+%L fp_x0 = 1
+%L fp_xr = 5
+%L
+%L f_direita = function (x)
+%L     local xl = (x - fp_xr)*eps + fp_x0
+%L     return fp(xl)
+%L   end
+%L
+%L define_pwi = function (defname)
+%L     pwi = Piecewisify.new(fp, seq(0, 4, 0.25))
+%L     makepwir = function (thiseps)
+%L         eps = thiseps
+%L         pwir = Piecewisify.new(f_direita, seq(fp_xr, fp_xr+1, 1/8))
+%L         return pwir
+%L       end
+%L     Pwil = function (thiseps)
+%L         makepwir(thiseps)
+%L         return Pict2e.new():add(pwi:pol(min(fp_x0, fp_x0+eps),
+%L                                         max(fp_x0, fp_x0+eps), "*"):color("orange"))
+%L                         -- :add(pwir:pol(fp_xr, fp_xr+1, "*"):color("orange"))
+%L                         -- :add(pwir:pw(fp_xr, fp_xr+1))
+%L       end
+%L     Pwir = function (thiseps)
+%L         makepwir(thiseps)
+%L         return Pict2e.new():add(pwi:pol(min(fp_x0, fp_x0+eps),
+%L                                         max(fp_x0, fp_x0+eps), "*"):color("orange"))
+%L                            :add(pwir:pol(fp_xr, fp_xr+1, "*"):color("orange"))
+%L                            :add(pwir:pw(fp_xr, fp_xr+1))
+%L       end
+%L     Pict2e.new()
+%L       :setbounds(v(0,0), v(8,5))
+%L         :grid()
+%L         :add("#1")
+%L         :axesandticks()
+%L         :add(pwi:pw(0, 4))  -- parabola
+%L       :bepc()
+%L       :def(defname.."#1")
+%L       :output()
+%L   end
+%L
+%L define_pwi("ParR")
+%L
+%L use_f21343 = function ()
+%L     f21343 = function (x)
+%L         if x <= 1 then return 2-x end    -- (0,2)--(1,1)
+%L         if x <= 2 then return 2*x-1 end  -- (1,1)--(2,3)
+%L         if x <= 3 then return x+1 end    -- (2,3)--(3,4)
+%L         return 7-x                       -- (3,4)--(4,3)
+%L       end
+%L     fp    = f21343
+%L     fp_x0 = 2
+%L     define_pwi("ParR")
+%L   end
+%L
+%L use_f201343 = function ()
+%L     f201343 = function (x)
+%L         if x <= 1 then return 2-2*x end  -- (0,2)--(1,0)
+%L         if x <  2 then return x-1 end    -- (1,0)--(2,1)
+%L         if x == 2 then return 2 end      -- (2,2)
+%L         if x <= 3 then return x+1 end    -- (2,3)--(3,4)
+%L         return 7-x                       -- (3,4)--(4,3)
+%L       end
+%L     fp    = f201343
+%L     fp_x0 = 2
+%L     define_pwi("ParR")
+%L   end
+%L
+%L -- use_f21343()
+%L -- use_f201343()
+%L
+\pu
+
+
+
+
+
+%  _____ _ _   _                               
+% |_   _(_) |_| | ___   _ __   __ _  __ _  ___ 
+%   | | | | __| |/ _ \ | '_ \ / _` |/ _` |/ _ \
+%   | | | | |_| |  __/ | |_) | (_| | (_| |  __/
+%   |_| |_|\__|_|\___| | .__/ \__,_|\__, |\___|
+%                      |_|          |___/      
+%
+% «title»  (to ".title")
+% (c2m212tfc1p 1 "title")
+% (c2m212tfc1a   "title")
+
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\bf \Large Cálculo 2 - 2021.2}
+
+\bsk
+
+Aula 20: o TFC1
+
+\bsk
+
+Eduardo Ochs - RCN/PURO/UFF
+
+\url{http://angg.twu.net/2021.2-C2.html}
+
+\end{center}
+
+\newpage
+
+%  ___       _                 _                       
+% |_ _|_ __ | |_ _ __ ___   __| |_   _  ___ __ _  ___  
+%  | || '_ \| __| '__/ _ \ / _` | | | |/ __/ _` |/ _ \ 
+%  | || | | | |_| | | (_) | (_| | |_| | (_| (_| | (_) |
+% |___|_| |_|\__|_|  \___/ \__,_|\__,_|\___\__,_|\___/ 
+%                                                      
+% «intro-1»  (to ".intro-1")
+% (c2m212tfc1p 2 "intro-1")
+% (c2m212tfc1a   "intro-1")
+
+{\bf Introdução}
+
+\scalebox{0.75}{\def\colwidth{12cm}\firstcol{
+
+Digamos que $f:[a,b] \to \R$ é uma função integrável.
+
+Digamos que $c∈[a,b]$.
+
+Digamos que a função $F:[a,b] \to \R$ é \ColorRed{definida} por:
+%
+$$F(t) \;\; = \Intx{c}{t}{f(x)}.$$
+
+O TFC1 tem duas versões.
+
+A versão mais simples diz o seguinte:
+
+se a função $f$ é contínua então para todo $t∈(a,b)$ vale:
+%
+$$F'(t) \;\; = f(t). \qquad \qquad (*)$$
+
+A versão mais complicada do TFC1, que vamos ver
+
+depois, não supõe que a função $f$ é contínua.
+
+\msk
+
+Nós vamos ver um argumento visual que mostra que
+
+a igualdade $(*)$ é verdade. Esse argumento visual é
+
+\ColorRed{quase} uma demonstração formal, num sentido que eu
+
+vou explicar depois.
+
+}}
+
+
+
+\newpage
+
+% «intro-2»  (to ".intro-2")
+% (c2m212tfc1p 3 "intro-2")
+% (c2m212tfc1a   "intro-2")
+
+{\bf Introdução (2)}
+
+\scalebox{0.75}{\def\colwidth{12cm}\firstcol{
+
+Digamos que $f:[a,b] \to \R$ é uma função \ColorRed{contínua}.
+
+Digamos que $c∈[a,b]$.
+
+Digamos que a função $F:[a,b] \to \R$ é \ColorRed{definida} por:
+%
+$$F(t) \;\; = \Intx{c}{t}{f(x)}.$$
+
+\def\eqq{\overset{\ColorRed{???}}{=}}
+
+Então:
+%
+$$\begin{array}{rcl}
+  F'(t) &=& \D \lim_{ε→0} \frac{F(t+ε)-F(t)}{ε} \\
+        &=& \D \lim_{ε→0} \frac{ \Intx{c}{t+ε}{f(x)} - \Intx{c}{t}{f(x)} }{ε} \\
+        &=& \D \lim_{ε→0} \frac{ \Intx{t}{t+ε}{f(x)} }{ε} \\[12pt]
+        &=& \D \lim_{ε→0} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}  \\[12pt]
+        &\eqq& f(t) \\
+  \end{array}
+$$
+
+
+}}
+
+
+\newpage
+
+% «intro-3»  (to ".intro-3")
+% (c2m212tfc1p 4 "intro-3")
+% (c2m212tfc1a   "intro-3")
+
+{\bf Introdução (3)}
+
+Digamos que $f:[a,b] \to \R$ é uma função \ColorRed{contínua}.
+
+Digamos que $c∈[a,b]$.
+
+Digamos que a função $F:[a,b] \to \R$ é \ColorRed{definida} por:
+%
+$$F(t) \;\; = \Intx{c}{t}{f(x)}.$$
+
+O nosso argumento visual vai mostrar que:
+%
+$$\begin{array}{rcl}
+  \D \lim_{ε→0} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}
+  &=& f(t). \\
+  \end{array}
+$$
+
+
+
+\newpage
+
+%  _____                          _         _ 
+% | ____|_  _____ _ __ ___  _ __ | | ___   / |
+% |  _| \ \/ / _ \ '_ ` _ \| '_ \| |/ _ \  | |
+% | |___ >  <  __/ | | | | | |_) | | (_) | | |
+% |_____/_/\_\___|_| |_| |_| .__/|_|\___/  |_|
+%                          |_|                
+%
+% «exemplo-1»  (to ".exemplo-1")
+% (c2m212tfc1p 5 "exemplo-1")
+% (c2m212tfc1a   "exemplo-1")
+
+\scalebox{1.0}{\def\colwidth{5cm}\firstcol{
+
+{\bf Primeiro exemplo:}
+
+$f(x)$ é a nossa parábola
+
+preferida, e $t=1$.
+
+\msk
+
+Primeira figura: $ε=2$.
+
+Segunda figura: $ε=1$.
+
+Terceira figura: $ε=1/2$.
+
+\msk
+
+À esquerda: $\Intx{t}{t+ε}{f(x)}$.
+
+À direita: $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$.
+
+\msk
+
+Repare que a área em
+
+laranja à esquerda sempre
+
+tem base $ε$ e a área em
+
+laranja à direita sempre
+
+tem base $ε·\frac{1}{ε}=1$.
+
+
+}\anothercol{
+
+\unitlength=10pt
+
+%$$\ParR{}$$
+$$\ParR{\expr{Pwir(2)}}$$
+$$\ParR{\expr{Pwir(1)}}$$
+$$\ParR{\expr{Pwir(1/2)}}$$
+
+}}
+
+
+
+
+\newpage
+
+\unitlength=25pt
+
+\def\myint{\Intx{1}{1+ε}{f(x)}}
+\def\myinte#1{
+  $\begin{array}{rl}
+   \D             \myint & \text{e} \\[15pt]
+   \D \frac{1}{ε} \myint & \text{quando $ε=#1$:} \\
+   \end{array}
+  $}
+
+\msk
+
+\myinte{2}
+$$\ParR{\expr{Pwir(2)}}$$
+\newpage
+\myinte{1}
+$$\ParR{\expr{Pwir(1)}}$$
+\newpage
+\myinte{1/2}
+$$\ParR{\expr{Pwir(1/2)}}$$
+\newpage
+\myinte{1/4}
+$$\ParR{\expr{Pwir(1/4)}}$$
+\newpage
+\myinte{1/8}
+$$\ParR{\expr{Pwir(1/8)}}$$
+\newpage
+\myinte{1/16}
+$$\ParR{\expr{Pwir(1/16)}}$$
+\newpage
+\myinte{1/32}
+$$\ParR{\expr{Pwir(1/32)}}$$
+\newpage
+\myinte{1/64}
+$$\ParR{\expr{Pwir(1/64)}}$$
+
+
+
+
+\newpage
+
+% «exemplo-1-left»  (to ".exemplo-1-left")
+% (c2m212tfc1p 14 "exemplo-1-left")
+% (c2m212tfc1a    "exemplo-1-left")
+
+\scalebox{1.0}{\def\colwidth{5cm}\firstcol{
+
+{\bf Agora com $ε$ negativo!...}
+
+\msk
+
+$f(x)$ é a nossa parábola
+
+preferida, e $t=1$.
+
+\msk
+
+Primeira figura: $ε=-1$.
+
+Segunda figura: $ε=-1/2$.
+
+Terceira figura: $ε=-1/4$.
+
+\msk
+
+À esquerda: $\Intx{t}{t+ε}{f(x)}$.
+
+À direita: $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$.
+
+% \msk
+% 
+% Repare que a área em
+% 
+% laranja à esquerda sempre
+% 
+% tem base $ε$ e a área em
+% 
+% laranja à direita sempre
+% 
+% tem base $ε·\frac{1}{ε}=1$.
+
+
+}\anothercol{
+
+\unitlength=10pt
+
+%$$\ParR{}$$
+$$\ParR{\expr{Pwir(-1)}}$$
+$$\ParR{\expr{Pwir(-1/2)}}$$
+$$\ParR{\expr{Pwir(-1/4)}}$$
+
+}}
+
+\newpage
+
+\myinte{-1}
+$$\ParR{\expr{Pwir(-1)}}$$
+\newpage
+\myinte{-1/2}
+$$\ParR{\expr{Pwir(-1/2)}}$$
+\newpage
+\myinte{-1/4}
+$$\ParR{\expr{Pwir(-1/4)}}$$
+\newpage
+\myinte{-1/8}
+$$\ParR{\expr{Pwir(-1/8)}}$$
+\newpage
+\myinte{-1/16}
+$$\ParR{\expr{Pwir(-1/16)}}$$
+\newpage
+\myinte{-1/32}
+$$\ParR{\expr{Pwir(-1/32)}}$$
+\newpage
+\myinte{-1/64}
+$$\ParR{\expr{Pwir(-1/64)}}$$
+
+
+\newpage
+
+%  _____                   _      _         _ 
+% | ____|_  _____ _ __ ___(_) ___(_) ___   / |
+% |  _| \ \/ / _ \ '__/ __| |/ __| |/ _ \  | |
+% | |___ >  <  __/ | | (__| | (__| | (_) | | |
+% |_____/_/\_\___|_|  \___|_|\___|_|\___/  |_|
+%                                             
+% «exercicio-1»  (to ".exercicio-1")
+% (c2m212tfc1p 22 "exercicio-1")
+% (c2m212tfc1a    "exercicio-1")
+
+% (find-LATEX "edrx21defs.tex" "firstcol-anothercol")
+
+%L use_f21343()
+\pu
+
+\scalebox{1.0}{\def\colwidth{6cm}\firstcol{
+
+{\bf Exercício 1.}
+
+Seja $f(x)$ a função à direita.
+
+Seja $t=2$.
+
+\msk
+
+a) Desenhe $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$
+
+para $ε=2$, $ε=1$, $ε=1/2$. 
+
+\msk
+
+b) Desenhe $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$
+
+para $ε=-2$, $ε=-1$, $ε=-1/2$. 
+
+\msk
+
+Dica: comece entendendo as
+
+áreas em laranja à direita!
+
+\msk
+
+c) Quanto você acha que dá
+
+$\lim_{ε→0^+} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}$?
+
+\msk
+
+d) Quanto você acha que dá
+
+$\lim_{ε→0^-} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}$?
+
+}\hspace*{-1cm}\anothercol{
+
+\unitlength=7.5pt
+
+\def\PPP#1{\ParR{\expr{Pwil(#1)}}}
+
+$$\PPP{2} \quad \PPP{-2}$$
+$$\PPP{1} \quad \PPP{-1}$$
+$$\PPP{1/2} \quad \PPP{-1/2}$$
+
+
+}}
+
+\newpage
+
+%  _____                   _      _         ____  
+% | ____|_  _____ _ __ ___(_) ___(_) ___   |___ \ 
+% |  _| \ \/ / _ \ '__/ __| |/ __| |/ _ \    __) |
+% | |___ >  <  __/ | | (__| | (__| | (_) |  / __/ 
+% |_____/_/\_\___|_|  \___|_|\___|_|\___/  |_____|
+%                                                 
+% «exercicio-2»  (to ".exercicio-2")
+% (c2m212tfc1p 23 "exercicio-2")
+% (c2m212tfc1a    "exercicio-2")
+% (find-LATEX "edrx21defs.tex" "firstcol-anothercol")
+
+%L use_f201343()
+\pu
+
+\scalebox{1.0}{\def\colwidth{6cm}\firstcol{
+
+{\bf Exercício 2.}
+
+Seja $f(x)$ a função à direita.
+
+Seja $t=2$.
+
+\msk
+
+a) Desenhe $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$
+
+para $ε=2$, $ε=1$, $ε=1/2$. 
+
+\msk
+
+b) Desenhe $\frac{1}{ε}\Intx{t}{t+ε}{f(x)}$
+
+para $ε=-2$, $ε=-1$, $ε=-1/2$. 
+
+\msk
+
+Dica: comece entendendo as
+
+áreas em laranja à direita!
+
+\msk
+
+c) Quanto você acha que dá
+
+$\lim_{ε→0^+} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}$?
+
+\msk
+
+d) Quanto você acha que dá
+
+$\lim_{ε→0^-} \frac{1}{ε} \Intx{t}{t+ε}{f(x)}$?
+
+}\hspace*{-1cm}\anothercol{
+
+\unitlength=7.5pt
+
+\def\PPP#1{\ParR{\expr{Pwil(#1)}}}
+
+$$\PPP{2} \quad \PPP{-2}$$
+$$\PPP{1} \quad \PPP{-1}$$
+$$\PPP{1/2} \quad \PPP{-1/2}$$
+
+
+}}
+
+\newpage
+
+% «descontinuidades»  (to ".descontinuidades")
+% (c2m212tfc1p 24 "descontinuidades")
+% (c2m212tfc1a    "descontinuidades")
+
+{\bf Descontinuidades}
+
+%L f_parabola_preferida = function (x)
+%L     return 4 - (x-2)^2
+%L   end
+%L f_parabola_complicada = function (x)
+%L     if x <= 4 then return f_parabola_preferida(x) end
+%L     if x <  5 then return 5 - x end
+%L     if x <  6 then return 7 - x end
+%L     if x <  7 then return 3 end
+%L     if x == 7 then return 4 end
+%L     return 0.5
+%L   end
+%L f_funcao_complicada = f_parabola_complicada
+%L 
+%L pwi = Piecewisify.new(f_funcao_complicada, seq(0, 4, 0.25), 5, 6, 7)
+%L 
+%L Pict2e.new()
+%L   :setbounds(v(0,0), v(8,5))
+%L     :grid()
+%L     :add("#1")
+%L     :axesandticks()
+%L     :add(pwi:pw(0, 8))  -- f
+%L   :bepc()
+%L   :def("ParCoWith#1")
+%L   :output()
+\pu
+
+
+\scalebox{0.65}{\def\colwidth{13cm}\firstcol{
+
+Digamos que $f:[a,b]→\R$ é uma função qualquer.
+
+Vamos definir o conjunto dos pontos de descontinuidade da $f$,
+
+ou, pra abreviar, o ``conjunto das descontinuidades da $f$'', assim:
+%
+$$\mathsf{desc}(f) \;\; = \;\;
+  \setofst{x∈[a,b]}{f \text{ é descontinua em $x$}}
+$$
+
+A expressão ``$f$ tem um número finito de pontos de descontinuidade'',
+
+que eu vou abreviar pra ``$f$ tem finitas descontinuidades'' apesar
+
+disso soar bem estranho em português, vai querer dizer:
+%
+$$\mathsf{desc}(f) \text{\;\;é um conjunto finito}$$
+
+O conjunto vazio é finito, então toda $f$ contínua ``tem finitas
+
+descontinuidades''. Essa função aqui tem finitas descontinuidades:
+%
+$$\unitlength=7.5pt
+  \ParCoWith{}
+$$
+
+
+A função de Dirichlet, que nós vimos aqui,
+
+% (c2m211somas2p 46 "dirichlet")
+% (c2m211somas2a    "dirichlet")
+
+\ssk
+
+{\footnotesize
+
+\url{http://angg.twu.net/LATEX/2021-1-C2-somas-2.pdf\#page=46}
+
+}
+
+tem infinitas descontinuidades.
+
+
+%}\anothercol{
+}}
+
+
+\newpage
+
+% «tfc1-complicado-1»  (to ".tfc1-complicado-1")
+% (c2m212tfc1p 25 "tfc1-complicado-1")
+% (c2m212tfc1a    "tfc1-complicado-1")
+
+{\bf A versão complicada do TFC1}
+
+Vou dizer que uma função $f:[a,b]→\R$ é ``boa''
+
+quando ela é integrável e tem finitas descontinuidades.
+
+\msk
+
+(O termo ``função boa'' é péssimo de propósito ---
+
+é pra deixar óbvio que essa é uma definição temporária,
+
+que vai valer só durante poucos slides...)
+
+\msk
+
+Vou dizer que uma função $G:[a,b]→\R$ obedece
+%
+$$G'(x) = f(x)$$
+
+quando $G$ for contínua em $[a,b]$ e $G$ obedecer isto aqui:
+%
+$$∀x∈((a,b) \; ∖ \; \mathsf{desc}(f)). \; G'(x)=f(x)$$
+
+ou seja, neste caso ``$G'(x) = f(x)$'' é uma abreviação
+
+pra algo complicado.
+
+
+\newpage
+
+% «exercicio-3»  (to ".exercicio-3")
+% (c2m212tfc1p 26 "exercicio-3")
+% (c2m212tfc1a    "exercicio-3")
+
+{\bf A versão complicada do TFC1 (2)}
+
+%L Pict2e.new()
+%L   :setbounds(v(0,-2), v(4,3))
+%L     :grid()
+%L     :axesandticks()
+%L     :add(pictpiecewise("(0,1)--(1,1)o (1,2)c--(2,2)o (2,-1)c--(4,-1)")
+%L          :as("\\linethickness{1pt}"))
+%L   :bepc()
+%L   :def("TFCcomplicEx")
+%L   :output()
+\pu
+
+
+\scalebox{0.95}{\def\colwidth{12cm}\firstcol{
+
+Antes de prosseguir vamos fazer um exercício.
+
+\bsk
+
+{\bf Exercício 3.}
+
+Seja:
+$$f(x) \;\;=\;\;
+  \unitlength=7.5pt
+  \TFCcomplicEx
+$$
+
+a) Qual é o domínio da $f$? (Ele está ``implícito no gráfico''...)
+
+b) Encontre uma função $G$ que obedece $G'(x)=f(x)$ e $G(0)=0$.
+
+c) Encontre uma função $H$ que obedece $H'(x)=f(x)$ e $H(0)=1$.
+
+d) Faça o gráfico da função $M(x) = H(x) - G(x)$.
+
+e) Encontre uma função $K$ que obedece $K'(x)=f(x)$ e $K(4)=-1$.
+
+%}\anothercol{
+}}
+
+
+
+\newpage
+
+% «tfc1-complicado-3»  (to ".tfc1-complicado-3")
+% (c2m212tfc1p 27 "tfc1-complicado-3")
+% (c2m212tfc1a    "tfc1-complicado-3")
+
+{\bf A versão complicada do TFC1 (3)}
+
+\scalebox{0.6}{\def\colwidth{9cm}\firstcol{
+
+Digamos que $f:[a,b]→\R$ é ``boa''.
+
+Digamos que $c∈[a,b]$ e que $G'(x) = f(x)$.
+
+Digamos que
+%
+$$F(x) \;\; = \;\; \Intt{c}{x}{f(t)}.$$
+
+Então $F$ e $G$ ``diferem por uma constante'',
+
+como as funções $G$, $H$ e $K$ do exercício 3.
+
+Isso é o ``TFC1 na versão complicada''.
+
+Eu não vou demonstrá-lo. \quad $\frown$
+
+\msk
+
+Seja $k$ essa constante. Temos:
+%
+$$∀x∈[a,b]. \; G(x) = F(x) + k.$$
+
+\msk
+
+Isso tem um monte de consequências bacanas.
+
+Por exemplo: $F(c) = 0$, $G(c) = k$, e,
+
+se $α,β∈[a,b]$,
+%
+$$\begin{array}{rcl}
+  \Intt{α}{β}{f(t)} &=& \Intt{c}{β}{f(t)} - \Intt{c}{α}{f(t)} \\
+                    &=& F(β) - F(α) \\
+                    &=& (G(β) - k) - (G(α) - k) \\
+                    &=& G(β) - G(α). \\
+  \end{array}
+$$
+
+}\anothercol{
+
+Isso nos dá um \ColorRed{método} pra calcular integrais
+
+da função $f$. Se $α,β∈[a,b]$,
+
+\msk
+
+1) encontramos \ColorRed{uma} solução $G(x)$
+
+da EDO $G'(x) = f(x)$,
+
+\msk
+
+2) usamos a fórmula
+%
+$$\Intt{α}{β}{f(t)} \;\; = \;\; G(β) - G(α).$$
+
+\msk
+
+Você viu no exercício anterior que a EDO
+
+$G'(x) = f(x)$ tem infinitas soluções...
+
+Qualquer solução serve, e não precisamos
+
+calcular a constante $k$.
+
+\bsk
+\bsk
+
+\ColorRed{Esse método é o TFC2.}
+
+}}
+
+\newpage
+
+{\bf O TFC2}
+
+\msk
+
+Digamos que $f:[a,b]→\R$ é ``boa''.
+
+Digamos que $α,β∈[a,b]$ e que $G'(x) = f(x)$.
+
+\msk
+
+Então:
+
+$$\Intt{α}{β}{f(t)} \;\; = \;\; G(β) - G(α).$$
+
+% \qquad \mname{TFC2}
+
+
+\newpage
+
+% «tfc2-exemplo»  (to ".tfc2-exemplo")
+% (c2m212tfc1p 29 "tfc2-exemplo")
+% (c2m212tfc1a    "tfc2-exemplo")
+
+{\bf TFC2: um exemplo}
+
+\ssk
+
+A nossa parábola preferida é $f(x) = 4 - (x-2)^2$,
+
+ou seja, $f(x) = 4x - x^2$.
+
+Digamos que $G(x) = 2x^2 - \frac{x^3}{3}$.
+
+Então $G'(x) = f(x)$, e o resultado desta
+
+substituição aqui vai dar uma igualdade verdadeira...
+
+
+$$\left(
+  \Intt{α}{β}{f(t)} \;\; = \;\; G(β) - G(α)
+  \right)
+  \;
+  \bmat{
+    f(x) := 4x - x^2 \\
+    G(x) := 2x^2 - \frac{x^3}{3} \\
+    β := 4 \\
+    α := 0 \\
+  }
+$$
+
+\newpage
+
+% «tfc2-exemplo-2»  (to ".tfc2-exemplo-2")
+% (c2m212tfc1p 30 "tfc2-exemplo-2")
+% (c2m212tfc1a    "tfc2-exemplo-2")
+
+{\bf TFC2: um exemplo (2)}
+
+\scalebox{0.8}{\def\colwidth{12cm}\firstcol{
+
+Temos:
+%
+$$\begin{array}{c}
+    \left(
+    \D \Intt{α}{β}{f(t)} \;\; = \;\; G(β) - G(α)
+    \right)
+    \;
+    \bmat{
+      f(x) := 4 - (x-2)^2 \\
+      G(x) := 2x^2 - \frac{x^3}{3} \\
+      β := 4 \\
+      α := 0 \\
+    }
+  \\[25pt]
+    = \;\;
+    \left( \D
+    \Intt{0}{4}{4-(t-2)^2} \;\; = \;\;
+      \left(2·4^2-\frac{4^3}{3}\right) -
+      \left(2·0^2-\frac{0^3}{3}\right)
+    \right)
+    \;
+  \\
+  \end{array}
+$$
+
+e:
+%
+$$\begin{array}{rcl}
+    \D \Intt{0}{4}{4-(t-2)^2}
+    &=&
+      \left(2·4^2-\frac{4^3}{3}\right) -
+      \left(2·0^2-\frac{0^3}{3}\right) \\
+    &=&
+      \left(32 - \frac{64}{3}\right) - 0 \\[5pt]
+    &=& \frac{96}{3} - \frac{64}{3} \\[5pt]
+    &=& \frac{32}{3}. \\
+  \\
+  \end{array}
+$$
+
+
+
+%}\anothercol{
+}}
+
+
+
+
+
+
+
+
+% (setq eepitch-preprocess-regexp "^")
+% (setq eepitch-preprocess-regexp "^% ")
+%
+%  (eepitch-maxima)
+%  (eepitch-kill)
+%  (eepitch-maxima)
+% f : 4 - (x-2)^2;
+% expand(f);
+% integrate(expand(f), x);
+
+
+
+
+% (c2m212somas2p 27 "metodos-nomes")
+% (c2m212somas2a    "metodos-nomes")
+
+
+%
+%$$F(t) \;\; = \Intx{c}{t}{f(x)}.$$
+
+
+
+
+
+
+
+
+% (find-books "__analysis/__analysis.el" "apex-calculus-C2")
+% (find-apexcalculuspage (+ 10 236) "5.4 The Fundamental Theorem of Calculus")
+% (find-apexcalculuspage (+ 10 239)     "the ball has travelled much farther")
+% (find-apexcalculuspage (+ 10 240)     "The FTC and the chain rule")
+% (find-apexcalculuspage (+ 10 243)     "The mean value theorem of integration")
+% (find-apexcalculuspage (+ 10 244)     "average value")
+% (find-apexcalculuspage (+ 10 246)     "Exercises 5.4")
+
+% (find-books "__analysis/__analysis.el" "thomas")
+% (find-thomas11-1page (+  60  356) "5.4 The fundamental theorem of calculus")
+% (find-thomas11-1page (+  60  358)     "Fundamental theorem, part 1")
+% (find-thomas11-1page (+  60  361)     "Fundamental theorem, part 2 (the evaluation theorem)")
+
+
+
+%\printbibliography
+
+\GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
+
+\end{document}
+
+%  ____  _             _         
+% |  _ \(_)_   ___   _(_)_______ 
+% | | | | \ \ / / | | | |_  / _ \
+% | |_| | |\ V /| |_| | |/ /  __/
+% |____// | \_/  \__,_|_/___\___|
+%     |__/                       
+%
+% «djvuize»  (to ".djvuize")
+% (find-LATEXgrep "grep --color -nH --null -e djvuize 2020-1*.tex")
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-fline "~/2021.2-C2/")
+# (find-fline "~/LATEX/2021-2-C2/")
+# (find-fline "~/bin/djvuize")
+
+cd /tmp/
+for i in *.jpg; do echo f $(basename $i .jpg); done
+
+f () { rm -v $1.pdf;  textcleaner -f 50 -o  5 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 10 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+f () { rm -v $1.pdf;  textcleaner -f 50 -o 20 $1.jpg $1.png; djvuize $1.pdf; xpdf $1.pdf }
+
+f () { rm -fv $1.png $1.pdf; djvuize $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 15" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 30" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 1.0 -f 45" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.5" $1.pdf; xpdf $1.pdf }
+f () { rm -fv $1.png $1.pdf; djvuize WHITEBOARDOPTS="-m 0.25" $1.pdf; xpdf $1.pdf }
+f () { cp -fv $1.png $1.pdf       ~/2021.2-C2/
+       cp -fv        $1.pdf ~/LATEX/2021-2-C2/
+       cat <<%%%
+% (find-latexscan-links "C2" "$1")
+%%%
+}
+
+f 20201213_area_em_funcao_de_theta
+f 20201213_area_em_funcao_de_x
+f 20201213_area_fatias_pizza
+
+
+
+%  __  __       _        
+% |  \/  | __ _| | _____ 
+% | |\/| |/ _` | |/ / _ \
+% | |  | | (_| |   <  __/
+% |_|  |_|\__,_|_|\_\___|
+%                        
+% <make>
+
+ (eepitch-shell)
+ (eepitch-kill)
+ (eepitch-shell)
+# (find-LATEXfile "2019planar-has-1.mk")
+make -f 2019.mk STEM=2021-2-C2-TFC1 veryclean
+make -f 2019.mk STEM=2021-2-C2-TFC1 pdf
+
+% Local Variables:
+% coding: utf-8-unix
+% ee-tla: "c2t1"
+% ee-tla: "c2m212tfc1"
+% End:

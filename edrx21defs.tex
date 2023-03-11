@@ -1,6 +1,7 @@
 % This file: (find-LATEX "edrx21defs.tex")
 %       See: (find-LATEX "edrx17defs.tex")
 %            (find-LATEX "edrx15defs.tex")
+% Loaded by: (find-LATEX "edrx21.sty")
 %
 % Miscellaneous defs, mostly symbols.
 
@@ -9,6 +10,7 @@
 % «.greek-letters»		(to "greek-letters")
 % «.combinators»		(to "combinators")
 % «.colors»			(to "colors")
+% «.mystrut»			(to "mystrut")
 % «.bhbox»			(to "bhbox")
 % «.bgcolorhbox»		(to "bgcolorhbox")
 % «.firstcol-anothercol»	(to "firstcol-anothercol")
@@ -233,6 +235,11 @@
 % See: (find-es "tex" "xcolor")
 %      (find-es "tex" "xcolor" "fcolorbox")
 \def\standout#1{\fcolorbox{red}{yellow}{#1}}
+
+
+% «mystrut»  (to ".mystrut")
+% (find-es "tex" "mathstrut")
+\def\mystrut#1#2{{\setbox0=\hbox{} \ht0=#1 \dp0=#2 \box0}}
 
 
 % «bhbox»  (to ".bhbox")

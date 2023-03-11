@@ -5,17 +5,98 @@
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
 --
 -- (defun l () (interactive) (find-LATEX "2021-1-C2-critical-points.lua"))
--- Used by: (find-LATEX "2021-1-C2-integral-figuras.tex")
+--
+-- Used by:       (find-LATEX "2021-1-C2-integral-figuras.tex")
+-- Superseded by: (find-LATEX "2021pict2e.lua")
 
+-- «.Points»			(to "Points")
+-- «.Points-test»		(to "Points-test")
+--
 -- «.f_do_slide_8»		(to "f_do_slide_8")
 -- «.f_parabola_preferida»	(to "f_parabola_preferida")
+-- «.Partition»			(to "Partition")
+-- «.Partition»			(to "Partition")
 --
 -- «.Partition-tests»		(to "Partition-tests")
 -- «.CriticalPoints-tests»	(to "CriticalPoints-tests")
+-- «.Approxer»			(to "Approxer")
 -- «.Approxer-tests»		(to "Approxer-tests")
+-- «.Piecewisify»		(to "Piecewisify")
 -- «.Piecewisify-tests»		(to "Piecewisify-tests")
 
 require "edrxpict"  -- (find-LATEX "edrxpict.lua")
+
+
+
+--  ____       _       _       
+-- |  _ \ ___ (_)_ __ | |_ ___ 
+-- | |_) / _ \| | '_ \| __/ __|
+-- |  __/ (_) | | | | | |_\__ \
+-- |_|   \___/|_|_| |_|\__|___/
+--                             
+-- «Points» (to ".Points")
+-- A class for sequences of points.
+-- Copied from: (find-LATEX "edrxpict.lua" "Points")
+--
+Points = Class {
+  type  = "Points",
+  fromfx = function (a, b, n, f)
+      local ps = Points {}
+      for i=0,n do
+        local x = a + (b-a)*(i/n)
+        table.insert(ps, v(x,f(x)))
+      end
+      return ps
+    end,
+  fromFt = function (a, b, n, F)
+      local ps = Points {}
+      for i=0,n do
+        local t = a + (b-a)*(i/n)
+        table.insert(ps, v(F(t)))
+      end
+      return ps
+    end,
+  __tostring = function (li) return li:tostring(" ") end,
+  __index = {
+    tostring = function (ps, sep) return mapconcat(tostring, ps, sep or "") end,
+    add = function (ps, ...)
+        for _,p in ipairs({...}) do table.insert(ps, p) end
+        return ps
+      end,
+    copy = function (ps) return Points(shallowcopy(ps)) end,
+    polyunder = function (ps)
+        local x0, x1 = ps[1][1], ps[#ps][1]
+        return ps:copy():add(v(x1,0), v(x0,0))
+      end,
+    pict = function (ps, pre) return (pre or "")..ps:tostring() end,
+    --
+    line = function (ps) return ps:pict"\\polyline" end,
+    poly = function (ps) return ps:pict"\\polygon" end,
+    fill = function (ps) return ps:pict"\\polygon*" end,
+  },
+}
+
+-- «Points-test» (to ".Points-test")
+--[[
+ (eepitch-lua51)
+ (eepitch-kill)
+ (eepitch-lua51)
+dofile "edrxpict.lua"
+ps = Points.fromfx(2, 3, 5, function (x) return 10*x end)
+= ps
+= ps:polyunder()
+= ps:polyunder():pict"\\polyline"
+= ps:polyunder():pict"\\polygon"
+= ps:polyunder():pict"\\polygon*"
+= Points{v(1,2), v(3,4)}:polyunder():pict"\\polygon*"
+= ps:line()
+= ps:poly()
+= ps:fill()
+-- (find-pict2epage 9 "2.4     Extensions")
+
+--]]
+
+
 
 
 -- «f_do_slide_8»  (to ".f_do_slide_8")
@@ -52,7 +133,8 @@ f = f_parabola_preferida
 --]]
 
 
-
+-- «Partition»  (to ".Partition")
+--
 Partition = Class {
   type = "Partition",
   new  = function (a, b) return Partition {points={a,b}} end,
@@ -176,7 +258,8 @@ r0 = Rect0.new(1, 2, 3)
 
 
 
-
+-- «Approxer»  (to ".Approxer")
+--
 Approxer = Class {
   type    = "Approxer",
   __index = {
@@ -244,6 +327,8 @@ appr = Approxer {
 --      end,
 
 
+-- «Piecewisify»  (to ".Piecewisify")
+--
 Piecewisify = Class {
   type = "Piecewisify",
   new  = function (f, ...)
@@ -446,3 +531,5 @@ pwid = Piecewisify.new(dirichlet_incl, seq(0, 1, 1/16))
 = dirichlet_incl(0.2)
 
 --]]
+
+
