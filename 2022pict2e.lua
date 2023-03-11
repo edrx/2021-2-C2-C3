@@ -41,7 +41,7 @@
 -- «.Surface»			(to "Surface")
 -- «.Surface-tests»		(to "Surface-tests")
 
-loaddednat6()
+loaddednat6("dednat6/")
 
 
 

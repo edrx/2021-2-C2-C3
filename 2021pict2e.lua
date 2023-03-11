@@ -17,7 +17,7 @@
 
 
 
-loaddednat6()
+loaddednat6("dednat6/")
 
 -- «.Pict2e»			(to "Pict2e")
 -- «.Pict2e-tests»		(to "Pict2e-tests")
