@@ -21,6 +21,7 @@
 #   (find-es "magit" "edrxrepl")
 # 
 # (find-C2C3git-links   "2021-2")
+# (find-MMMMgit-links   "2021-2" "C2-C3")
 # (find-orgnode "Table of Contents")
 #+OPTIONS: toc:nil num:nil
 # 

@@ -25,7 +25,7 @@
 -- See also: (to "edrxlib")
 --
 -- Author: Eduardo Ochs <eduardoochs@gmail.com>
--- Version: 2023jan31  <- don't trust this date
+-- Version: 2023may27  <- don't trust this date
 -- Public domain.
 --
 -- Note: "dednat4.lua" and "dednat6.lua" try to load this at startup,
@@ -52,6 +52,7 @@
 -- «.compat»			(to "compat")
 -- «.pack-and-unpack»		(to "pack-and-unpack")
 -- «.printf»			(to "printf")
+-- «.loadstring»		(to "loadstring")
 -- «.ee_expand»			(to "ee_expand")
 -- «.ee_dofile»			(to "ee_dofile")
 -- «.readfile»			(to "readfile")
@@ -74,7 +75,9 @@
 -- «.Class»			(to "Class")
 --   «.over0»			(to "over0")
 --   «.over»			(to "over")
+--   «.addoverrides»		(to "addoverrides")
 --   «.methodsover»		(to "methodsover")
+-- «.rawtostring»		(to "rawtostring")
 -- «.Code»			(to "Code")
 -- «.Tos»			(to "Tos")
 --   «.mytostring»		(to "mytostring")
@@ -115,6 +118,8 @@
 --   «.gformat»			(to "gformat")
 --
 -- «.loaddednat6»		(to "loaddednat6")
+-- «.loadelpeg1»		(to "loadelpeg1")
+-- «.loadshow2»			(to "loadshow2")
 -- «.loadluarocks»		(to "loadluarocks")
 -- «.loadfbcache2»		(to "loadfbcache2")
 -- «.capitalize»		(to "capitalize")
@@ -141,6 +146,7 @@
 -- «.PPeval»			(to "PPeval")
 -- «.loadlpeg»			(to "loadlpeg")
 -- «.loadlpegrex»		(to "loadlpegrex")
+-- «.loadpegdebug»		(to "loadpegdebug")
 -- «.loadbitlib»		(to "loadbitlib")
 -- «.autoload»			(to "autoload")
 -- «.loadtcl»			(to "loadtcl")
@@ -238,6 +244,7 @@ myunpack = function (arg) return unpack(arg, 1, arg.n) end
 -- «printf»  (to ".printf")
 printf = function (...) write(format(...)) end
 
+-- «loadstring»  (to ".loadstring")
 -- (find-es "lua5" "loadstring")
 loadstring = loadstring or load
 
@@ -448,6 +455,11 @@ foldl1 = function (f, A)
     for i=2,#A do o = f(o, A[i]) end
     return o
   end
+foldr1 = function (f, A)
+    local o = A[#A]
+    for i=#A-1,1,-1 do o = f(A[i], o) end
+    return o
+  end
 
 -- «min-and-max» (to ".min-and-max")
 -- (find-lua51manual "#pdf-math.min")
@@ -501,6 +513,11 @@ L0 = function (str)
     return L00(args, body)
   end
 L = function (str) return expr(L0(str)) end
+--
+-- An alternative definition - better, but uses a class:
+-- L = Code.L
+-- See: (to "Code")
+
 
 -- «eoo» (to ".eoo")
 -- «Class»  (to ".Class")
@@ -532,6 +549,7 @@ over = function (bottomtable, toptable)
 
 -- «over» (to ".over")
 -- (find-es "lua5" "over")
+--   over(B)(A) creates this: A --> mt --> B
 over = function (B)
     return function (A)
         return setmetatable(A, {__index=B})
@@ -539,6 +557,19 @@ over = function (B)
   end
 Over = function (class)
     return over(class.__index)
+  end
+
+-- «addoverrides»  (to ".addoverrides")
+-- (find-es "lua5" "addoverrides")
+--   From: o -----------------> mt1 --> A
+--     to: o --> mt3 --> O2 --> mt2 --> A
+addoverrides = function (o, O)
+    local mt1 = getmetatable(o)
+    local A   = getmetatable(o).__index
+    local mt2 = { __index = A }
+    local O2  = setmetatable(copy(O), mt2)
+    local mt3 = copy(mt1); mt3.__index = O2
+    return setmetatable(o, mt3)
   end
 
 -- «methodsover»  (to ".methodsover")
@@ -551,6 +582,7 @@ methodsover = function (class1index)
       end
   end
 
+-- «rawtostring»  (to ".rawtostring")
 -- (find-es "lua5" "rawtostring")
 rawtostring = function (o)
     if type(o) == "table" then
@@ -565,28 +597,29 @@ rawtostring = function (o)
 -- «Code»  (to ".Code")
 -- The class Code "converts strings to executable code" in nice ways.
 -- Commented version: (find-angg "LUA/Code.lua")
+-- See: (to "eval-and-L")
 --
 Code = Class {
-  type   = "Code",
-  parse2 = function (src)
-      local vars,rest = src:match("^%s*([%w_,]+)%s*=>(.*)$")
-      if not vars then error("Code.parse2 can't parse: "..src) end
-      return vars, rest
-    end,
-  format2 = function (fmt, src)
-      return format(fmt, Code.parse2(src))
-    end,
-  ve = function (src)                       -- src is "vars => expression"
-      local fmt = "local %s=...; return %s"
-      return Code {src=src, code=Code.format2(fmt, src)}
-    end,
-  vc = function (src)                       -- src is "vars => code"
-      local fmt = "local %s=...; %s"
-      return Code {src=src, code=Code.format2(fmt, src)}
-    end,
+  type = "Code",
+  from = function (src) return Code {src=src} end,
+  ve   = function (src) return Code.from(src):setcodeve() end,
+  vc   = function (src) return Code.from(src):setcodevc() end,
+  L    = function (src) return Code.ve(src):f() end,
   __tostring = function (c) return c.src end,
-  __call = function (c, ...) return assert(loadstring(c.code))(...) end,
+  __call     = function (c, ...) return c:f()(...) end,
   __index = {
+    format    = function (c, fmt) return format(fmt, c:parse2()) end,
+    setcode   = function (c, fmt) c.code = c:format(fmt); return c end,
+    setcodeve = function (c) return c:setcode("local %s=...; return %s") end,
+    setcodevc = function (c) return c:setcode("local %s=...; %s") end, 
+    f         = function (c) return assert(loadstring(c.code)) end,
+    --
+    pat = "^%s*([%w_,]+)%s*[%-=]>(.*)$",
+    parse2 = function (c)
+        local vars,rest = c.src:match(c.pat)
+        if not vars then error("Code.parse2 can't parse: "..c.src) end
+        return vars, rest
+      end,
   },
 }
 
@@ -862,6 +895,7 @@ SetL = Class {
 -- «Path»  (to ".Path")
 -- Commented version: (find-angg "LUA/Path.lua")
 -- Typical usage: Path.prepend("path", "~/LUA/?.lua")
+--            or: Path.prependtopath   "~/LUA/?.lua"
 --
 Path = Class {
   type = "Path",
@@ -1924,6 +1958,13 @@ loadlpegrex = function ()
     lpegrex = require 'lpegrex'
   end
 
+-- «loadpegdebug»  (to ".loadpegdebug")
+-- (find-es "lpeg" "pegdebug")
+loadpegdebug = function ()
+    Path.prepend("path", "~/usrc/PegDebug/src/?.lua")
+    lpeg     = require "lpeg"
+    pegdebug = require "pegdebug"
+  end
 
 -- «loadbitlib»  (to ".loadbitlib")
 -- Obsolete. See: (find-es "lua5" "bitlib-51")
@@ -3033,6 +3074,22 @@ ydb_sort1 = function () print(ydb_sort(io.read("*a"))) end
 loaddednat6 = function (dir)
     dednat6dir = ee_expand(dir or "~/LATEX/dednat6/") -- (find-dn6 "")
     dofile(dednat6dir.."dednat6.lua")                 -- (find-dn6 "dednat6.lua")
+  end
+
+-- «loadelpeg1»  (to ".loadelpeg1")
+-- (find-angg "LUA/ELpeg1.lua")
+loadelpeg1 = function ()
+    Path.prependtopath "~/LUA/?.lua"
+    require "ELpeg1"
+  end
+
+-- «loadshow2»  (to ".loadshow2")
+-- (find-angg "LUA/Show2.lua")
+loadshow2 = function ()
+    Path.prependtopath "~/LUA/?.lua"
+    require "Show2"
+    show = show or function () return Show.try(tostring(outertexbody)) end
+    defrepl = defrepl1
   end
 
 -- «loadfbcache2» (to ".loadfbcache2")

@@ -19,14 +19,18 @@
 %               file:///tmp/2021-2-C2-tudo.pdf
 %           file:///tmp/pen/2021-2-C2-tudo.pdf
 % http://angg.twu.net/LATEX/2021-2-C2-tudo.pdf
+% (find-Deps1-links "TocLines1")
+% (find-Deps1-cps   "TocLines1")
+% (find-Deps1-anggs "TocLines1")
 % (find-LATEX "2019.mk")
 % (find-CN-aula-links "2021-2-C2-tudo" "2" "c2m212tudo" "c2tu")
+% (find-MM-tudo-links "21" "2" "C2")
 
-% «.defs»	(to "defs")
-% «.title»	(to "title")
-%
-% «.djvuize»	(to "djvuize")
-
+% «.defs»		(to "defs")
+% «.defs-toclines»	(to "defs-toclines")
+% «.title»		(to "title")
+% «.parts»		(to "parts")
+% «.writetoc»		(to "writetoc")
 
 
 \documentclass[oneside,12pt]{article}
@@ -74,6 +78,14 @@
 \def\drafturl{http://angg.twu.net/2021.2-C2.html}
 \def\draftfooter{\tiny \href{\drafturl}{\jobname{}} \ColorBrown{\shorttoday{} \hours}}
 
+% «defs-toclines»  (to ".defs-toclines")
+\catcode`\^^J=10
+\directlua{dofile "dednat6load.lua"} % (find-LATEX "dednat6load.lua")
+%L require "TocLines1"              -- (find-angg "LUA/TocLines1.lua")
+%L output(TocLines.texdefs)         -- (find-angg "LUA/TocLines1.lua" "texdefs")
+%L toclines = TocLines.new(status.filename)
+\pu
+
 
 
 %  _____ _ _   _                               
@@ -110,9 +122,6 @@ Eduardo Ochs - RCN/PURO/UFF
 \end{center}
 
 \newpage
-
-\def\incl#1{\includepdf[pages=1-last]{#1.pdf}}
-
 
 % (c2m212introp 1 "title")
 % (c2m212introa   "title" "Aula 1: introdução ao curso")
@@ -203,29 +212,12 @@ Eduardo Ochs - RCN/PURO/UFF
 % (c2m212tudop 156)
 \incl{2021-2-C2-fracoes-parciais}
 
-
-
-
+% «writetoc»  (to ".writetoc")
+\writetoc   % Writes to: (find-LATEX "2021-2-C2-tudo.mytoc")
 
 \GenericWarning{Success:}{Success!!!}  % Used by `M-x cv'
 
 \end{document}
-
-
-
-%  __  __       _        
-% |  \/  | __ _| | _____ 
-% | |\/| |/ _` | |/ / _ \
-% | |  | | (_| |   <  __/
-% |_|  |_|\__,_|_|\_\___|
-%                        
-% <make>
-
- (eepitch-shell)
- (eepitch-kill)
- (eepitch-shell)
-lualatex                  2021-2-C2-tudo.tex
-# (find-pdf-page "~/LATEX/2021-2-C2-tudo.pdf")
 
 % Local Variables:
 % coding: utf-8-unix
